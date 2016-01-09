@@ -1,0 +1,124 @@
+/**************
+NORMALIZE
+**************/
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+
+/**************
+FONTS
+**************/
+
+h1 {
+  font-family: 'Droid Serif', serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+  margin-bottom: 3%;
+}
+
+h2 {
+  font-family: 'Droid Serif', serif;
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 1%;
+}
+
+h3 {
+  font-family: 'Open Sans', serif;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+}
+
+
+/**************
+CORE HTML
+**************/
+
+html, body {
+  height: 100%;
+  width: 100%;
+  min-height: 700px;
+  min-width: 1000px;
+}
+
+nav, footer {
+  display: block;
+  background-color: black;
+  height: 15%;
+  width: 100%;
+}
+
+
+/**************
+MAIN
+**************/
+
+main {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  height: 70%;
+  padding: 5% 5%;
+}
+
+#player-wrapper {
+  /*border: 1px solid black;*/
+  width: 28%;
+}
+
+#board-wrapper {
+  /*border: 1px solid black;*/
+  width: 35%;
+  height: 100%;
+}
+
+#card-wrapper {
+  /*border: 1px solid black;*/
+  width: 28%
+}
+
+/* TODO PLACEHOLDER */
+
+#map-placeholder {
+  margin: 0 auto;
+  width: 100%;
+  height: 20em;
+  margin-top: 30px;
+  background-color: lightgray;
+}
+
+/**************
+CORE STYLE FOR CONTENTS
+OF EACH SECTION
+**************/
+
+.select-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 2%;
+  padding: 4% 0;
+}
+
+.left-column {
+  width: 70%;
+}
+
+.right-column {
+  text-align: right;
+  width: 25%;
+}

@@ -9,6 +9,7 @@
   "author": "Jordan Brauner",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "mongoose": "^4.3.4"
   }
 }
