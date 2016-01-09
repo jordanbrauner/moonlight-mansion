@@ -52,7 +52,7 @@ html, body {
   height: 100%;
   width: 100%;
   min-height: 700px;
-  min-width: 1000px;
+  min-width: 1200px;
 }
 
 nav, footer {
@@ -82,7 +82,7 @@ main {
 
 #board-wrapper {
   /*border: 1px solid black;*/
-  width: 35%;
+  width: 27em;
   height: 100%;
 }
 
@@ -95,7 +95,7 @@ main {
 
 #map-placeholder {
   margin: 0 auto;
-  width: 100%;
+  width: 27em;
   height: 20em;
   margin-top: 30px;
   background-color: lightgray;

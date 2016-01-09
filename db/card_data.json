@@ -1,0 +1,17 @@
+[
+    {
+        "cardType": "The Observatory",
+        "cardName": "A Cloudless Sky",
+        "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+        "Actions": [
+          {
+            "Look through the telescope": "encounter",
+            "Leave the room": "leave",
+            "Use an item": "use"
+          }
+        ],
+        "fortuneMod": "0",
+        "sanityMod": "0",
+        "moonMod": "0",
+    }
+]

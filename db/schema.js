@@ -10,8 +10,10 @@ var CardSchema = new Schema({
   cardType: String,
   cardName: String,
   flavorText: String,
-  // TODO How should I handle actions? Separate schema?
-  actions: []
+  actions: [],
+  fortuneMod: Number,
+  sanityMod: Number,
+  moonMod: Number
 });
 
 // Set models in Mongoose utilizing the Schema
