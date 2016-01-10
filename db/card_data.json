@@ -1,17 +1,28 @@
 [
-    {
-        "cardType": "The Observatory",
-        "cardName": "A Cloudless Sky",
-        "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
-        "Actions": [
-          {
-            "Look through the telescope": "encounter",
-            "Leave the room": "leave",
-            "Use an item": "use"
-          }
-        ],
-        "fortuneMod": "0",
-        "sanityMod": "0",
-        "moonMod": "0",
-    }
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
+    "cardName": "Cloudless Sky",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "Look through the telescope": {
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["sanityD1", "moonU1"]
+      },
+      "Leave the room": ["sanityD1"],
+      "Brief respite": "use"
+    },
+  },
+
+  {
+    "cardType": "item",
+    "roomType": "The Library",
+    "cardName": "Dusty Book",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["moonU1"]
+    },
+  },
 ]
