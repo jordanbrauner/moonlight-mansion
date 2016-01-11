@@ -55,11 +55,18 @@ html, body {
   min-width: 1200px;
 }
 
-nav, footer {
+nav {
   display: block;
   background-color: black;
   height: 15%;
   width: 100%;
+}
+
+footer {
+  min-height: 400px;
+  background-color: white;
+  border-top: 1px solid lightgray;
+  padding: 5% 10%;
 }
 
 
@@ -71,7 +78,8 @@ main {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  height: 70%;
+  /* Return height to 70% once the temporary footer is back at bg-color black & height: 15% */
+  min-height: 55%;
   padding: 5% 5%;
 }
 

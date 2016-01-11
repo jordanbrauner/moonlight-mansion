@@ -17,7 +17,8 @@ var Card = function(info) {
 Card.fetch = function() {
   var url = "http://localhost:4000/cards";
   var request = $.getJSON(url).then(function(response) {
-    var cards = [];
+    // Okay to have global variable here?
+    cards = [];
     for (var i = 0; i < response.length; i++) {
       cards.push(new Card(response[i]));
     }

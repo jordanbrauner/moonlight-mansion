@@ -4,7 +4,7 @@ var CardView = function(card) {
   this.$el = $("<div class='card'></div>");
   this.render();
 
-  $(".cards").append(this.$el);
+  $(".all-cards").append(this.$el);
 };
 
 CardView.prototype = {
@@ -14,12 +14,14 @@ CardView.prototype = {
     self.$el.html(self.cardTemplate(self.card));
   },
   cardTemplate: function() {
+    // puts all the information in one card into a div
     var card = this.card;
     var html = $("<div>");
-    html.append("<h1>" + card.roomType + "</h1>");
-    html.append("<h2>" + card.cardName + "</h2>");
-    html.append("<p>" + card.flavorText + "</p>");
-
-    return(html);
+    html.append("<p>" + card.cardName + "</p>");
+    return (html);
+  },
+  eventView: function() {
+    var card = this.card;
+    var html = $("<div>");
   }
 };
