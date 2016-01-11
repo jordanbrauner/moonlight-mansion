@@ -1,6 +1,8 @@
 var schema = require("./schema");
+var Card = require("../models/card");
 var cardData = require("./card_data.json");
 var mongoose = require("mongoose");
+
 mongoose.connect('mongodb://localhost/project4test');
 var db = mongoose.connection;
 
@@ -12,8 +14,6 @@ db.on("error", function(err) {
 
 db.once("open", function() {
   console.log("Connected to the database.");
-  var Card = require("../models/card");
-
   Card.remove({}).then(function() {
     forEach(cardData, function(cardDatum) {
       return new Card(cardDatum).save();

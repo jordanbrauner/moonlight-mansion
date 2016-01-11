@@ -9,8 +9,7 @@ function error(response, message) {
 
 router.get("/", function(req, res) {
   Card.find({}).then(function(results) {
-    console.log(results);
-    res.render("index.html");
+    // console.log(results);
     res.json(results);
   });
 });

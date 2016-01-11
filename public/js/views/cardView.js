@@ -1,11 +1,11 @@
 var CardView = function(card) {
   this.card = card;
-
+  console.log("CardView called");
   this.$el = $("<div class='card'></div>");
   this.render();
 
   $(".cards").append(this.$el);
-}
+};
 
 CardView.prototype = {
   render: function() {
@@ -19,6 +19,7 @@ CardView.prototype = {
     html.append("<h1>" + card.roomType + "</h1>");
     html.append("<h2>" + card.cardName + "</h2>");
     html.append("<p>" + card.flavorText + "</p>");
+
     return(html);
   }
 };

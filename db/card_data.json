@@ -12,7 +12,7 @@
       },
       "Leave the room": ["sanityD1"],
       "Brief respite": "use"
-    },
+    }
   },
 
   {
@@ -23,6 +23,6 @@
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU1"]
-    },
-  },
+    }
+  }
 ]
