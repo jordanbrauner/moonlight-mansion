@@ -1,7 +1,18 @@
-var CardModel = require('../models/card.js');
+var express = require("express");
+var router = express.Router();
+var Card = require("../models/card");
 
-var cardsController = {
+function error(response, message) {
+  response.status(500);
+  response.json({error: message});
+}
 
-};
+router.get("/", function(req, res) {
+  Card.find({}).then(function(results) {
+    console.log(results);
+    res.render("index.html");
+    res.json(results);
+  });
+});
 
-module.exports = cardsController;
+module.exports = router;

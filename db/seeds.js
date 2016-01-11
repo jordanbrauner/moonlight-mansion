@@ -1,30 +1,31 @@
-// REQUIRE
-var mongoose = require('mongoose');
-var conn = mongoose.connect('mongodb://localhost');
-var CardModel = require('../models/card');
+var schema = require("./schema");
+var cardData = require("./card_data.json");
+var mongoose = require("mongoose");
+mongoose.connect('mongodb://localhost/project4test');
+var db = mongoose.connection;
 
-// Drop if needed
-CardModel.remove({}, function(err) {
-  console.log(err);
+db.on("error", function(err) {
+  console.log("Oops! Mongo threw an error. Is 'mongod' running?");
+  console.log(err.message);
+  process.exit();
 });
 
-// Seed data
-var r1c1 = new CardModel({
-  cardType: "Observatory",
-  cardName: "A Cloudless Sky",
-  flavorText: "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
-  actions: {
-    "Look through the telescope": encounter,
-    "Leave the room": leave,
-    "Brief respite": respite
-  }
+db.once("open", function() {
+  console.log("Connected to the database.");
+  var Card = require("../models/card");
+
+  Card.remove({}).then(function() {
+    forEach(cardData, function(cardDatum) {
+      return new Card(cardDatum).save();
+    }).then(function() {
+      process.exit();
+    });
+  });
 });
 
-// var actions = new ActionModel({
-//
-// });
-//
-// var cards = [r1c1];
-// for (var i = 0; i < cards.length; i++) {
-//   cards[i].push
-// }
+function forEach(collection, callback, index){
+  if(!index) index = 0;
+  return callback(collection[index]).then(function(){
+    if(collection[index + 1]) return forEach(collection, callback, index + 1);
+  });
+}
