@@ -37,6 +37,7 @@ $(document).ready(function() {
       });
 
       $(".map").on("click", function(event) {
+        $(event.target).removeClass("unvisited");
         $(event.target).addClass("visited");
       });
 
@@ -78,7 +79,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     drawEventCard: function() {
     /////////////////////////////////////////////////////////////////////////
-      if (eventDeck.length > 0) {
+      if (eventDeck.length > 0 && eventCard.length < 1) {
         eventCard.push(eventDeck.splice(0, 1)[0]);
         var drawnCard = eventCard[0];
         $("#card-wrapper #room-type").html(drawnCard.roomType);
@@ -101,7 +102,11 @@ $(document).ready(function() {
 
         $("#action-2").on("click", function() {
           console.log("Action 2 clicked");
-          game.action2Result(eventCard);
+          if (eventCard.length != 1) {
+            console.log("No event card in play!");
+          } else {
+            game.action2Result(eventCard);
+          }
         });
 
         // Action 3
@@ -116,7 +121,7 @@ $(document).ready(function() {
         // TEST Update footer
         game.renderFooterCards();
       } else {
-        console.log("The event card deck is empty!");
+        console.log("Either you must pick an action on your current card or you are trying to draw an event card but the deck is empty.");
       }
     },
 
@@ -144,8 +149,9 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     drawItemCard: function() {
     /////////////////////////////////////////////////////////////////////////
-      if (inventory.length < 5) {
+      if (itemDeck.length > 0 && inventory.length < 5) {
         inventory.push(itemDeck.splice(0, 1)[0]);
+        renderInventory();
       } else {
         console.log("You need to discard a card from your inventory first");
         // TODO run discard inventory function and then re-run drawItemCard
@@ -160,9 +166,16 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action1Result: function(card) {
     /////////////////////////////////////////////////////////////////////////
-      // Call Meet Your Fate function
-      // Then
-      game.discardEventCard(card);
+      var meetYourFate = prompt("Y for success. N for failure");
+      if (meetYourFate == "y" || meetYourFate == "Y") {
+        console.log("Fortune effects");
+        game.discardEventCard(card);
+      } else if (meetYourFate == "n" || meetYourFate == "N") {
+        console.log("Hardship effects");
+        game.discardEventCard(card);
+      } else {
+        console.log("Uh oh. There's been an error in action1result!");
+      }
     },
 
     /////////////////////////////////////////////////////////////////////////

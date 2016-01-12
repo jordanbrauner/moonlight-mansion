@@ -10,10 +10,13 @@
   height: 100%;
   width: 15%;
   border-radius: 5px;
+}
+
+.unvisited {
   background-color: black;
 }
 
-.map:hover {
+.unvisited:hover {
   background-color: red;
 }
 
