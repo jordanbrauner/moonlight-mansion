@@ -15,13 +15,20 @@ var Card = function(info) {
 };
 
 // TODO Find alternative to using global variable for the JSON cards
-cards = [];
+cards = {
+  eventCards: [],
+  itemCards: []
+};
 
 Card.fetch = function() {
   var url = "http://localhost:4000/cards";
   var request = $.getJSON(url).then(function(response) {
     for (var i = 0; i < response.length; i++) {
-      cards.push(new Card(response[i]));
+      if (response[i].cardType == "event") {
+        cards.eventCards.push(new Card(response[i]));
+      } else {
+        cards.itemCards.push(new Card(response[i]));
+      }
     }
     return cards;
   }).fail (function(response) {

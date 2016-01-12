@@ -139,10 +139,10 @@ OF EACH SECTION
 FOOTER STYLES FOR TESTING ONLY
 **************/
 
-.all-cards {
+.all-cards, #item-deck, #event-deck {
   max-width: 500px;
 }
-.all-cards > div {
+.all-cards > div, #item-deck > div, #event-deck > div {
   display: inline-block;
   margin: 0 10px 3px 0;
   padding-right: 10px;
