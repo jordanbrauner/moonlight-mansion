@@ -13,19 +13,18 @@ $(document).ready(function() {
   });
 
   var game = {
-    /////////////////////////////////////////////////////////////////////////
-    // Adds event listener that starts game on click.
+
     /////////////////////////////////////////////////////////////////////////
     startMenu: function() {
+    /////////////////////////////////////////////////////////////////////////
       $("nav").on("click", function() {
         game.playGame();
       });
     },
 
     /////////////////////////////////////////////////////////////////////////
-    // Calls shuffleDeck, adds event listeners, populates map.
-    /////////////////////////////////////////////////////////////////////////
     playGame: function() {
+    /////////////////////////////////////////////////////////////////////////
       game.shuffleDeck(itemDeck);
       game.shuffleDeck(eventDeck);
 
@@ -47,9 +46,8 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    // Shuffles cards into the event or item deck.
-    /////////////////////////////////////////////////////////////////////////
     shuffleDeck: function(toShuffle) {
+    /////////////////////////////////////////////////////////////////////////
       // Clear all-cards div
       $(".all-cards").html("");
       // Shuffle all cards from input randomly into item or event decks
@@ -70,12 +68,10 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    // Draw and render Card is called whenever the player clicks a map tile to move to.
-    /////////////////////////////////////////////////////////////////////////
     drawEventCard: function() {
+    /////////////////////////////////////////////////////////////////////////
       eventCard.push(eventDeck.splice(0, 1)[0]);
       var drawnCard = eventCard[0];
-      console.log("This is the card in drawEventCard function: " + drawnCard.cardName);
       $("#room-type").html(drawnCard.roomType);
       $("#card-name").html(drawnCard.cardName);
       $("#flavor-text").html(drawnCard.flavorText);
@@ -91,9 +87,25 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    // Called to show cards in the footer. For testing purposes only.
+    drawItemCard: function() {
+    /////////////////////////////////////////////////////////////////////////
+      if (inventory < 5) {
+        inventory.push(itemDeck.splice(0, 1)[0]);
+        game.updateInventory();
+      } else {
+        console.log("You need to discard a card from your inventory first");
+        // TODO run discard inventory function and then re-run drawItemCard
+      }
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    renderInventory: function() {
+    /////////////////////////////////////////////////////////////////////////
+    },
+
     /////////////////////////////////////////////////////////////////////////
     renderFooterCards: function() {
+    /////////////////////////////////////////////////////////////////////////
       $("#event-deck").html("");
       $("#item-deck").html("");
       eventDeck.forEach(function(card) {
