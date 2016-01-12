@@ -74,12 +74,20 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     drawEventCard: function() {
       eventCard.push(eventDeck.splice(0, 1)[0]);
-      console.log("This is the card in drawEventCard function: " + eventCard[0].cardName);
-      $("#card-text > h2").html(eventCard[0].cardName);
-      $("#card-text > h3").html(eventCard[0].flavorText);
-      $("#card-text > h3").html(eventCard[0].flavorText);
+      var drawnCard = eventCard[0];
+      console.log("This is the card in drawEventCard function: " + drawnCard.cardName);
+      $("#room-type").html(drawnCard.roomType);
+      $("#card-name").html(drawnCard.cardName);
+      $("#flavor-text").html(drawnCard.flavorText);
 
-      $("#action-1 > h2").html(eventCard[0]);
+      $("#a1-name").html(drawnCard.actions.action1.a1Name);
+      $("#a1-result").html(drawnCard.actions.action1.fortune);
+
+      $("#a2-name").html(drawnCard.actions.action2.a2Name);
+      $("#a2-result").html(drawnCard.actions.action2.a2Result);
+
+      $("#a3-name").html(drawnCard.actions.action3.a3Name);
+      $("#a3-result").html(drawnCard.actions.action3.a3Result);
     },
 
     /////////////////////////////////////////////////////////////////////////

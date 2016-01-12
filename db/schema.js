@@ -25,7 +25,7 @@ var CardSchema = new Schema(
       },
       action2: {
         a2Name: String,
-        a3Result: []
+        a2Result: []
       },
       action3: {
         a3Name: String,
