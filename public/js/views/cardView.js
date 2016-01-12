@@ -3,7 +3,6 @@ var CardView = function(card) {
   console.log("CardView called for " + card);
   this.$el = $("<div class='card'></div>");
   this.render();
-
   $(".all-cards").append(this.$el);
 };
 

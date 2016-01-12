@@ -155,3 +155,7 @@ button {
   color: white;
   padding: 7px;
 }
+
+#no-highlight:hover {
+  background-color: white;
+}

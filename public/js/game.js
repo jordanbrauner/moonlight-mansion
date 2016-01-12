@@ -1,72 +1,49 @@
 $(document).ready(function() {
 
+  // Set Variables
   eventDeck = [];
   itemDeck = [];
   var eventCard = [];
   var inventory = [];
   var discarded = [];
 
+  // Fetch JSON card data
   Card.fetch().then(function() {
-    // console.log(cards);
-    // cards.forEach(function(card) {
-    //   var view = new CardView(card);
-    //   view.render();
-      // deck.push(card);
-    // });
-  }).then(function() {
-    game.startGame();
+    game.playGame();
   });
 
-  // Card.fetch().then(function(cards) {
-    // cards.forEach(function(card) {
-      // var view = new CardView(card);
-      // view.render();
-      // Add each card to the variable 'deck'
-      // deck.push(card);
-    // });
-  // }).then(function() {
-  //   game.waitToStart();
-  // });
-
   var game = {
-
     /////////////////////////////////////////////////////////////////////////
     // Adds event listener that starts game on click.
     /////////////////////////////////////////////////////////////////////////
-    waitToStart: function() {
+    startMenu: function() {
       $("nav").on("click", function() {
-        game.startGame();
+        game.playGame();
       });
     },
 
     /////////////////////////////////////////////////////////////////////////
     // Calls shuffleDeck, adds event listeners, populates map.
     /////////////////////////////////////////////////////////////////////////
-    startGame: function() {
-      // console.log("item cards before shuffle" + cards.itemCards);
-      // console.log("event cards before shuffle" + cards.eventCards);
-      game.shuffleDeck(cards.itemCards);
-      game.shuffleDeck(cards.eventCards);
-      // console.log("item cards after shuffle" + cards.itemCards);
-      // console.log("event cards after shuffle" + cards.eventCards);
-      // console.log("item deck after shuffle" + itemDeck);
-      // console.log("event deck after shuffle" + eventDeck);
-      // TODO Fill the map with cards for each tile in the map
-      // TODO Add Event Listeners for map tiles, inventory, player actions
-      $("#map-placeholder").on("click", function() {
-        game.drawCard();
-      });
-      console.log("Game started");
+    playGame: function() {
+      game.shuffleDeck(itemDeck);
+      game.shuffleDeck(eventDeck);
 
       // NOTE CODE BELOW FOR TESTING PURPOSE ONLY
+      game.drawEventCard(eventDeck);
+      console.log("Game started");
+
       $("#shuffle").on("click", function() {
         game.shuffleDeck(eventDeck);
+        game.shuffleDeck(itemDeck);
+        game.renderFooterCards(eventDeck);
+        game.renderFooterCards(itemDeck);
         console.log(eventDeck);
-
-        // Place first card in deck in event column
-        game.drawCard(eventDeck);
       });
 
+      $("#draw-card").on("click", function() {
+        game.drawEventCard(eventDeck);
+      });
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -93,21 +70,29 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    // Draw Card is called whenever the player clicks a map tile to move to.
+    // Draw and render Card is called whenever the player clicks a map tile to move to.
     /////////////////////////////////////////////////////////////////////////
-    drawCard: function() {
-      eventDeck.push(eventCard.splice(0, 1)[0]);
-      console.log("The event card is now: " + eventCard);
-      // console.log("Drawing a card from the deck: " + deck[0].cardType);
+    drawEventCard: function() {
+      eventCard.push(eventDeck.splice(0, 1)[0]);
+      console.log("This is the card in drawEventCard function: " + eventCard[0].cardName);
+      $("#card-text > h2").html(eventCard[0].cardName);
+      $("#card-text > h3").html(eventCard[0].flavorText);
+      $("#card-text > h3").html(eventCard[0].flavorText);
+
+      $("#action-1 > h2").html(eventCard[0]);
     },
 
     /////////////////////////////////////////////////////////////////////////
     // Called to show cards in the footer. For testing purposes only.
     /////////////////////////////////////////////////////////////////////////
-    renderFooterCards: function(cardsToRender) {
-      cards.forEach(function(card) {
-        var view = new CardView(card);
-        view.render();
+    renderFooterCards: function() {
+      $("#event-deck").html("");
+      $("#item-deck").html("");
+      eventDeck.forEach(function(card) {
+        $("#event-deck").append("<div><p>" + card.cardName + "</p></div>");
+      });
+      itemDeck.forEach(function(card) {
+        $("#item-deck").append("<div><p>" + card.cardName + "</p></div>");
       });
     }
   };

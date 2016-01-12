@@ -25,9 +25,9 @@ Card.fetch = function() {
   var request = $.getJSON(url).then(function(response) {
     for (var i = 0; i < response.length; i++) {
       if (response[i].cardType == "event") {
-        cards.eventCards.push(new Card(response[i]));
+        eventDeck.push(new Card(response[i]));
       } else {
-        cards.itemCards.push(new Card(response[i]));
+        itemDeck.push(new Card(response[i]));
       }
     }
     return cards;

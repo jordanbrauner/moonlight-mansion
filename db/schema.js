@@ -18,12 +18,19 @@ var CardSchema = new Schema(
     },
     actions: {
       action1: {
+        a1Name: String,
         actionFate: Number,
         fortune: [],
         hardship: []
       },
-      action2: [],
-      action3: String
+      action2: {
+        a2Name: String,
+        a3Result: []
+      },
+      action3: {
+        a3Name: String,
+        a3Result: []
+      }
     }
   },
   {
