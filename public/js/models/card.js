@@ -14,15 +14,17 @@ var Card = function(info) {
   this.actions.action3 = info.actions.action3;
 };
 
+// TODO Find alternative to using global variable for the JSON cards
+cards = [];
+
 Card.fetch = function() {
   var url = "http://localhost:4000/cards";
   var request = $.getJSON(url).then(function(response) {
     // Okay to have global variable here?
-    cards = [];
     for (var i = 0; i < response.length; i++) {
       cards.push(new Card(response[i]));
     }
-    console.log("Here are the cards retrieved from the JSON request: " + cards);
+    // console.log("(models/card.js)Here are the cards retrieved from the JSON request: " + cards);
     return cards;
   }).fail (function(response) {
     console.log("Cards fetch failed");

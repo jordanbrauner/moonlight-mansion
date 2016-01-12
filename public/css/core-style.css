@@ -63,10 +63,10 @@ nav {
 }
 
 footer {
-  min-height: 400px;
+  height: 150px;
   background-color: white;
   border-top: 1px solid lightgray;
-  padding: 5% 10%;
+  padding: 3% 5%;
 }
 
 
