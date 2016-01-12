@@ -1,1 +1,14 @@
-/*TEST*/
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 18%;
+  padding: 1% 0;
+}
+
+.map {
+  height: 100%;
+  width: 15%;
+  background-color: lightgray;
+  border-radius: 5px;
+}
