@@ -20,11 +20,9 @@ cards = [];
 Card.fetch = function() {
   var url = "http://localhost:4000/cards";
   var request = $.getJSON(url).then(function(response) {
-    // Okay to have global variable here?
     for (var i = 0; i < response.length; i++) {
       cards.push(new Card(response[i]));
     }
-    // console.log("(models/card.js)Here are the cards retrieved from the JSON request: " + cards);
     return cards;
   }).fail (function(response) {
     console.log("Cards fetch failed");

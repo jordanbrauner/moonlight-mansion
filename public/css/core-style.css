@@ -134,3 +134,24 @@ OF EACH SECTION
   text-align: right;
   width: 25%;
 }
+
+/**************
+FOOTER STYLES FOR TESTING ONLY
+**************/
+
+.all-cards {
+  max-width: 500px;
+}
+.all-cards > div {
+  display: inline-block;
+  margin: 0 10px 3px 0;
+  padding-right: 10px;
+  border-right: 1px solid lightgray;
+}
+
+button {
+  margin-bottom: 10px;
+  background-color: black;
+  color: white;
+  padding: 7px;
+}

@@ -10,7 +10,6 @@ var CardView = function(card) {
 CardView.prototype = {
   render: function() {
     var self = this;
-
     self.$el.html(self.cardTemplate(self.card));
   },
   cardTemplate: function() {
