@@ -17,9 +17,6 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     startMenu: function() {
     /////////////////////////////////////////////////////////////////////////
-      $("nav").on("click", function() {
-        game.playGame();
-      });
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -39,15 +36,25 @@ $(document).ready(function() {
         console.log(eventDeck);
       });
 
-      $("#draw-card").on("click", function() {
+      $(".map").on("click", function(event) {
+        $(event.target).addClass("visited");
+      });
+
+      $("#draw-event-card").on("click", function() {
         game.drawEventCard(eventDeck);
       });
+      $("#draw-item-card").on("click", function() {
+        game.drawItemCard(itemDeck);
+      });
+
+      game.renderFooterCards(eventDeck);
+      game.renderFooterCards(itemDeck);
     },
 
     /////////////////////////////////////////////////////////////////////////
     shuffleDeck: function(toShuffle, discarded) {
     /////////////////////////////////////////////////////////////////////////
-      console.log("shuffling!");
+      console.log("Shuffling " + toShuffle[0].cardType + " deck!");
       $(".all-cards").html("");
       for (var num in discarded) {
         toShuffle.push(discarded[num]);
@@ -78,21 +85,38 @@ $(document).ready(function() {
         $("#card-wrapper .card-name").html(drawnCard.cardName);
         $("#card-wrapper .flavor-text").html(drawnCard.flavorText);
 
+        // Action 1
         $("#a1-name").html(drawnCard.actions.action1.a1Name);
         $("#a1-fortune").html("<strong>Fortune: </strong>" + drawnCard.actions.action1.fortune);
         $("#a1-hardship").html("<strong>Hardship: </strong>" + drawnCard.actions.action1.hardship);
+
         $("#action-1").on("click", function() {
-          game.discardEventCard(eventCard);
+          console.log("Action 1 clicked");
+          game.action1Result(eventCard);
         });
 
+        // Action 2
         $("#a2-name").html(drawnCard.actions.action2.a2Name);
         $("#a2-result").html(drawnCard.actions.action2.a2Result);
 
+        $("#action-2").on("click", function() {
+          console.log("Action 2 clicked");
+          game.action2Result(eventCard);
+        });
+
+        // Action 3
         $("#a3-name").html(drawnCard.actions.action3.a3Name);
         $("#a3-result").html(drawnCard.actions.action3.a3Result);
+
+        $("#action-3").on("click", function() {
+          console.log("Action 3 clicked");
+          game.action3Result(eventCard);
+        });
+
+        // TEST Update footer
+        game.renderFooterCards();
       } else {
-        game.shuffleDeck(eventDeck, discarded);
-        game.drawEventCard();
+        console.log("The event card deck is empty!");
       }
     },
 
@@ -122,7 +146,6 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       if (inventory.length < 5) {
         inventory.push(itemDeck.splice(0, 1)[0]);
-        game.updateInventory();
       } else {
         console.log("You need to discard a card from your inventory first");
         // TODO run discard inventory function and then re-run drawItemCard
@@ -132,6 +155,32 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     renderInventory: function() {
     /////////////////////////////////////////////////////////////////////////
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    action1Result: function(card) {
+    /////////////////////////////////////////////////////////////////////////
+      // Call Meet Your Fate function
+      // Then
+      game.discardEventCard(card);
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    meetYourFate: function() {
+    /////////////////////////////////////////////////////////////////////////
+
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    action2Result: function(card) {
+    /////////////////////////////////////////////////////////////////////////
+      game.discardEventCard(card);
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    action3Result: function(card) {
+    /////////////////////////////////////////////////////////////////////////
+      console.log("Choose the item you want to use.");
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -145,6 +194,7 @@ $(document).ready(function() {
       itemDeck.forEach(function(card) {
         $("#item-deck").append("<div><p>" + card.cardName + "</p></div>");
       });
+
     }
   };
 

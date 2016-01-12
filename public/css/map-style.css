@@ -9,6 +9,14 @@
 .map {
   height: 100%;
   width: 15%;
-  background-color: lightgray;
   border-radius: 5px;
+  background-color: black;
+}
+
+.map:hover {
+  background-color: red;
+}
+
+.visited {
+  background-color: lightgray;
 }
