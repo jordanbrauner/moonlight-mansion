@@ -13,10 +13,11 @@ db.once('open', function() {
 });
 
 app.set('view engine', 'hbs');
+app.set('views', './public/js/views')
 app.use(express.static(__dirname + '/public'));
 
 app.get("/", function(req, res) {
-  res.render("index.html");
+  res.render("index");
 });
 
 app.use("/cards", require("./controllers/cardsController"));

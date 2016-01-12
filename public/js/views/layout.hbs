@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Moonlight Mansion</title>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,700italic|Open+Sans:400,300,700,400italic,700italic,300italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="/css/core-style.css">
+  <link rel="stylesheet" href="/css/player-style.css">
+  <link rel="stylesheet" href="/css/map-style.css">
+  <link rel="stylesheet" href="/css/card-style.css">
+
+</head>
+
+<body>
+  <nav>NAV</nav>
+  <main>
+    {{{body}}}
+  </main>
+  <footer>
+    <!-- Inserting JSON card data in the following div -->
+    <h2>All Cards</h2>
+    <button id="shuffle">Shuffle Cards</button>
+    <button id="draw-card">Draw a Card</button>
+    <div class="all-cards"></div>
+    <h2>Event Deck</h2>
+    <div id="event-deck"></div>
+    <h2>Item Deck</h2>
+    <div id="item-deck"></div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../script.js"></script>
+  <script src="../models/card.js"></script>
+  <script src="../views/cardView.js"></script>
+</body>
+</html>
