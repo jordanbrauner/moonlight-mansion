@@ -228,5 +228,594 @@
     "useItem": {
       "itemResult": ["gameEnd"]
     }
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
+    "cardName": "Cloudless Sky",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Look through the telescope",
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["sanityD1", "moonU1"]
+      },
+      "action2": {
+        "a2Name": "Leave the room",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
+    "cardName": "Blood Moon Rising",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Embrace the light",
+        "actionFate": "-3",
+        "fortune": ["moonD4, sanityD1, itemU1"],
+        "hardship": ["moonU1, sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Shield your eyes",
+        "a2Result": ["itemD1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Study",
+    "cardName": "Stalking Shadow",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Stand your ground",
+        "actionFate": "-2",
+        "fortune": ["itemU1, moonD1, sanityD1"],
+        "hardship": ["sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Flee the room",
+        "a2Result": ["itemD2, sanityD2"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Library",
+    "cardName": "Necessary Research",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Skim through the book",
+        "actionFate": "0",
+        "fortune": ["itemU1, moonU1"],
+        "hardship": ["moonU1, sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Move on",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "Secret Passage",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Step through the opening",
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["itemD1"]
+      },
+      "action2": {
+        "a2Name": "Turn back",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Attic",
+    "cardName": "Disturbing Shrine",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Pocket the medallion",
+        "actionFate": "-2",
+        "fortune": ["itemU1, sanityD1"],
+        "hardship": ["sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Leave shrine untouched",
+        "a2Result": ["sanityD1, moonD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Basement",
+    "cardName": "Hidden Chamber",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Search through the chest",
+        "actionFate": "-1",
+        "fortune": ["itemU2"],
+        "hardship": ["moonU2"]
+      },
+      "action2": {
+        "a2Name": "Leave untouched",
+        "a2Result": ["itemD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Basement",
+    "cardName": "Sound in the Darkness",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Confront the creature",
+        "actionFate": "-3",
+        "fortune": ["itemU2, moonD1, sanityD2"],
+        "hardship": ["moonU2, sanityU3"]
+      },
+      "action2": {
+        "a2Name": "Flee into the light",
+        "a2Result": ["itemD2"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
+    "cardName": "Cloudless Sky",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Look through the telescope",
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["sanityD1", "moonU1"]
+      },
+      "action2": {
+        "a2Name": "Leave the room",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
+    "cardName": "Blood Moon Rising",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Embrace the light",
+        "actionFate": "-3",
+        "fortune": ["moonD4, sanityD1, itemU1"],
+        "hardship": ["moonU1, sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Shield your eyes",
+        "a2Result": ["itemD1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Study",
+    "cardName": "Stalking Shadow",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Stand your ground",
+        "actionFate": "-2",
+        "fortune": ["itemU1, moonD1, sanityD1"],
+        "hardship": ["sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Flee the room",
+        "a2Result": ["itemD2, sanityD2"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Library",
+    "cardName": "Necessary Research",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Skim through the book",
+        "actionFate": "0",
+        "fortune": ["itemU1, moonU1"],
+        "hardship": ["moonU1, sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Move on",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "Secret Passage",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Step through the opening",
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["itemD1"]
+      },
+      "action2": {
+        "a2Name": "Turn back",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Attic",
+    "cardName": "Disturbing Shrine",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Pocket the medallion",
+        "actionFate": "-2",
+        "fortune": ["itemU1, sanityD1"],
+        "hardship": ["sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Leave shrine untouched",
+        "a2Result": ["sanityD1, moonD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Basement",
+    "cardName": "Hidden Chamber",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Search through the chest",
+        "actionFate": "-1",
+        "fortune": ["itemU2"],
+        "hardship": ["moonU2"]
+      },
+      "action2": {
+        "a2Name": "Leave untouched",
+        "a2Result": ["itemD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Basement",
+    "cardName": "Sound in the Darkness",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Confront the creature",
+        "actionFate": "-3",
+        "fortune": ["itemU2, moonD1, sanityD2"],
+        "hardship": ["moonU2, sanityU3"]
+      },
+      "action2": {
+        "a2Name": "Flee into the light",
+        "a2Result": ["itemD2"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
+    "cardName": "Cloudless Sky",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Look through the telescope",
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["sanityD1", "moonU1"]
+      },
+      "action2": {
+        "a2Name": "Leave the room",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
+    "cardName": "Blood Moon Rising",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Embrace the light",
+        "actionFate": "-3",
+        "fortune": ["moonD4, sanityD1, itemU1"],
+        "hardship": ["moonU1, sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Shield your eyes",
+        "a2Result": ["itemD1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Study",
+    "cardName": "Stalking Shadow",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Stand your ground",
+        "actionFate": "-2",
+        "fortune": ["itemU1, moonD1, sanityD1"],
+        "hardship": ["sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Flee the room",
+        "a2Result": ["itemD2, sanityD2"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Library",
+    "cardName": "Necessary Research",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Skim through the book",
+        "actionFate": "0",
+        "fortune": ["itemU1, moonU1"],
+        "hardship": ["moonU1, sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Move on",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "Secret Passage",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Step through the opening",
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["itemD1"]
+      },
+      "action2": {
+        "a2Name": "Turn back",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Attic",
+    "cardName": "Disturbing Shrine",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Pocket the medallion",
+        "actionFate": "-2",
+        "fortune": ["itemU1, sanityD1"],
+        "hardship": ["sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Leave shrine untouched",
+        "a2Result": ["sanityD1, moonD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Basement",
+    "cardName": "Hidden Chamber",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Search through the chest",
+        "actionFate": "-1",
+        "fortune": ["itemU2"],
+        "hardship": ["moonU2"]
+      },
+      "action2": {
+        "a2Name": "Leave untouched",
+        "a2Result": ["itemD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Basement",
+    "cardName": "Sound in the Darkness",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Confront the creature",
+        "actionFate": "-3",
+        "fortune": ["itemU2, moonD1, sanityD2"],
+        "hardship": ["moonU2, sanityU3"]
+      },
+      "action2": {
+        "a2Name": "Flee into the light",
+        "a2Result": ["itemD2"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "use"
+      }
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "Revolver",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "useItem": {
+      "itemFate": "2"
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Library",
+    "cardName": "Dusty Book",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["moonU1"]
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Attic",
+    "cardName": "Broken Bauble",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "useItem": {
+      "itemFate": "1"
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "The Holy Book",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["sanityU2"]
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "Bottle of Bourbon",
+    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["moonU2"]
+    }
   }
 ]

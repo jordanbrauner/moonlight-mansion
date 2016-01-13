@@ -24,35 +24,27 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       game.shuffleDeck(itemDeck);
       game.shuffleDeck(eventDeck);
+      game.mapClick();
 
       // NOTE CODE BELOW FOR TESTING PURPOSE ONLY
       console.log("Game started");
 
-      $("#shuffle").on("click", function() {
-        game.shuffleDeck(eventDeck);
-        game.shuffleDeck(itemDeck);
-        game.renderFooterCards(eventDeck);
-        game.renderFooterCards(itemDeck);
-        console.log(eventDeck);
-      });
+      // $("#shuffle").on("click", function() {
+      //   game.shuffleDeck(eventDeck);
+      //   game.shuffleDeck(itemDeck);
+      //   game.renderFooterCards(eventDeck);
+      //   game.renderFooterCards(itemDeck);
+      //   console.log(eventDeck);
+      // });
+      //
+      // $("#draw-event-card").on("click", function() {
+      //   game.drawEventCard(eventDeck);
+      // });
+      // $("#draw-item-card").on("click", function() {
+      //   game.drawItemCard(itemDeck);
+      // });
 
-
-      $("#draw-event-card").on("click", function() {
-        game.drawEventCard(eventDeck);
-      });
-      $("#draw-item-card").on("click", function() {
-        game.drawItemCard(itemDeck);
-      });
-      $("#create-map").on("click", function() {
-        game.createMap();
-      });
-
-      $(".map").on("click", function(event) {
-        $(event.target).removeClass("unvisited");
-        $(event.target).addClass("visited");
-      });
-      game.renderFooterCards(eventDeck);
-      game.renderFooterCards(itemDeck);
+      game.renderFooterCards();
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -80,19 +72,26 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    createMap: function() {
+    mapClick: function() {
     /////////////////////////////////////////////////////////////////////////
-      // grab the top 30 cards from the eventDeck and randomly push them to the board
-      for (var i = 1; i < 5; i++) {
-        $("#t" + [i]).addClass(eventDeck[i-1].id);
-      }
+      $(".map").on("click", function(event) {
+        if (eventCard.length === 0) {
+          $(event.target).removeClass("unvisited");
+          $(event.target).addClass("visited");
+          tileNumber = $(event.target).attr("id") - 1;
+          console.log(tileNumber);
+          game.drawEventCard(tileNumber);
+        } else {
+          console.log("You must resolve the current event first.");
+        }
+      });
     },
 
     /////////////////////////////////////////////////////////////////////////
-    drawEventCard: function() {
+    drawEventCard: function(tileNumber) {
     /////////////////////////////////////////////////////////////////////////
       if (eventDeck.length > 0 && eventCard.length < 1) {
-        eventCard.push(eventDeck.splice(0, 1)[0]);
+        eventCard.push(eventDeck.splice(tileNumber, 1)[0]);
         var drawnCard = eventCard[0];
         $("#card-wrapper #room-type").html(drawnCard.roomType);
         $("#card-wrapper .card-name").html(drawnCard.cardName);
