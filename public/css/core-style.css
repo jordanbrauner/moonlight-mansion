@@ -128,10 +128,19 @@ OF EACH SECTION
 FOOTER STYLES FOR TESTING ONLY
 **************/
 
-.all-cards, #item-deck, #event-deck {
+footer section {
+  display: flex;
+  justify-content: flex-start;
+
+}
+#footer-left {
+  display: inline-block;
+}
+
+#item-deck, #event-deck, #discarded, #inventory-temp {
   max-width: 500px;
 }
-.all-cards > div, #item-deck > div, #event-deck > div {
+#item-deck > div, #event-deck > div, #inventory-temp > div, #discarded > div {
   display: inline-block;
   margin: 0 10px 3px 0;
   padding-right: 10px;

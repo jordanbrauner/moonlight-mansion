@@ -12,6 +12,7 @@ var Card = function(info) {
   this.actions.action1.fortune = info.actions.action1.fortune;
   this.actions.action2.hardship = info.actions.action2.hardship;
   this.actions.action3 = info.actions.action3;
+  this.id = info.id;
 };
 
 // TODO Find alternative to using global variable for the JSON cards

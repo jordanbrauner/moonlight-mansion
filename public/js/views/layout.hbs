@@ -17,15 +17,26 @@
   </main>
   <footer>
     <!-- Inserting JSON card data in the following div -->
-    <button id="shuffle">Shuffle Cards</button>
-    <button id="draw-event-card">Draw Event Card</button>
-    <button id="draw-item-card">Draw Item Card</button>
-    <h2>Event Deck</h2>
-    <div id="event-deck"></div>
-    <h2>Item Deck</h2>
-    <div id="item-deck"></div>
-    <h2>Discarded</h2>
-    <div id="discarded"></div>
+    <div>
+      <button id="shuffle">Shuffle Cards</button>
+      <button id="draw-event-card">Draw Event Card</button>
+      <button id="draw-item-card">Draw Item Card</button>
+      <button id="create-map">Create map</button>
+    </div>
+    <section>
+      <div>
+        <h2>Event Deck</h2>
+        <div id="event-deck"></div>
+        <h2>Item Deck</h2>
+        <div id="item-deck"></div>
+      </div>
+      <div>
+        <h2>Discarded</h2>
+        <div id="discarded"></div>
+        <h2>Inventory</h2>
+        <div id="inventory-temp"></div>
+      </div>
+    </section>
   </footer>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

@@ -36,10 +36,6 @@ $(document).ready(function() {
         console.log(eventDeck);
       });
 
-      $(".map").on("click", function(event) {
-        $(event.target).removeClass("unvisited");
-        $(event.target).addClass("visited");
-      });
 
       $("#draw-event-card").on("click", function() {
         game.drawEventCard(eventDeck);
@@ -47,7 +43,14 @@ $(document).ready(function() {
       $("#draw-item-card").on("click", function() {
         game.drawItemCard(itemDeck);
       });
+      $("#create-map").on("click", function() {
+        game.createMap();
+      });
 
+      $(".map").on("click", function(event) {
+        $(event.target).removeClass("unvisited");
+        $(event.target).addClass("visited");
+      });
       game.renderFooterCards(eventDeck);
       game.renderFooterCards(itemDeck);
     },
@@ -73,6 +76,15 @@ $(document).ready(function() {
         if (!cardsLeft) {
           return eventDeck || itemDeck;
         }
+      }
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    createMap: function() {
+    /////////////////////////////////////////////////////////////////////////
+      // grab the top 30 cards from the eventDeck and randomly push them to the board
+      for (var i = 1; i < 5; i++) {
+        $("#t" + [i]).addClass(eventDeck[i-1].id);
       }
     },
 
@@ -149,9 +161,11 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     drawItemCard: function() {
     /////////////////////////////////////////////////////////////////////////
-      if (itemDeck.length > 0 && inventory.length < 5) {
+      if (itemDeck.length > 0 && inventory.length < 4) {
         inventory.push(itemDeck.splice(0, 1)[0]);
-        renderInventory();
+        var newItem = inventory[inventory.length - 1];
+        $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
+        game.renderFooterCards();
       } else {
         console.log("You need to discard a card from your inventory first");
         // TODO run discard inventory function and then re-run drawItemCard
@@ -188,6 +202,7 @@ $(document).ready(function() {
     action2Result: function(card) {
     /////////////////////////////////////////////////////////////////////////
       game.discardEventCard(card);
+      game.renderFooterCards();
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -201,11 +216,19 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       $("#event-deck").html("");
       $("#item-deck").html("");
+      $("#discarded").html("");
+      $("#inventory-temp").html("");
       eventDeck.forEach(function(card) {
         $("#event-deck").append("<div><p>" + card.cardName + "</p></div>");
       });
       itemDeck.forEach(function(card) {
         $("#item-deck").append("<div><p>" + card.cardName + "</p></div>");
+      });
+      discarded.forEach(function(card) {
+        $("#discarded").append("<div><p>" + card.cardName + "</p></div>");
+      });
+      inventory.forEach(function(card) {
+        $("#inventory-temp").append("<div><p>" + card.cardName + "</p></div>");
       });
 
     }
