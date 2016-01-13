@@ -175,7 +175,6 @@ $(document).ready(function() {
           inventory.push(itemDeck.splice(0, 1)[0]);
           console.log("Cards in the inventory: " + inventory[0].cardName);
           console.log("Card placed in the inventory: " + inventory[inventory.length-1].cardName);
-          // var newItemNum = "#player-item-" + inventory.length-1;
           var newItem = inventory[inventory.length-1];
           $("#inventory-wrapper").append(
             "<div class='select-container player-item' id='item-" + newItem.id + "'>" +
@@ -186,14 +185,16 @@ $(document).ready(function() {
               "<div class='right-column'></div>" +
             "</div>");
 
-            if (newItem.useItem.itemFate) {
+            if (newItem.useItem.itemFate === true && newItem.roomType === true) {
               $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + newItem.roomType + "</strong>.</p>");
+            } else if (newItem.useItem.itemFate) {
+              $("#item-" + newItem.id + " .right-column").append("<p>Increases fate</p>");
             }
 
-            if (newItem.useItem.itemResult) {
-              $("#item-" + newItem.id + " .right-column").append("<p><strong>Use</strong>: " + newItem.useItem.itemResult + "</p>");
+            console.log("Item Result: " + newItem.useItem.itemResult);
+            if (newItem.useItem.itemResult !== false) {
+              $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + newItem.useItem.itemResult + "</p>");
             }
-
 
           num -= 1;
 
