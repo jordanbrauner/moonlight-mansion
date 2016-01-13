@@ -9,6 +9,9 @@ $(document).ready(function() {
   sanityLevel = 10;
   moonLevel = 1;
   moonState = 1;
+  fateMod = 0;
+  canUseItem = false;
+  actionPhase = false;
 
   // Fetch JSON card data
   Card.fetch().then(function() {
@@ -30,25 +33,14 @@ $(document).ready(function() {
       game.mapClick();
       $("#card-wrapper #room-type").html("Choose a room");
 
-      // NOTE CODE BELOW FOR TESTING PURPOSE ONLY
+      game.renderHUD();
       console.log("Game started");
 
-      // $("#shuffle").on("click", function() {
-      //   game.shuffleDeck(eventDeck);
-      //   game.shuffleDeck(itemDeck);
-      //   game.renderHUD(eventDeck);
-      //   game.renderHUD(itemDeck);
-      //   console.log(eventDeck);
-      // });
-      //
-      // $("#draw-event-card").on("click", function() {
-      //   game.drawEventCard(eventDeck);
-      // });
-      // $("#draw-item-card").on("click", function() {
-      //   game.drawItemCard(itemDeck);
-      // });
+      // NOTE CODE BELOW FOR TESTING PURPOSE ONLY
+      $("#renderHUD").on("click", function() {
+        game.renderHUD();
+      });
 
-      game.renderHUD();
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -79,7 +71,7 @@ $(document).ready(function() {
     mapClick: function() {
     /////////////////////////////////////////////////////////////////////////
       $(".map").on("click", function(event) {
-        console.log("********* NEW TURN *********");
+        console.log("********* START OF TURN *********");
         var tileNumber = $(event.target).attr("id") - 1;
         if (eventCard.length === 0 && eventDeck[tileNumber] !== "drawn") {
           console.log("Drawing card from the eventDeck with the id of " + tileNumber + ".");
@@ -100,6 +92,8 @@ $(document).ready(function() {
       if (eventDeck.length > 0 && eventCard.length < 1) {
         eventCard.push(eventDeck.splice(tileNumber, 1, "drawn")[0]);
         var drawnCard = eventCard[0];
+        actionPhase = true;
+
         $("#card-wrapper #room-type").html(drawnCard.roomType);
         $("#card-wrapper .card-name").html(drawnCard.cardName);
         $("#card-wrapper .flavor-text").html(drawnCard.flavorText);
@@ -111,7 +105,9 @@ $(document).ready(function() {
 
         $("#action-1").on("click", function() {
           console.log("Action 1 clicked");
-          game.meetYourFate();
+          if (actionPhase) {
+            game.meetYourFate();
+          }
         });
 
         // Action 2
@@ -122,7 +118,7 @@ $(document).ready(function() {
           console.log("Action 2 clicked");
           if (eventCard.length != 1) {
             console.log("No event card in play!");
-          } else {
+          } else if (actionPhase) {
             game.action2Result();
           }
         });
@@ -133,9 +129,10 @@ $(document).ready(function() {
 
         $("#action-3").on("click", function() {
           console.log("Action 3 clicked");
-          game.action3Result();
+          if (actionPhase) {
+            game.action3Result();
+          }
         });
-
         // TEST Update footer
         game.renderHUD();
       } else {
@@ -185,27 +182,30 @@ $(document).ready(function() {
               "<div class='right-column'></div>" +
             "</div>");
 
-            var itemFate = newItem.useItem.itemFate;
-            var itemResult = newItem.useItem.itemResult;
-            var roomType = newItem.roomType;
+          var itemFate = newItem.useItem.itemFate;
+          var itemResult = newItem.useItem.itemResult;
+          var roomType = newItem.roomType;
 
-            console.log("Item Fate: " + itemFate);
-            if (itemFate && roomType) {
-              $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
-            } else if (itemFate && !roomType) {
-              $("#item-" + newItem.id + " .right-column").append("<p>Increases fate: " + itemFate + "</p>");
-            }
+          // console.log("Item Fate: " + itemFate);
+          if (itemFate && roomType) {
+            $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
+          } else if (itemFate && !roomType) {
+            $("#item-" + newItem.id + " .right-column").append("<p>Increases fate: " + itemFate + "</p>");
+          }
 
-            console.log("Item Result: " + itemResult);
-            if (itemResult) {
-              $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + itemResult + "</p>");
-            }
-
+          // console.log("Item Result: " + itemResult);
+          if (itemResult) {
+            $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + itemResult + "</p>");
+          }
           num -= 1;
 
-            // Debug footer
-            $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
-            game.renderHUD();
+          $("#item-" + newItem.id).on("click", function() {
+            game.useAnItem(newItem.id);
+          });
+
+          // Debug footer
+          $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
+          game.renderHUD();
         }
       } else if (itemDeck.length <= 0) {
         console.log("There are no cards left in the item deck.");
@@ -216,9 +216,13 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    discardItemCard: function(numToDiscard) {
+    discardItemCard: function(numToDiscard, card) {
     /////////////////////////////////////////////////////////////////////////
       console.log("Future action for discarding a card from your inventory.");
+      // while (numToDiscard) {
+      //   console.log("Item card to discard: " + card.cardName);
+      //   numToDiscard -= 1;
+      // }
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -237,12 +241,15 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action1Result: function(result) {
       /////////////////////////////////////////////////////////////////////////
+      actionPhase = false;
       if (result === "s") {
+        console.log("Player succeeded.");
         var fortuneEffects = eventCard[0].actions.action1.fortune;
         game.fortuneHardship(fortuneEffects);
         console.log("About to call discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
       } else if (result === "f") {
+        console.log("Player failed.");
         var hardshipEffects = eventCard[0].actions.action1.hardship;
         game.fortuneHardship(hardshipEffects);
         console.log("About to call discardEventCard with the following card: " + eventCard[0].cardName);
@@ -255,6 +262,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action2Result: function() {
     /////////////////////////////////////////////////////////////////////////
+      actionPhase = false;
       var avoidEffects = eventCard[0].actions.action2.a2Result;
       game.fortuneHardship(avoidEffects);
       game.discardEventCard(eventCard[0]);
@@ -263,10 +271,47 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action3Result: function() {
     /////////////////////////////////////////////////////////////////////////
-      if (inventory.length > 0) {
+      if (inventory.length > 0 && eventCard[0].actions.action3.a3Result[0] === "Use item" && !canUseItem) {
+        canUseItem = true;
+        console.log("canUseItem set to true: " + canUseItem);
         console.log("Choose the item you want to use before you resolve this event.");
       } else {
+        console.log("canUseItem set to false: " + canUseItem);
         console.log("You have no items to use.");
+      }
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    useAnItem: function(id) {
+    /////////////////////////////////////////////////////////////////////////
+      canUseItem = false;
+      console.log("canUseItem set to false: " + canUseItem);
+      // Search through inventory array to find the card object with the same (JSON) id.
+      for (var i = 0; i < inventory.length; i++) {
+        if (inventory[i].id === id) {
+          console.log("Item found in inventory: " + inventory[i]);
+          var itemUsed = inventory[i];
+          // Adjust fate modifier
+          if (itemUsed.roomType) {
+            if (eventCard[0].roomType === itemUsed.roomType) {
+              console.log("Fate modifier set to: " + fateMod);
+              fateMod = itemUsed.useItem.itemFate;
+            } else {
+              console.log("Sorry, you can only use this item in: " + itemUsed.roomType);
+            }
+          } else {
+            console.log("Fate modifier set to: " + fateMod);
+            fateMod = itemUsed.useItem.itemFate;
+          }
+          // Resolve item results
+          if (itemUsed.useItem.itemResult) {
+            game.fortuneHardship(itemUsed.useItem.itemResult);
+          }
+          console.log("Calling discardItemCard.");
+          game.discardItemCard(1, itemUsed);
+        } else {
+          console.log("Can't find this card in the inventory.");
+        }
       }
     },
 
@@ -370,7 +415,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       // TODO This function will be called at the end of every turn. Every 4 turns a certain amount of visited tiles get 'turned back over' at random.
       console.log("moonState function called.");
-      console.log("Turn over.");
+      console.log("Player turn over.");
     },
 
     /////////////////////////////////////////////////////////////////////////
