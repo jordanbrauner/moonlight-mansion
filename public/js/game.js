@@ -171,9 +171,9 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       if (itemDeck.length > 0 && inventory.length + num <= 4) {
         while (num) {
-          console.log("Drawing item card");
+          console.log("Number of cards in the inventory: " + inventory.length);
+          console.log("Drawing item card: " + itemDeck[0].cardName);
           inventory.push(itemDeck.splice(0, 1)[0]);
-          console.log("Cards in the inventory: " + inventory[0].cardName);
           console.log("Card placed in the inventory: " + inventory[inventory.length-1].cardName);
           var newItem = inventory[inventory.length-1];
           $("#inventory-wrapper").append(
@@ -185,15 +185,20 @@ $(document).ready(function() {
               "<div class='right-column'></div>" +
             "</div>");
 
-            if (newItem.useItem.itemFate === true && newItem.roomType === true) {
-              $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + newItem.roomType + "</strong>.</p>");
-            } else if (newItem.useItem.itemFate) {
-              $("#item-" + newItem.id + " .right-column").append("<p>Increases fate</p>");
+            var itemFate = newItem.useItem.itemFate;
+            var itemResult = newItem.useItem.itemResult;
+            var roomType = newItem.roomType;
+
+            console.log("Item Fate: " + itemFate);
+            if (itemFate && roomType) {
+              $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
+            } else if (itemFate && !roomType) {
+              $("#item-" + newItem.id + " .right-column").append("<p>Increases fate: " + itemFate + "</p>");
             }
 
-            console.log("Item Result: " + newItem.useItem.itemResult);
-            if (newItem.useItem.itemResult !== false) {
-              $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + newItem.useItem.itemResult + "</p>");
+            console.log("Item Result: " + itemResult);
+            if (itemResult) {
+              $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + itemResult + "</p>");
             }
 
           num -= 1;
