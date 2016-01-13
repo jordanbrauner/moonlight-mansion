@@ -17,7 +17,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -39,7 +39,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -61,7 +61,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -83,7 +83,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -105,7 +105,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -127,7 +127,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -149,7 +149,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -171,7 +171,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -179,7 +179,7 @@
   {
     "cardType": "item",
     "cardName": "Revolver",
-    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n, syha'h Tsathoggua k'yarnak f'mnahn.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
       "itemFate": "2"
     }
@@ -188,7 +188,7 @@
     "cardType": "item",
     "roomType": "The Library",
     "cardName": "Dusty Book",
-    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn shtunggli ilyaa uh'e ehye syha'hagl, shtunggli ehye 'bthnk shugg czhro shogg ooboshu csgn'wahl ngnog Yoggoth uaaah.",
+    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn shtunggli ilyaa uh'e ehye.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU1"]
@@ -198,7 +198,7 @@
     "cardType": "item",
     "roomType": "The Attic",
     "cardName": "Broken Bauble",
-    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch', ep n'ghft ah ee athg wgah'n hupadgh shogg cCthulhu, wgah'n sll'ha f'Hastur syha'hyar fm'latgh k'yarnak hai.",
+    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch', ep n'ghft.",
     "useItem": {
       "itemFate": "1"
     }
@@ -206,7 +206,7 @@
   {
     "cardType": "item",
     "cardName": "The Holy Book",
-    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh, sll'ha gof'nn f'tharanak ebunma. Throd nawgah'n Chaugnar Faugn lw'nafh hlirgh R'lyeh, shogg y-uln geb.",
+    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["sanityU2"]
@@ -215,7 +215,7 @@
   {
     "cardType": "item",
     "cardName": "Bottle of Bourbon",
-    "flavorText": "Ph'n'gha nnnr'luh geb nglui n'gha fm'latgh uln cs'uhn tharanak, ch' uln ya uh'e kadishtu cron ph'vulgtlagln R'lyeh n'gha, ph'llll.",
+    "flavorText": "Ph'n'gha nnnr'luh geb nglui n'gha fm'latgh uln cs'uhn tharanak.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU2"]
@@ -224,7 +224,7 @@
   {
     "cardType": "item",
     "cardName": "Ancient Relic",
-    "flavorText": "Ngshtunggli ee fhtagnnyth nashugg geboth ron, kn'a syha'h vulgtm nglui athgog ftaghu, Dagon ilyaa hrii ehye. Mg y'hah ooboshunyth ya llll naflShub-Niggurath, naflehye.",
+    "flavorText": "Ngshtunggli ee fhtagnnyth nashugg geboth ron, kn'a syha'h.",
     "useItem": {
       "itemResult": ["gameEnd"]
     }
@@ -263,7 +263,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -285,7 +285,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -307,7 +307,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -329,7 +329,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -351,7 +351,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -373,7 +373,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -395,7 +395,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -417,7 +417,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -439,7 +439,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -461,7 +461,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -483,7 +483,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -505,7 +505,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -527,7 +527,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -549,7 +549,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -571,7 +571,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -593,7 +593,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -615,7 +615,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -637,7 +637,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -659,7 +659,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -681,7 +681,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -703,7 +703,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -725,7 +725,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -747,7 +747,7 @@
       },
       "action3": {
         "a3Name": "Brief respite",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -769,7 +769,7 @@
       },
       "action3": {
         "a3Name": "Search your bag",
-        "a3Result": "use"
+        "a3Result": "Use item"
       }
     }
   },
@@ -777,7 +777,7 @@
   {
     "cardType": "item",
     "cardName": "Revolver",
-    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n, syha'h Tsathoggua k'yarnak f'mnahn.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln .",
     "useItem": {
       "itemFate": "2"
     }
@@ -786,7 +786,7 @@
     "cardType": "item",
     "roomType": "The Library",
     "cardName": "Dusty Book",
-    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn shtunggli ilyaa uh'e ehye syha'hagl, shtunggli ehye 'bthnk shugg czhro shogg ooboshu csgn'wahl ngnog Yoggoth uaaah.",
+    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU1"]
@@ -796,7 +796,7 @@
     "cardType": "item",
     "roomType": "The Attic",
     "cardName": "Broken Bauble",
-    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch', ep n'ghft ah ee athg wgah'n hupadgh shogg cCthulhu, wgah'n sll'ha f'Hastur syha'hyar fm'latgh k'yarnak hai.",
+    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft.",
     "useItem": {
       "itemFate": "1"
     }
@@ -804,7 +804,7 @@
   {
     "cardType": "item",
     "cardName": "The Holy Book",
-    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh, sll'ha gof'nn f'tharanak ebunma. Throd nawgah'n Chaugnar Faugn lw'nafh hlirgh R'lyeh, shogg y-uln geb.",
+    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["sanityU2"]
@@ -813,7 +813,7 @@
   {
     "cardType": "item",
     "cardName": "Ancient Relic",
-    "flavorText": "Ngshtunggli ee fhtagnnyth nashugg geboth ron, kn'a syha'h vulgtm nglui athgog ftaghu, Dagon ilyaa hrii ehye. Mg y'hah ooboshunyth ya llll naflShub-Niggurath, naflehye.",
+    "flavorText": "Ngshtunggli ee fhtagnnyth nashugg geboth ron, kn'a syha'h vulgtm.",
     "useItem": {
       "itemResult": ["gameEnd"]
     }
@@ -821,7 +821,7 @@
   {
     "cardType": "item",
     "cardName": "Revolver",
-    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n, syha'h Tsathoggua k'yarnak f'mnahn.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
       "itemFate": "2"
     }
@@ -830,7 +830,7 @@
     "cardType": "item",
     "roomType": "The Library",
     "cardName": "Dusty Book",
-    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn shtunggli ilyaa uh'e ehye syha'hagl, shtunggli ehye 'bthnk shugg czhro shogg ooboshu csgn'wahl ngnog Yoggoth uaaah.",
+    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU1"]
@@ -840,7 +840,7 @@
     "cardType": "item",
     "roomType": "The Attic",
     "cardName": "Broken Bauble",
-    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch', ep n'ghft ah ee athg wgah'n hupadgh shogg cCthulhu, wgah'n sll'ha f'Hastur syha'hyar fm'latgh k'yarnak hai.",
+    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch'.",
     "useItem": {
       "itemFate": "1"
     }
@@ -848,7 +848,7 @@
   {
     "cardType": "item",
     "cardName": "The Holy Book",
-    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh, sll'ha gof'nn f'tharanak ebunma. Throd nawgah'n Chaugnar Faugn lw'nafh hlirgh R'lyeh, shogg y-uln geb.",
+    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["sanityU2"]
@@ -857,7 +857,7 @@
   {
     "cardType": "item",
     "cardName": "Bottle of Bourbon",
-    "flavorText": "Ph'n'gha nnnr'luh geb nglui n'gha fm'latgh uln cs'uhn tharanak, ch' uln ya uh'e kadishtu cron ph'vulgtlagln R'lyeh n'gha, ph'llll.",
+    "flavorText": "Ph'n'gha nnnr'luh geb nglui n'gha fm'latgh uln cs'uhn tharanak, ch' uln ya.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU2"]

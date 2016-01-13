@@ -8,6 +8,7 @@ $(document).ready(function() {
   discarded = [];
   sanityLevel = 10;
   moonLevel = 1;
+  moonState = 1;
 
   // Fetch JSON card data
   Card.fetch().then(function() {
@@ -145,11 +146,10 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     discardEventCard: function() {
     /////////////////////////////////////////////////////////////////////////
-      console.log("About to run through the actions within discardEventCard with the following card: " + eventCard[0].cardName);
       discarded.push(eventCard.splice(0, 1)[0]);
       var justAdded = discarded.length - 1;
       console.log("Card discarded: " + discarded[justAdded].cardName);
-      $("#card-wrapper #room-type").html("");
+      $("#card-wrapper #room-type").html("Choose a room");
       $("#card-wrapper .card-name").html("");
       $("#card-wrapper .flavor-text").html("");
 
@@ -162,19 +162,50 @@ $(document).ready(function() {
 
       $("#a3-name").html("");
       $("#a3-result").html("");
+
+      game.moonState();
     },
 
     /////////////////////////////////////////////////////////////////////////
-    drawItemCard: function() {
+    drawItemCard: function(num) {
     /////////////////////////////////////////////////////////////////////////
-      if (itemDeck.length > 0 && inventory.length < 4) {
-        inventory.push(itemDeck.splice(0, 1)[0]);
-        var newItem = inventory[inventory.length - 1];
-        $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
-        game.renderHUD();
+      if (itemDeck.length > 0 && inventory.length + num <= 4) {
+        while (num) {
+          console.log("Drawing item card");
+          inventory.push(itemDeck.splice(0, 1)[0]);
+          console.log("Cards in the inventory: " + inventory[0].cardName);
+          console.log("Card placed in the inventory: " + inventory[inventory.length-1].cardName);
+          // var newItemNum = "#player-item-" + inventory.length-1;
+          var newItem = inventory[inventory.length-1];
+          $("#inventory-wrapper").append(
+            "<div class='select-container player-item' id='item-" + newItem.id + "'>" +
+              "<div class='left-column'>" +
+                "<h2>" + newItem.cardName + "</h2>" +
+                "<p>" + newItem.flavorText + "</p>" +
+              "</div>" +
+              "<div class='right-column'></div>" +
+            "</div>");
+
+            if (newItem.useItem.itemFate) {
+              $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + newItem.roomType + "</strong>.</p>");
+            }
+
+            if (newItem.useItem.itemResult) {
+              $("#item-" + newItem.id + " .right-column").append("<p><strong>Use</strong>: " + newItem.useItem.itemResult + "</p>");
+            }
+
+
+          num -= 1;
+
+            // Debug footer
+            $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
+            game.renderHUD();
+        }
+      } else if (itemDeck.length <= 0) {
+        console.log("There are no cards left in the item deck.");
       } else {
         console.log("You need to discard a card from your inventory first");
-        // TODO run discard inventory function and then re-run drawItemCard
+        discardItemCard();
       }
     },
 
@@ -219,7 +250,6 @@ $(document).ready(function() {
     action2Result: function() {
     /////////////////////////////////////////////////////////////////////////
       var avoidEffects = eventCard[0].actions.action2.a2Result;
-      console.log("avoidEffects: " + avoidEffects);
       game.fortuneHardship(avoidEffects);
       game.discardEventCard(eventCard[0]);
     },
@@ -227,7 +257,11 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action3Result: function() {
     /////////////////////////////////////////////////////////////////////////
-      console.log("Choose the item you want to use.");
+      if (inventory.length > 0) {
+        console.log("Choose the item you want to use before you resolve this event.");
+      } else {
+        console.log("You have no items to use.");
+      }
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -241,7 +275,7 @@ $(document).ready(function() {
         if (effects[e] === "itemU1") {
           game.drawItemCard(1);
         } else if (effects[e] === "itemU2") {
-          game.discardItemCard(2);
+          game.drawItemCard(2);
         } else if (effects[e] === "itemD1") {
           game.discardItemCard(-1);
         } else if (effects[e] === "itemD2") {
@@ -310,19 +344,27 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     moonCheck: function(num) {
     /////////////////////////////////////////////////////////////////////////
-    console.log("About to adjust the moon level by " + num);
-      if (num > 0) {
-        moonLevel += num;
-        if (moonLevel >= 25) {
-          game.gameOver();
-        }
-      } else if (num < 0) {
-        if (moonLevel + num >= 1) {
+      console.log("About to adjust the moon level by " + num);
+        if (num > 0) {
           moonLevel += num;
-        } else {
-          console.log("Moon level can't go lower");
+          if (moonLevel >= 25) {
+            game.gameOver();
+          }
+        } else if (num < 0) {
+          if (moonLevel + num >= 1) {
+            moonLevel += num;
+          } else {
+            console.log("Moon level can't go lower");
+          }
         }
-      }
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    moonState: function(num) {
+    /////////////////////////////////////////////////////////////////////////
+      // TODO This function will be called at the end of every turn. Every 4 turns a certain amount of visited tiles get 'turned back over' at random.
+      console.log("moonState function called.");
+      console.log("Turn over.");
     },
 
     /////////////////////////////////////////////////////////////////////////

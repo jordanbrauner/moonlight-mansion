@@ -81,7 +81,7 @@ main {
   padding: 5% 5%;
 }
 
-#top-main-container {
+#main-wrapper {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -92,7 +92,7 @@ main {
   height: 100%;
 }
 
-#board-wrapper {
+#map-wrapper {
   padding-top: 1.7em;
   width: 25em;
   height: 20em;
@@ -103,7 +103,7 @@ main {
   height: 100%;
 }
 
-#hud {
+#hud-wrapper {
   display: flex;
   justify-content: space-between;
 }
@@ -133,7 +133,7 @@ OF EACH SECTION
   justify-content: flex-start;
   width: 100%;
   margin-bottom: 2%;
-  padding: 4% 2%;
+  padding: 2% 2%;
 }
 
 .select-container:hover {
