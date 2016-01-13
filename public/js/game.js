@@ -317,7 +317,7 @@ $(document).ready(function() {
           game.gameOver();
         }
       } else if (num < 0) {
-        if (moonLevel - num >= 1) {
+        if (moonLevel + num >= 1) {
           moonLevel += num;
         } else {
           console.log("Moon level can't go lower");
@@ -354,6 +354,14 @@ $(document).ready(function() {
         $("#inventory-temp").append("<div><p>" + card.cardName + "</p></div>");
       });
 
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    gameOver: function(num) {
+    /////////////////////////////////////////////////////////////////////////
+      console.log("You were never heard from again!");
+      $(".map").addClass("visited");
+      $(".map").removeClass("unvisited");
     }
   };
 
