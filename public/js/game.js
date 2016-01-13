@@ -27,6 +27,7 @@ $(document).ready(function() {
       game.shuffleDeck(itemDeck);
       game.shuffleDeck(eventDeck);
       game.mapClick();
+      $("#card-wrapper #room-type").html("Choose a room");
 
       // NOTE CODE BELOW FOR TESTING PURPOSE ONLY
       console.log("Game started");
@@ -178,8 +179,9 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    renderInventory: function() {
+    discardItemCard: function(numToDiscard) {
     /////////////////////////////////////////////////////////////////////////
+      console.log("Future action for discarding a card from your inventory.");
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -200,12 +202,12 @@ $(document).ready(function() {
       /////////////////////////////////////////////////////////////////////////
       if (result === "s") {
         var fortuneEffects = eventCard[0].actions.action1.fortune;
-        game.fortuneHardship("fortune", fortuneEffects);
+        game.fortuneHardship(fortuneEffects);
         console.log("About to call discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
       } else if (result === "f") {
         var hardshipEffects = eventCard[0].actions.action1.hardship;
-        game.fortuneHardship("hardship", hardshipEffects);
+        game.fortuneHardship(hardshipEffects);
         console.log("About to call discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
       } else {
@@ -216,8 +218,10 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action2Result: function() {
     /////////////////////////////////////////////////////////////////////////
+      var avoidEffects = eventCard[0].actions.action2.a2Result;
+      console.log("avoidEffects: " + avoidEffects);
+      game.fortuneHardship(avoidEffects);
       game.discardEventCard(eventCard[0]);
-      game.renderHUD();
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -227,32 +231,116 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    fortuneHardship: function(fortuneOrHardship, effects) {
+    fortuneHardship: function(effects) {
     /////////////////////////////////////////////////////////////////////////
-      console.log("About to resolve the following " + fortuneOrHardship + "effects: " + effects);
-      if (fortuneOrHardship === "fortune") {
-        console.log(effects);
-        console.log("Effects array index 0 if fortune: " + effects[0]);
+
+      // TODO Make this code WAY MORE DRY
+
+      console.log("About to resolve the following effects: " + effects);
+      for (var e = 0; e < effects.length; e++) {
+        if (effects[e] === "itemU1") {
+          game.drawItemCard(1);
+        } else if (effects[e] === "itemU2") {
+          game.discardItemCard(2);
+        } else if (effects[e] === "itemD1") {
+          game.discardItemCard(-1);
+        } else if (effects[e] === "itemD2") {
+          game.discardItemCard(-2);
+        } else if (effects[e] === "itemD3") {
+          game.discardItemCard(-3);
+        } else if (effects[e] === "itemD4") {
+          game.discardItemCard(-4);
+        } else if (effects[e] === "sanityU1") {
+          game.sanityCheck(1);
+        } else if (effects[e] === "sanityU2") {
+          game.sanityCheck(2);
+        } else if (effects[e] === "sanityU3") {
+          game.sanityCheck(3);
+        } else if (effects[e] === "sanityU4") {
+          game.sanityCheck(4);
+        } else if (effects[e] === "sanityD1") {
+          game.sanityCheck(-1);
+        } else if (effects[e] === "sanityD2") {
+          game.sanityCheck(-2);
+        } else if (effects[e] === "sanityD3") {
+          game.sanityCheck(-3);
+        } else if (effects[e] === "sanityD4") {
+          game.sanityCheck(-4);
+        } else if (effects[e] === "moonU1") {
+          game.moonCheck(1);
+        } else if (effects[e] === "moonU2") {
+          game.moonCheck(2);
+        } else if (effects[e] === "moonU3") {
+          game.moonCheck(3);
+        } else if (effects[e] === "moonU4") {
+          game.moonCheck(4);
+        } else if (effects[e] === "moonD1") {
+          game.moonCheck(-1);
+        } else if (effects[e] === "moonD2") {
+          game.moonCheck(-2);
+        } else if (effects[e] === "moonD3") {
+          game.moonCheck(-3);
+        } else if (effects[e] === "moonD4") {
+          game.moonCheck(-4);
+        } else {
+          console.log("Effect not found: " + effects[e]);
+        }
         game.renderHUD();
-      } else if (fortuneOrHardship === "hardship") {
-        console.log("Effects Array if hardship: " + effects);
-        game.renderHUD();
-      } else {
-        console.log("(fortuneHardship function) There's been an error with this function's input. fortuneOrHardship: " + fortuneOrHardship + ". effectsArray: "+ effectsArray);
+      }
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    sanityCheck: function(num) {
+    /////////////////////////////////////////////////////////////////////////
+    console.log("About to adjust the sanity level by " + num);
+      if (num > 0) {
+        if (sanityLevel + num <= 10) {
+          sanityLevel += num;
+        } else {
+          console.log("Sanity is full");
+        }
+      } else if (num < 0) {
+        sanityLevel += num;
+        if (sanityLevel <= 0) {
+          game.gameOver();
+        }
+      }
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    moonCheck: function(num) {
+    /////////////////////////////////////////////////////////////////////////
+    console.log("About to adjust the moon level by " + num);
+      if (num > 0) {
+        moonLevel += num;
+        if (moonLevel >= 25) {
+          game.gameOver();
+        }
+      } else if (num < 0) {
+        if (moonLevel - num >= 1) {
+          moonLevel += num;
+        } else {
+          console.log("Moon level can't go lower");
+        }
       }
     },
 
     /////////////////////////////////////////////////////////////////////////
     renderHUD: function() {
     /////////////////////////////////////////////////////////////////////////
+      // Clear HUD
       $("#event-deck").html("");
       $("#item-deck").html("");
       $("#discarded").html("");
       $("#inventory-temp").html("");
       $("#sanity-level").html("");
-      $("#sanity-level").append(sanityLevel);
-      $("#moon-level").append("");
-      $("#moon-level").append(moonLevel);
+      $("#moon-level").html("");
+
+      // Update HUD
+      $("#sanity-level").html(sanityLevel);
+      $("#moon-level").html(moonLevel);
+
+      // Update Debug Footer
       eventDeck.forEach(function(card) {
         $("#event-deck").append("<div><p>" + card.cardName + "</p></div>");
       });
