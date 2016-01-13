@@ -137,6 +137,10 @@ footer section {
   display: inline-block;
 }
 
+footer h2 {
+  margin-top: 10px;
+}
+
 #item-deck, #event-deck, #discarded, #inventory-temp {
   max-width: 500px;
 }
