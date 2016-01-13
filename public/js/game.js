@@ -60,7 +60,7 @@ $(document).ready(function() {
       var i;
       while (cardsLeft) {
         i = Math.floor(Math.random() * cardsLeft--);
-        if (toShuffle[i].cardType == "event") {
+        if (toShuffle[i].cardType === "event") {
           eventDeck.push(toShuffle.splice(i, 1)[0]);
         } else {
           itemDeck.push(toShuffle.splice(i, 1)[0]);
@@ -106,7 +106,7 @@ $(document).ready(function() {
 
         $("#action-1").on("click", function() {
           console.log("Action 1 clicked");
-          game.action1Result(eventCard);
+          game.meetYourFate();
         });
 
         // Action 2
@@ -118,7 +118,7 @@ $(document).ready(function() {
           if (eventCard.length != 1) {
             console.log("No event card in play!");
           } else {
-            game.action2Result(eventCard);
+            game.action2Result();
           }
         });
 
@@ -128,7 +128,7 @@ $(document).ready(function() {
 
         $("#action-3").on("click", function() {
           console.log("Action 3 clicked");
-          game.action3Result(eventCard);
+          game.action3Result();
         });
 
         // TEST Update footer
@@ -139,9 +139,10 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    discardEventCard: function(card) {
+    discardEventCard: function() {
     /////////////////////////////////////////////////////////////////////////
-      discarded.push(card.splice(0, 1)[0]);
+      console.log("About to run through the actions within discardEventCard with the following card: " + eventCard[0]);
+      discarded.push(eventCard.splice(0, 1)[0]);
       var justAdded = discarded.length - 1;
       console.log("Card discarded: " + discarded[justAdded].cardName);
       $("#card-wrapper #room-type").html("");
@@ -179,35 +180,46 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    action1Result: function(card) {
+    meetYourFate: function() {
     /////////////////////////////////////////////////////////////////////////
-      var meetYourFate = prompt("Y for success. N for failure");
-      if (meetYourFate == "y" || meetYourFate == "Y") {
-        console.log("Fortune effects");
-        game.discardEventCard(card);
-      } else if (meetYourFate == "n" || meetYourFate == "N") {
-        console.log("Hardship effects");
-        game.discardEventCard(card);
+      var meetYourFate = prompt("'S' for success. 'F' for failure");
+      if (meetYourFate === "s" || meetYourFate === "S") {
+        game.action1Result("s");
+      } else if (meetYourFate === "f" || meetYourFate === "F") {
+        game.action1Result("f");
       } else {
         console.log("Uh oh. There's been an error in action1result!");
       }
     },
 
     /////////////////////////////////////////////////////////////////////////
-    meetYourFate: function() {
-    /////////////////////////////////////////////////////////////////////////
-
+    action1Result: function(result) {
+      /////////////////////////////////////////////////////////////////////////
+      if (result === "s") {
+        console.log("Fortune effects");
+        var fortuneEffects = eventCard[0].actions.action1.fortune;
+        console.log("These are the fortune effects: " + fortuneEffects);
+        console.log("About to call discardEventCard with the following card: " + eventCard[0]);
+        game.discardEventCard(eventCard[0]);
+      } else if (result === "f") {
+        var hardshipEffects = eventCard[0].actions.action1.hardship;
+        console.log("These are the hardship effects: " + hardshipEffects);
+        console.log("About to call discardEventCard with the following card: " + eventCard[0]);
+        game.discardEventCard(eventCard[0]);
+      } else {
+        console.log("(action1result) Error: The result was neither a success or failure.");
+      }
     },
 
     /////////////////////////////////////////////////////////////////////////
-    action2Result: function(card) {
+    action2Result: function() {
     /////////////////////////////////////////////////////////////////////////
-      game.discardEventCard(card);
+      game.discardEventCard(eventCard[0]);
       game.renderFooterCards();
     },
 
     /////////////////////////////////////////////////////////////////////////
-    action3Result: function(card) {
+    action3Result: function() {
     /////////////////////////////////////////////////////////////////////////
       console.log("Choose the item you want to use.");
     },
