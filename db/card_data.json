@@ -3,7 +3,7 @@
     "cardType": "event",
     "roomType": "The Observatory",
     "cardName": "Cloudless Sky",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
     "actions": {
       "action1" : {
         "a1Name": "Look through the telescope",
@@ -25,13 +25,13 @@
     "cardType": "event",
     "roomType": "The Observatory",
     "cardName": "Blood Moon Rising",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
     "actions": {
       "action1" : {
         "a1Name": "Embrace the light",
         "actionFate": "-3",
-        "fortune": ["moonD4, sanityD1, itemU1"],
-        "hardship": ["moonU1, sanityD2"]
+        "fortune": ["moonD4", "sanityD1", "itemU1"],
+        "hardship": ["moonU1", "sanityD2"]
       },
       "action2": {
         "a2Name": "Shield your eyes",
@@ -47,17 +47,17 @@
     "cardType": "event",
     "roomType": "The Study",
     "cardName": "Stalking Shadow",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Shagg gnaiih lloig k'yarnak shtunggli hupadgh Cthulhu ph'ep ah, ilyaa nguln s'uhn vulgtlagln Yoggoth naflzhro hafh'drn h'Nyarlathotep naChaugnar Faugn.",
     "actions": {
       "action1" : {
         "a1Name": "Stand your ground",
         "actionFate": "-2",
-        "fortune": ["itemU1, moonD1, sanityD1"],
+        "fortune": ["itemU1", "moonD1", "sanityD1"],
         "hardship": ["sanityD2"]
       },
       "action2": {
         "a2Name": "Flee the room",
-        "a2Result": ["itemD2, sanityD2"]
+        "a2Result": ["itemD2", "sanityD2"]
       },
       "action3": {
         "a3Name": "Search your bag",
@@ -69,13 +69,13 @@
     "cardType": "event",
     "roomType": "The Library",
     "cardName": "Necessary Research",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
     "actions": {
       "action1" : {
         "a1Name": "Skim through the book",
         "actionFate": "0",
-        "fortune": ["itemU1, moonU1"],
-        "hardship": ["moonU1, sanityD2"]
+        "fortune": ["itemU1", "moonU1"],
+        "hardship": ["moonU1", "sanityD2"]
       },
       "action2": {
         "a2Name": "Move on",
@@ -91,7 +91,7 @@
     "cardType": "event",
     "roomType": "Hallway",
     "cardName": "Secret Passage",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
     "actions": {
       "action1" : {
         "a1Name": "Step through the opening",
@@ -113,17 +113,17 @@
     "cardType": "event",
     "roomType": "The Attic",
     "cardName": "Disturbing Shrine",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "H'kadishtu uaaah f'syha'h nnnCthulhu llll ehye shagg ya nilgh'ri, uh'e c'ai gotha ooboshu nog gotha lw'nafh ngli'hee chtenff, Cthulhu lloig.",
     "actions": {
       "action1" : {
         "a1Name": "Pocket the medallion",
         "actionFate": "-2",
-        "fortune": ["itemU1, sanityD1"],
+        "fortune": ["itemU1", "sanityD1"],
         "hardship": ["sanityD2"]
       },
       "action2": {
         "a2Name": "Leave shrine untouched",
-        "a2Result": ["sanityD1, moonD1"]
+        "a2Result": ["sanityD1", "moonD1"]
       },
       "action3": {
         "a3Name": "Brief respite",
@@ -135,7 +135,7 @@
     "cardType": "event",
     "roomType": "The Basement",
     "cardName": "Hidden Chamber",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
     "actions": {
       "action1" : {
         "a1Name": "Search through the chest",
@@ -157,13 +157,13 @@
     "cardType": "event",
     "roomType": "The Basement",
     "cardName": "Sound in the Darkness",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Grah'n fm'latgh ah fhtagnagl hai hafh'drnoth shogg Azathoth, s'uhn ph'nglui s'uhn gnaiih R'lyeh ph'bug, geb gnaiih shugg gof'nn k'yarnakog gof'nn.",
     "actions": {
       "action1" : {
         "a1Name": "Confront the creature",
         "actionFate": "-3",
-        "fortune": ["itemU2, moonD1, sanityD2"],
-        "hardship": ["moonU2, sanityU3"]
+        "fortune": ["itemU2", "moonD1", "sanityD2"],
+        "hardship": ["moonU2", "sanityU3"]
       },
       "action2": {
         "a2Name": "Flee into the light",
@@ -179,7 +179,7 @@
   {
     "cardType": "item",
     "cardName": "Revolver",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n, syha'h Tsathoggua k'yarnak f'mnahn.",
     "useItem": {
       "itemFate": "2"
     }
@@ -188,7 +188,7 @@
     "cardType": "item",
     "roomType": "The Library",
     "cardName": "Dusty Book",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn shtunggli ilyaa uh'e ehye syha'hagl, shtunggli ehye 'bthnk shugg czhro shogg ooboshu csgn'wahl ngnog Yoggoth uaaah.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU1"]
@@ -198,7 +198,7 @@
     "cardType": "item",
     "roomType": "The Attic",
     "cardName": "Broken Bauble",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch', ep n'ghft ah ee athg wgah'n hupadgh shogg cCthulhu, wgah'n sll'ha f'Hastur syha'hyar fm'latgh k'yarnak hai.",
     "useItem": {
       "itemFate": "1"
     }
@@ -206,7 +206,7 @@
   {
     "cardType": "item",
     "cardName": "The Holy Book",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh, sll'ha gof'nn f'tharanak ebunma. Throd nawgah'n Chaugnar Faugn lw'nafh hlirgh R'lyeh, shogg y-uln geb.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["sanityU2"]
@@ -215,7 +215,7 @@
   {
     "cardType": "item",
     "cardName": "Bottle of Bourbon",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Ph'n'gha nnnr'luh geb nglui n'gha fm'latgh uln cs'uhn tharanak, ch' uln ya uh'e kadishtu cron ph'vulgtlagln R'lyeh n'gha, ph'llll.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU2"]
@@ -224,7 +224,7 @@
   {
     "cardType": "item",
     "cardName": "Ancient Relic",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Ngshtunggli ee fhtagnnyth nashugg geboth ron, kn'a syha'h vulgtm nglui athgog ftaghu, Dagon ilyaa hrii ehye. Mg y'hah ooboshunyth ya llll naflShub-Niggurath, naflehye.",
     "useItem": {
       "itemResult": ["gameEnd"]
     }
@@ -249,7 +249,7 @@
     "cardType": "event",
     "roomType": "The Observatory",
     "cardName": "Cloudless Sky",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
     "actions": {
       "action1" : {
         "a1Name": "Look through the telescope",
@@ -271,13 +271,13 @@
     "cardType": "event",
     "roomType": "The Observatory",
     "cardName": "Blood Moon Rising",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
     "actions": {
       "action1" : {
         "a1Name": "Embrace the light",
         "actionFate": "-3",
-        "fortune": ["moonD4, sanityD1, itemU1"],
-        "hardship": ["moonU1, sanityD2"]
+        "fortune": ["moonD4", "sanityD1", "itemU1"],
+        "hardship": ["moonU1", "sanityD2"]
       },
       "action2": {
         "a2Name": "Shield your eyes",
@@ -293,17 +293,17 @@
     "cardType": "event",
     "roomType": "The Study",
     "cardName": "Stalking Shadow",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Shagg gnaiih lloig k'yarnak shtunggli hupadgh Cthulhu ph'ep ah, ilyaa nguln s'uhn vulgtlagln Yoggoth naflzhro hafh'drn h'Nyarlathotep naChaugnar Faugn.",
     "actions": {
       "action1" : {
         "a1Name": "Stand your ground",
         "actionFate": "-2",
-        "fortune": ["itemU1, moonD1, sanityD1"],
+        "fortune": ["itemU1", "moonD1", "sanityD1"],
         "hardship": ["sanityD2"]
       },
       "action2": {
         "a2Name": "Flee the room",
-        "a2Result": ["itemD2, sanityD2"]
+        "a2Result": ["itemD2", "sanityD2"]
       },
       "action3": {
         "a3Name": "Search your bag",
@@ -315,13 +315,13 @@
     "cardType": "event",
     "roomType": "The Library",
     "cardName": "Necessary Research",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
     "actions": {
       "action1" : {
         "a1Name": "Skim through the book",
         "actionFate": "0",
-        "fortune": ["itemU1, moonU1"],
-        "hardship": ["moonU1, sanityD2"]
+        "fortune": ["itemU1", "moonU1"],
+        "hardship": ["moonU1", "sanityD2"]
       },
       "action2": {
         "a2Name": "Move on",
@@ -337,7 +337,7 @@
     "cardType": "event",
     "roomType": "Hallway",
     "cardName": "Secret Passage",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
     "actions": {
       "action1" : {
         "a1Name": "Step through the opening",
@@ -359,17 +359,17 @@
     "cardType": "event",
     "roomType": "The Attic",
     "cardName": "Disturbing Shrine",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "H'kadishtu uaaah f'syha'h nnnCthulhu llll ehye shagg ya nilgh'ri, uh'e c'ai gotha ooboshu nog gotha lw'nafh ngli'hee chtenff, Cthulhu lloig.",
     "actions": {
       "action1" : {
         "a1Name": "Pocket the medallion",
         "actionFate": "-2",
-        "fortune": ["itemU1, sanityD1"],
+        "fortune": ["itemU1", "sanityD1"],
         "hardship": ["sanityD2"]
       },
       "action2": {
         "a2Name": "Leave shrine untouched",
-        "a2Result": ["sanityD1, moonD1"]
+        "a2Result": ["sanityD1", "moonD1"]
       },
       "action3": {
         "a3Name": "Brief respite",
@@ -381,7 +381,7 @@
     "cardType": "event",
     "roomType": "The Basement",
     "cardName": "Hidden Chamber",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
     "actions": {
       "action1" : {
         "a1Name": "Search through the chest",
@@ -403,13 +403,13 @@
     "cardType": "event",
     "roomType": "The Basement",
     "cardName": "Sound in the Darkness",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Grah'n fm'latgh ah fhtagnagl hai hafh'drnoth shogg Azathoth, s'uhn ph'nglui s'uhn gnaiih R'lyeh ph'bug, geb gnaiih shugg gof'nn k'yarnakog gof'nn.",
     "actions": {
       "action1" : {
         "a1Name": "Confront the creature",
         "actionFate": "-3",
-        "fortune": ["itemU2, moonD1, sanityD2"],
-        "hardship": ["moonU2, sanityU3"]
+        "fortune": ["itemU2", "moonD1", "sanityD2"],
+        "hardship": ["moonU2", "sanityU3"]
       },
       "action2": {
         "a2Name": "Flee into the light",
@@ -425,7 +425,7 @@
     "cardType": "event",
     "roomType": "The Observatory",
     "cardName": "Cloudless Sky",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
     "actions": {
       "action1" : {
         "a1Name": "Look through the telescope",
@@ -447,13 +447,13 @@
     "cardType": "event",
     "roomType": "The Observatory",
     "cardName": "Blood Moon Rising",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
     "actions": {
       "action1" : {
         "a1Name": "Embrace the light",
         "actionFate": "-3",
-        "fortune": ["moonD4, sanityD1, itemU1"],
-        "hardship": ["moonU1, sanityD2"]
+        "fortune": ["moonD4", "sanityD1", "itemU1"],
+        "hardship": ["moonU1", "sanityD2"]
       },
       "action2": {
         "a2Name": "Shield your eyes",
@@ -469,17 +469,17 @@
     "cardType": "event",
     "roomType": "The Study",
     "cardName": "Stalking Shadow",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Shagg gnaiih lloig k'yarnak shtunggli hupadgh Cthulhu ph'ep ah, ilyaa nguln s'uhn vulgtlagln Yoggoth naflzhro hafh'drn h'Nyarlathotep naChaugnar Faugn.",
     "actions": {
       "action1" : {
         "a1Name": "Stand your ground",
         "actionFate": "-2",
-        "fortune": ["itemU1, moonD1, sanityD1"],
+        "fortune": ["itemU1", "moonD1", "sanityD1"],
         "hardship": ["sanityD2"]
       },
       "action2": {
         "a2Name": "Flee the room",
-        "a2Result": ["itemD2, sanityD2"]
+        "a2Result": ["itemD2", "sanityD2"]
       },
       "action3": {
         "a3Name": "Search your bag",
@@ -491,13 +491,13 @@
     "cardType": "event",
     "roomType": "The Library",
     "cardName": "Necessary Research",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
     "actions": {
       "action1" : {
         "a1Name": "Skim through the book",
         "actionFate": "0",
-        "fortune": ["itemU1, moonU1"],
-        "hardship": ["moonU1, sanityD2"]
+        "fortune": ["itemU1", "moonU1"],
+        "hardship": ["moonU1", "sanityD2"]
       },
       "action2": {
         "a2Name": "Move on",
@@ -513,7 +513,7 @@
     "cardType": "event",
     "roomType": "Hallway",
     "cardName": "Secret Passage",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
     "actions": {
       "action1" : {
         "a1Name": "Step through the opening",
@@ -535,17 +535,17 @@
     "cardType": "event",
     "roomType": "The Attic",
     "cardName": "Disturbing Shrine",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "H'kadishtu uaaah f'syha'h nnnCthulhu llll ehye shagg ya nilgh'ri, uh'e c'ai gotha ooboshu nog gotha lw'nafh ngli'hee chtenff, Cthulhu lloig.",
     "actions": {
       "action1" : {
         "a1Name": "Pocket the medallion",
         "actionFate": "-2",
-        "fortune": ["itemU1, sanityD1"],
+        "fortune": ["itemU1", "sanityD1"],
         "hardship": ["sanityD2"]
       },
       "action2": {
         "a2Name": "Leave shrine untouched",
-        "a2Result": ["sanityD1, moonD1"]
+        "a2Result": ["sanityD1", "moonD1"]
       },
       "action3": {
         "a3Name": "Brief respite",
@@ -557,7 +557,7 @@
     "cardType": "event",
     "roomType": "The Basement",
     "cardName": "Hidden Chamber",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
     "actions": {
       "action1" : {
         "a1Name": "Search through the chest",
@@ -579,13 +579,13 @@
     "cardType": "event",
     "roomType": "The Basement",
     "cardName": "Sound in the Darkness",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Grah'n fm'latgh ah fhtagnagl hai hafh'drnoth shogg Azathoth, s'uhn ph'nglui s'uhn gnaiih R'lyeh ph'bug, geb gnaiih shugg gof'nn k'yarnakog gof'nn.",
     "actions": {
       "action1" : {
         "a1Name": "Confront the creature",
         "actionFate": "-3",
-        "fortune": ["itemU2, moonD1, sanityD2"],
-        "hardship": ["moonU2, sanityU3"]
+        "fortune": ["itemU2", "moonD1", "sanityD2"],
+        "hardship": ["moonU2", "sanityU3"]
       },
       "action2": {
         "a2Name": "Flee into the light",
@@ -601,7 +601,7 @@
     "cardType": "event",
     "roomType": "The Observatory",
     "cardName": "Cloudless Sky",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
     "actions": {
       "action1" : {
         "a1Name": "Look through the telescope",
@@ -623,13 +623,13 @@
     "cardType": "event",
     "roomType": "The Observatory",
     "cardName": "Blood Moon Rising",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
     "actions": {
       "action1" : {
         "a1Name": "Embrace the light",
         "actionFate": "-3",
-        "fortune": ["moonD4, sanityD1, itemU1"],
-        "hardship": ["moonU1, sanityD2"]
+        "fortune": ["moonD4", "sanityD1", "itemU1"],
+        "hardship": ["moonU1", "sanityD2"]
       },
       "action2": {
         "a2Name": "Shield your eyes",
@@ -645,17 +645,17 @@
     "cardType": "event",
     "roomType": "The Study",
     "cardName": "Stalking Shadow",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Shagg gnaiih lloig k'yarnak shtunggli hupadgh Cthulhu ph'ep ah, ilyaa nguln s'uhn vulgtlagln Yoggoth naflzhro hafh'drn h'Nyarlathotep naChaugnar Faugn.",
     "actions": {
       "action1" : {
         "a1Name": "Stand your ground",
         "actionFate": "-2",
-        "fortune": ["itemU1, moonD1, sanityD1"],
+        "fortune": ["itemU1", "moonD1", "sanityD1"],
         "hardship": ["sanityD2"]
       },
       "action2": {
         "a2Name": "Flee the room",
-        "a2Result": ["itemD2, sanityD2"]
+        "a2Result": ["itemD2", "sanityD2"]
       },
       "action3": {
         "a3Name": "Search your bag",
@@ -667,13 +667,13 @@
     "cardType": "event",
     "roomType": "The Library",
     "cardName": "Necessary Research",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
     "actions": {
       "action1" : {
         "a1Name": "Skim through the book",
         "actionFate": "0",
-        "fortune": ["itemU1, moonU1"],
-        "hardship": ["moonU1, sanityD2"]
+        "fortune": ["itemU1", "moonU1"],
+        "hardship": ["moonU1", "sanityD2"]
       },
       "action2": {
         "a2Name": "Move on",
@@ -689,7 +689,7 @@
     "cardType": "event",
     "roomType": "Hallway",
     "cardName": "Secret Passage",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
     "actions": {
       "action1" : {
         "a1Name": "Step through the opening",
@@ -711,17 +711,17 @@
     "cardType": "event",
     "roomType": "The Attic",
     "cardName": "Disturbing Shrine",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "H'kadishtu uaaah f'syha'h nnnCthulhu llll ehye shagg ya nilgh'ri, uh'e c'ai gotha ooboshu nog gotha lw'nafh ngli'hee chtenff, Cthulhu lloig.",
     "actions": {
       "action1" : {
         "a1Name": "Pocket the medallion",
         "actionFate": "-2",
-        "fortune": ["itemU1, sanityD1"],
+        "fortune": ["itemU1", "sanityD1"],
         "hardship": ["sanityD2"]
       },
       "action2": {
         "a2Name": "Leave shrine untouched",
-        "a2Result": ["sanityD1, moonD1"]
+        "a2Result": ["sanityD1", "moonD1"]
       },
       "action3": {
         "a3Name": "Brief respite",
@@ -733,7 +733,7 @@
     "cardType": "event",
     "roomType": "The Basement",
     "cardName": "Hidden Chamber",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
     "actions": {
       "action1" : {
         "a1Name": "Search through the chest",
@@ -755,13 +755,13 @@
     "cardType": "event",
     "roomType": "The Basement",
     "cardName": "Sound in the Darkness",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Grah'n fm'latgh ah fhtagnagl hai hafh'drnoth shogg Azathoth, s'uhn ph'nglui s'uhn gnaiih R'lyeh ph'bug, geb gnaiih shugg gof'nn k'yarnakog gof'nn.",
     "actions": {
       "action1" : {
         "a1Name": "Confront the creature",
         "actionFate": "-3",
-        "fortune": ["itemU2, moonD1, sanityD2"],
-        "hardship": ["moonU2, sanityU3"]
+        "fortune": ["itemU2", "moonD1", "sanityD2"],
+        "hardship": ["moonU2", "sanityU3"]
       },
       "action2": {
         "a2Name": "Flee into the light",
@@ -773,10 +773,11 @@
       }
     }
   },
+
   {
     "cardType": "item",
     "cardName": "Revolver",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n, syha'h Tsathoggua k'yarnak f'mnahn.",
     "useItem": {
       "itemFate": "2"
     }
@@ -785,7 +786,7 @@
     "cardType": "item",
     "roomType": "The Library",
     "cardName": "Dusty Book",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn shtunggli ilyaa uh'e ehye syha'hagl, shtunggli ehye 'bthnk shugg czhro shogg ooboshu csgn'wahl ngnog Yoggoth uaaah.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU1"]
@@ -795,7 +796,7 @@
     "cardType": "item",
     "roomType": "The Attic",
     "cardName": "Broken Bauble",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch', ep n'ghft ah ee athg wgah'n hupadgh shogg cCthulhu, wgah'n sll'ha f'Hastur syha'hyar fm'latgh k'yarnak hai.",
     "useItem": {
       "itemFate": "1"
     }
@@ -803,7 +804,51 @@
   {
     "cardType": "item",
     "cardName": "The Holy Book",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh, sll'ha gof'nn f'tharanak ebunma. Throd nawgah'n Chaugnar Faugn lw'nafh hlirgh R'lyeh, shogg y-uln geb.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["sanityU2"]
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "Ancient Relic",
+    "flavorText": "Ngshtunggli ee fhtagnnyth nashugg geboth ron, kn'a syha'h vulgtm nglui athgog ftaghu, Dagon ilyaa hrii ehye. Mg y'hah ooboshunyth ya llll naflShub-Niggurath, naflehye.",
+    "useItem": {
+      "itemResult": ["gameEnd"]
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "Revolver",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n, syha'h Tsathoggua k'yarnak f'mnahn.",
+    "useItem": {
+      "itemFate": "2"
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Library",
+    "cardName": "Dusty Book",
+    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn shtunggli ilyaa uh'e ehye syha'hagl, shtunggli ehye 'bthnk shugg czhro shogg ooboshu csgn'wahl ngnog Yoggoth uaaah.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["moonU1"]
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Attic",
+    "cardName": "Broken Bauble",
+    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch', ep n'ghft ah ee athg wgah'n hupadgh shogg cCthulhu, wgah'n sll'ha f'Hastur syha'hyar fm'latgh k'yarnak hai.",
+    "useItem": {
+      "itemFate": "1"
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "The Holy Book",
+    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh, sll'ha gof'nn f'tharanak ebunma. Throd nawgah'n Chaugnar Faugn lw'nafh hlirgh R'lyeh, shogg y-uln geb.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["sanityU2"]
@@ -812,7 +857,7 @@
   {
     "cardType": "item",
     "cardName": "Bottle of Bourbon",
-    "flavorText": "Sitate eos sequisc imaximi ntinctem in conse omnim voluptume volupta consequis se omnis esed quiatin. Epuda sam quidernatur simolorum.",
+    "flavorText": "Ph'n'gha nnnr'luh geb nglui n'gha fm'latgh uln cs'uhn tharanak, ch' uln ya uh'e kadishtu cron ph'vulgtlagln R'lyeh n'gha, ph'llll.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU2"]

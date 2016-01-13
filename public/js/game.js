@@ -6,6 +6,8 @@ $(document).ready(function() {
   eventCard = [];
   inventory = [];
   discarded = [];
+  sanity = 10;
+  moon = 0;
 
   // Fetch JSON card data
   Card.fetch().then(function() {
@@ -75,6 +77,7 @@ $(document).ready(function() {
     mapClick: function() {
     /////////////////////////////////////////////////////////////////////////
       $(".map").on("click", function(event) {
+        console.log("********* NEW TURN *********")
         var tileNumber = $(event.target).attr("id") - 1;
         if (eventCard.length === 0 && eventDeck[tileNumber] !== "drawn") {
           console.log("Drawing card from the eventDeck with the id of " + tileNumber + ".");
@@ -141,7 +144,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     discardEventCard: function() {
     /////////////////////////////////////////////////////////////////////////
-      console.log("About to run through the actions within discardEventCard with the following card: " + eventCard[0]);
+      console.log("About to run through the actions within discardEventCard with the following card: " + eventCard[0].cardName);
       discarded.push(eventCard.splice(0, 1)[0]);
       var justAdded = discarded.length - 1;
       console.log("Card discarded: " + discarded[justAdded].cardName);
@@ -196,15 +199,14 @@ $(document).ready(function() {
     action1Result: function(result) {
       /////////////////////////////////////////////////////////////////////////
       if (result === "s") {
-        console.log("Fortune effects");
         var fortuneEffects = eventCard[0].actions.action1.fortune;
-        console.log("These are the fortune effects: " + fortuneEffects);
-        console.log("About to call discardEventCard with the following card: " + eventCard[0]);
+        game.fortuneHardship("fortune", fortuneEffects);
+        console.log("About to call discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
       } else if (result === "f") {
         var hardshipEffects = eventCard[0].actions.action1.hardship;
-        console.log("These are the hardship effects: " + hardshipEffects);
-        console.log("About to call discardEventCard with the following card: " + eventCard[0]);
+        game.fortuneHardship("hardship", hardshipEffects);
+        console.log("About to call discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
       } else {
         console.log("(action1result) Error: The result was neither a success or failure.");
@@ -222,6 +224,20 @@ $(document).ready(function() {
     action3Result: function() {
     /////////////////////////////////////////////////////////////////////////
       console.log("Choose the item you want to use.");
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    fortuneHardship: function(fortuneOrHardship, effects) {
+    /////////////////////////////////////////////////////////////////////////
+      console.log("About to resolve the following " + fortuneOrHardship + "effects: " + effects);
+      if (fortuneOrHardship === "fortune") {
+        console.log(effects);
+        console.log("Effects array index 0 if fortune: " + effects[0]);
+      } else if (fortuneOrHardship === "hardship") {
+        console.log("Effects Array if hardship: " + effects);
+      } else {
+        console.log("(fortuneHardship function) There's been an error with this function's input. fortuneOrHardship: " + fortuneOrHardship + ". effectsArray: "+ effectsArray);
+      }
     },
 
     /////////////////////////////////////////////////////////////////////////
