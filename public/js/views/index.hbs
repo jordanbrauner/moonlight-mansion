@@ -1,131 +1,139 @@
-<!-- PLAYER WINDOW -->
-<section id="player-wrapper">
-  <h1>Inventory</h1>
-  <div class="select-container" id="player-item-1">
-    <div class="left-column">
-      <h2>Ancient Relic</h2>
-      <p>Veligeni squunt est qui volupta sd ishtar lorence quodis ellicate pe aperem.</p>
-    </div>
-    <div class="right-column">
-      <p>???????????</p>
-    </div>
-  </div>
-  <div class="select-container" id="player-item-2">
-    <div class="left-column">
-      <h2>Bottle of Bourbon</h2>
-      <p>Veligeni squunt est qui volupta sd ishtar lorence pe aperem.</p>
-    </div>
-    <div class="right-column">
-      <p>Gain 1 Sanity, Moon rises</p>
-    </div>
-  </div>
-  <div class="select-container" id="player-item-3">
-    <div class="left-column">
-      <h2>Dusty Book</h2>
-      <p>Veligeni squunt est qui volupta sd ishtar lorence quodis ellicate.</p>
-    </div>
-    <div class="right-column">
-      <p>Increase fortune in <strong>The Library</strong></p>
-    </div>
-  </div>
-  <div class="select-container" id="player-item-4">
-    <div class="left-column">
-      <h2>Broken Bauble</h2>
-      <p>Veligeni squunt est qui volupta sd ishtar lorence.</p>
-    </div>
-    <div class="right-column">
-      <p>Increase fortune in <strong>The Attic</strong></p>
-    </div>
-  </div>
-  <div id="sanity">
-    <p>SANITY OOOOO</p>
-  </div>
-  </div>
-</section>
-
-
-<!-- GAME BOARD WINDOW -->
-<section id="board-wrapper">
-  <section class="row" id="row-1">
-    <div class="map unvisited" id="1"></div>
-    <div class="map unvisited" id="2"></div>
-    <div class="map unvisited" id="3"></div>
-    <div class="map unvisited" id="4"></div>
-    <div class="map unvisited" id="5"></div>
-    <div class="map unvisited" id="6"></div>
-  </section>
-  <section class="row" id="row-2">
-    <div class="map unvisited" id="7"></div>
-    <div class="map unvisited" id="8"></div>
-    <div class="map unvisited" id="9"></div>
-    <div class="map unvisited" id="10"></div>
-    <div class="map unvisited" id="11"></div>
-    <div class="map unvisited" id="12"></div>
-  </section>
-  <section class="row" id="row-3">
-    <div class="map unvisited" id="13"></div>
-    <div class="map unvisited" id="14"></div>
-    <div class="map unvisited" id="15"></div>
-    <div class="map unvisited" id="16"></div>
-    <div class="map unvisited" id="17"></div>
-    <div class="map unvisited" id="18"></div>
-  </section>
-  <section class="row" id="row-4">
-    <div class="map unvisited" id="19"></div>
-    <div class="map unvisited" id="20"></div>
-    <div class="map unvisited" id="21"></div>
-    <div class="map unvisited" id="22"></div>
-    <div class="map unvisited" id="23"></div>
-    <div class="map unvisited" id="24"></div>
-  </section>
-  <section class="row" id="row-5">
-    <div class="map unvisited" id="25"></div>
-    <div class="map unvisited" id="26"></div>
-    <div class="map unvisited" id="27"></div>
-    <div class="map unvisited" id="28"></div>
-    <div class="map unvisited" id="29"></div>
-    <div class="map unvisited" id="30"></div>
-  </section>
-
-
-  <div id="map-placeholder"></div>
-</section>
-
-
-<!-- EVENT CARD WINDOW -->
-<section id="card-wrapper">
-  <h1 id="room-type"></h1>
-  <div class="select-container" id="no-highlight">
-    <div>
-      <h2 class="card-name"></h2>
-      <h3 class="flavor-text"></h3>
-    </div>
-  </div>
-  <div id="actions-wrapper">
-    <div class="select-container" id="action-1">
+<div id="top-main-container">
+  <!-- PLAYER WINDOW -->
+  <section id="player-wrapper">
+    <h1>Inventory</h1>
+    <div class="select-container" id="player-item-1">
       <div class="left-column">
-        <h2 id="a1-name"></h2>
+        <h2>Ancient Relic</h2>
+        <p>Veligeni squunt est qui volupta sd ishtar lorence quodis ellicate pe aperem.</p>
       </div>
       <div class="right-column">
-        <p id="a1-fortune"></p>
-        <p id="a1-hardship"></p>
+        <p>???????????</p>
       </div>
     </div>
-    <div class="select-container" id="action-2">
+    <div class="select-container" id="player-item-2">
       <div class="left-column">
-        <h2 id="a2-name"></h2>
+        <h2>Bottle of Bourbon</h2>
+        <p>Veligeni squunt est qui volupta sd ishtar lorence pe aperem.</p>
       </div>
       <div class="right-column">
-        <p id="a2-result"></p>
+        <p>Gain 1 Sanity, Moon rises</p>
       </div>
     </div>
-    <div class="select-container" id="action-3">
+    <div class="select-container" id="player-item-3">
       <div class="left-column">
-        <h2 id="a3-name"></h2>
+        <h2>Dusty Book</h2>
+        <p>Veligeni squunt est qui volupta sd ishtar lorence quodis ellicate.</p>
       </div>
       <div class="right-column">
-        <p id="a3-result"></p>
+        <p>Increase fortune in <strong>The Library</strong></p>
       </div>
     </div>
+    <div class="select-container" id="player-item-4">
+      <div class="left-column">
+        <h2>Broken Bauble</h2>
+        <p>Veligeni squunt est qui volupta sd ishtar lorence.</p>
+      </div>
+      <div class="right-column">
+        <p>Increase fortune in <strong>The Attic</strong></p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- GAME BOARD WINDOW -->
+  <section id="board-wrapper">
+    <section class="row" id="row-1">
+      <div class="map unvisited" id="1"></div>
+      <div class="map unvisited" id="2"></div>
+      <div class="map unvisited" id="3"></div>
+      <div class="map unvisited" id="4"></div>
+      <div class="map unvisited" id="5"></div>
+      <div class="map unvisited" id="6"></div>
+    </section>
+    <section class="row" id="row-2">
+      <div class="map unvisited" id="7"></div>
+      <div class="map unvisited" id="8"></div>
+      <div class="map unvisited" id="9"></div>
+      <div class="map unvisited" id="10"></div>
+      <div class="map unvisited" id="11"></div>
+      <div class="map unvisited" id="12"></div>
+    </section>
+    <section class="row" id="row-3">
+      <div class="map unvisited" id="13"></div>
+      <div class="map unvisited" id="14"></div>
+      <div class="map unvisited" id="15"></div>
+      <div class="map unvisited" id="16"></div>
+      <div class="map unvisited" id="17"></div>
+      <div class="map unvisited" id="18"></div>
+    </section>
+    <section class="row" id="row-4">
+      <div class="map unvisited" id="19"></div>
+      <div class="map unvisited" id="20"></div>
+      <div class="map unvisited" id="21"></div>
+      <div class="map unvisited" id="22"></div>
+      <div class="map unvisited" id="23"></div>
+      <div class="map unvisited" id="24"></div>
+    </section>
+    <section class="row" id="row-5">
+      <div class="map unvisited" id="25"></div>
+      <div class="map unvisited" id="26"></div>
+      <div class="map unvisited" id="27"></div>
+      <div class="map unvisited" id="28"></div>
+      <div class="map unvisited" id="29"></div>
+      <div class="map unvisited" id="30"></div>
+    </section>
+
+
+    <div id="map-placeholder"></div>
+  </section>
+
+
+  <!-- EVENT CARD WINDOW -->
+  <section id="card-wrapper">
+    <h1 id="room-type"></h1>
+    <div class="select-container" id="no-highlight">
+      <div>
+        <h2 class="card-name"></h2>
+        <h3 class="flavor-text"></h3>
+      </div>
+    </div>
+    <div id="actions-wrapper">
+      <div class="select-container" id="action-1">
+        <div class="left-column">
+          <h2 id="a1-name"></h2>
+        </div>
+        <div class="right-column">
+          <p id="a1-fortune"></p>
+          <p id="a1-hardship"></p>
+        </div>
+      </div>
+      <div class="select-container" id="action-2">
+        <div class="left-column">
+          <h2 id="a2-name"></h2>
+        </div>
+        <div class="right-column">
+          <p id="a2-result"></p>
+        </div>
+      </div>
+      <div class="select-container" id="action-3">
+        <div class="left-column">
+          <h2 id="a3-name"></h2>
+        </div>
+        <div class="right-column">
+          <p id="a3-result"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- HUD WINDOW -->
+<section id="hud">
+  <div id="sanity-container">
+    <p>SANITY: <span id="sanity-level"></span></p>
+  </div>
+  <div id="moon-container">
+    <p>MOON: <span id="moon-level"></span></p>
   </div>
 </section>

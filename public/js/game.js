@@ -6,8 +6,8 @@ $(document).ready(function() {
   eventCard = [];
   inventory = [];
   discarded = [];
-  sanity = 10;
-  moon = 0;
+  sanityLevel = 10;
+  moonLevel = 1;
 
   // Fetch JSON card data
   Card.fetch().then(function() {
@@ -34,8 +34,8 @@ $(document).ready(function() {
       // $("#shuffle").on("click", function() {
       //   game.shuffleDeck(eventDeck);
       //   game.shuffleDeck(itemDeck);
-      //   game.renderFooterCards(eventDeck);
-      //   game.renderFooterCards(itemDeck);
+      //   game.renderHUD(eventDeck);
+      //   game.renderHUD(itemDeck);
       //   console.log(eventDeck);
       // });
       //
@@ -46,7 +46,7 @@ $(document).ready(function() {
       //   game.drawItemCard(itemDeck);
       // });
 
-      game.renderFooterCards();
+      game.renderHUD();
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -77,7 +77,7 @@ $(document).ready(function() {
     mapClick: function() {
     /////////////////////////////////////////////////////////////////////////
       $(".map").on("click", function(event) {
-        console.log("********* NEW TURN *********")
+        console.log("********* NEW TURN *********");
         var tileNumber = $(event.target).attr("id") - 1;
         if (eventCard.length === 0 && eventDeck[tileNumber] !== "drawn") {
           console.log("Drawing card from the eventDeck with the id of " + tileNumber + ".");
@@ -135,7 +135,7 @@ $(document).ready(function() {
         });
 
         // TEST Update footer
-        game.renderFooterCards();
+        game.renderHUD();
       } else {
         console.log("Either you must pick an action on your current card or you are trying to draw an event card but the deck is empty.");
       }
@@ -170,7 +170,7 @@ $(document).ready(function() {
         inventory.push(itemDeck.splice(0, 1)[0]);
         var newItem = inventory[inventory.length - 1];
         $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
-        game.renderFooterCards();
+        game.renderHUD();
       } else {
         console.log("You need to discard a card from your inventory first");
         // TODO run discard inventory function and then re-run drawItemCard
@@ -217,7 +217,7 @@ $(document).ready(function() {
     action2Result: function() {
     /////////////////////////////////////////////////////////////////////////
       game.discardEventCard(eventCard[0]);
-      game.renderFooterCards();
+      game.renderHUD();
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -233,20 +233,26 @@ $(document).ready(function() {
       if (fortuneOrHardship === "fortune") {
         console.log(effects);
         console.log("Effects array index 0 if fortune: " + effects[0]);
+        game.renderHUD();
       } else if (fortuneOrHardship === "hardship") {
         console.log("Effects Array if hardship: " + effects);
+        game.renderHUD();
       } else {
         console.log("(fortuneHardship function) There's been an error with this function's input. fortuneOrHardship: " + fortuneOrHardship + ". effectsArray: "+ effectsArray);
       }
     },
 
     /////////////////////////////////////////////////////////////////////////
-    renderFooterCards: function() {
+    renderHUD: function() {
     /////////////////////////////////////////////////////////////////////////
       $("#event-deck").html("");
       $("#item-deck").html("");
       $("#discarded").html("");
       $("#inventory-temp").html("");
+      $("#sanity-level").html("");
+      $("#sanity-level").append(sanityLevel);
+      $("#moon-level").append("");
+      $("#moon-level").append(moonLevel);
       eventDeck.forEach(function(card) {
         $("#event-deck").append("<div><p>" + card.cardName + "</p></div>");
       });

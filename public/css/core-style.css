@@ -76,16 +76,20 @@ MAIN
 **************/
 
 main {
+  /* Return height to 70% once the temporary footer is back at bg-color black & height: 15% */
+  height: 45%;
+  padding: 5% 5%;
+}
+
+#top-main-container {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  /* Return height to 70% once the temporary footer is back at bg-color black & height: 15% */
-  min-height: 55%;
-  padding: 5% 5%;
 }
 
 #player-wrapper {
   width: 28%;
+  height: 100%;
 }
 
 #board-wrapper {
@@ -95,7 +99,28 @@ main {
 }
 
 #card-wrapper {
-  width: 28%
+  width: 28%;
+  height: 100%;
+}
+
+#hud {
+  display: flex;
+  justify-content: space-between;
+}
+
+#sanity-container {
+  width: 28%;
+  border-top: 1px solid black;
+  padding-top: 1%;
+  letter-spacing: 2px;
+}
+
+#moon-container {
+  width: 28%;
+  border-top: 1px solid black;
+  padding-top: 1%;
+  letter-spacing: 2px;
+  text-align: right;
 }
 
 /**************
@@ -116,19 +141,19 @@ OF EACH SECTION
 }
 
 .left-column {
-  width: 70%;
+  width: 60%;
 }
 
 .right-column {
   text-align: right;
-  width: 25%;
+  width: 35%;
 }
 
 /**************
 FOOTER STYLES FOR TESTING ONLY
 **************/
 
-footer section {
+footer > section {
   display: flex;
   justify-content: flex-start;
 
