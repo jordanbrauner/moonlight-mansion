@@ -75,12 +75,14 @@ $(document).ready(function() {
     mapClick: function() {
     /////////////////////////////////////////////////////////////////////////
       $(".map").on("click", function(event) {
-        if (eventCard.length === 0) {
+        var tileNumber = $(event.target).attr("id") - 1;
+        if (eventCard.length === 0 && eventDeck[tileNumber] !== "drawn") {
+          console.log("Drawing card from the eventDeck with the id of " + tileNumber + ".");
           $(event.target).removeClass("unvisited");
           $(event.target).addClass("visited");
-          tileNumber = $(event.target).attr("id") - 1;
-          console.log(tileNumber);
           game.drawEventCard(tileNumber);
+        } else if (eventDeck[tileNumber] === "drawn") {
+          console.log("You already drew this card.");
         } else {
           console.log("You must resolve the current event first.");
         }
@@ -91,7 +93,7 @@ $(document).ready(function() {
     drawEventCard: function(tileNumber) {
     /////////////////////////////////////////////////////////////////////////
       if (eventDeck.length > 0 && eventCard.length < 1) {
-        eventCard.push(eventDeck.splice(tileNumber, 1)[0]);
+        eventCard.push(eventDeck.splice(tileNumber, 1, "drawn")[0]);
         var drawnCard = eventCard[0];
         $("#card-wrapper #room-type").html(drawnCard.roomType);
         $("#card-wrapper .card-name").html(drawnCard.cardName);
