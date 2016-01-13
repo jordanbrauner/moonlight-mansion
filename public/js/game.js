@@ -218,7 +218,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     discardItemCard: function(numToDiscard, card) {
     /////////////////////////////////////////////////////////////////////////
-      console.log("Future action for discarding a card from your inventory.");
+      console.log("Placeholder for discardItemCard function.");
       // while (numToDiscard) {
       //   console.log("Item card to discard: " + card.cardName);
       //   numToDiscard -= 1;
@@ -246,13 +246,13 @@ $(document).ready(function() {
         console.log("Player succeeded.");
         var fortuneEffects = eventCard[0].actions.action1.fortune;
         game.fortuneHardship(fortuneEffects);
-        console.log("About to call discardEventCard with the following card: " + eventCard[0].cardName);
+        console.log("Calling discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
       } else if (result === "f") {
         console.log("Player failed.");
         var hardshipEffects = eventCard[0].actions.action1.hardship;
         game.fortuneHardship(hardshipEffects);
-        console.log("About to call discardEventCard with the following card: " + eventCard[0].cardName);
+        console.log("Calling discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
       } else {
         console.log("(action1result) Error: The result was neither a success or failure.");
@@ -321,7 +321,7 @@ $(document).ready(function() {
 
       // TODO Make this code WAY MORE DRY
 
-      console.log("About to resolve the following effects: " + effects);
+      console.log("Resolving the following effects: " + effects);
       for (var e = 0; e < effects.length; e++) {
         if (effects[e] === "itemU1") {
           game.drawItemCard(1);
@@ -377,7 +377,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     sanityCheck: function(num) {
     /////////////////////////////////////////////////////////////////////////
-    console.log("About to adjust the sanity level by " + num);
+    console.log("Adjusting the sanity level by " + num);
       if (num > 0) {
         if (sanityLevel + num <= 10) {
           sanityLevel += num;
@@ -395,7 +395,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     moonCheck: function(num) {
     /////////////////////////////////////////////////////////////////////////
-      console.log("About to adjust the moon level by " + num);
+      console.log("Adjusting the moon level by " + num);
         if (num > 0) {
           moonLevel += num;
           if (moonLevel >= 25) {
