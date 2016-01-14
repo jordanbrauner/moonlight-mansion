@@ -43,6 +43,11 @@ p {
   font-size: 11px;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 /**************
 CORE HTML
 **************/
@@ -76,4 +81,8 @@ footer {
   padding: 3% 5%;
   background-color: black;
   opacity: 0.55;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: .25em;
+  text-align: right;
 }

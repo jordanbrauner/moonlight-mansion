@@ -90,14 +90,14 @@ THE MAP
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 18%;
-  padding: 1% 0;
+  height: 17.45%;
+  padding: 1.5% 0;
 }
 
 .map {
   height: 100%;
-  width: 15%;
-  border-radius: 5px;
+  width: 14.25%;
+  border-radius: 4px;
 }
 
 .unvisited {
@@ -147,8 +147,6 @@ THE USER INTERFACE
   height: 30px;
 
 }
-
-
 
 .animated {
   -webkit-animation-duration: .2s;
