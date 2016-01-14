@@ -35,13 +35,7 @@ $(document).ready(function() {
       $("#card-wrapper #room-type").html("Enter a room");
 
       game.renderUI();
-      console.log("Game started");
-
-      // NOTE CODE BELOW FOR TESTING PURPOSE ONLY
-      $("#renderUI").on("click", function() {
-        game.renderUI();
-      });
-
+      $("#message-log").append("<p>Against your better judgement you enter the decrepit mansion to find the <strong>Ancient Relic</strong>.</p>");
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -71,17 +65,34 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     mapClick: function() {
     /////////////////////////////////////////////////////////////////////////
+      var rnd = Math.floor(Math.random() * (30));
+      var startingTile = "#" + rnd;
+      var startingTileID = rnd - 1;
+      $(startingTile).addClass("visited");
+      $(startingTile).removeClass("unvisited");
+      console.log("Starting tile is " + startingTile);
+      game.drawEventCard(startingTileID);
+
       $(".map").on("click", function(event) {
         $("#message-log").html("");
         $("#message-log").append("<p>Start of turn " + turnCounter + ".</p>");
         console.log("********* START OF TURN *********");
-        var tileNumber = $(event.target).attr("id") - 1;
-        if (eventCard.length === 0 && eventDeck[tileNumber] !== "drawn") {
-          console.log("Drawing card from the eventDeck with the id of " + tileNumber + ".");
-          $(event.target).removeClass("unvisited");
-          $(event.target).addClass("visited");
-          game.drawEventCard(tileNumber);
-        } else if (eventDeck[tileNumber] === "drawn") {
+        var tileID = $(event.target).attr("id");
+        var tileCardID = $(event.target).attr("id") - 1;
+        if (eventCard.length === 0 && eventDeck[tileCardID] !== "drawn") {
+          // if event.target.id is equal to the id of an adjacent tile then proceed
+          if ( $("#" + (tileID + 1)).hasClass("visited") ||
+               $("#" + (tileID - 1)).hasClass("visited") ||
+               $("#" + (tileID + 6)).hasClass("visited") ||
+               $("#" + (tileID - 6)).hasClass("visited") ) {
+            console.log("Drawing card from the eventDeck with the id of " + tileCardID + ".");
+            $(event.target).removeClass("unvisited");
+            $(event.target).addClass("visited");
+            game.drawEventCard(tileCardID);
+          } else {
+            console.log("You must click on a room adjacent to one you've visited.");
+          }
+        } else if (eventDeck[tileCardID] === "drawn") {
           console.log("You already drew this card.");
         } else {
           console.log("You must resolve the current event first.");
