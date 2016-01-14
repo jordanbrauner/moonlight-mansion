@@ -92,11 +92,14 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     drawEventCard: function(tileNumber) {
     /////////////////////////////////////////////////////////////////////////
+      $(".card-element-container").show();
+      $("#actions-wrapper").show();
       if (eventDeck.length > 0 && eventCard.length < 1) {
         eventCard.push(eventDeck.splice(tileNumber, 1, "drawn")[0]);
         var drawnCard = eventCard[0];
         actionPhase = true;
 
+        // Render card information into their HTML elements
         $("#card-wrapper #room-type").html(drawnCard.roomType);
         $("#card-wrapper .card-name").html(drawnCard.cardName);
         $("#card-wrapper .flavor-text").html(drawnCard.flavorText);
@@ -138,10 +141,8 @@ $(document).ready(function() {
           if (actionPhase) {
             game.action3Result();
           }
-          game.listenersOff();
+          $("action-3").off("click");
         });
-        // TEST Update footer
-        game.renderUI();
       } else {
         console.log("Either you must pick an action on your current card or you are trying to draw an event card but the deck is empty.");
       }
@@ -195,14 +196,12 @@ $(document).ready(function() {
           var itemResult = newItem.useItem.itemResult;
           var roomType = newItem.roomType;
 
-          // console.log("Item Fate: " + itemFate);
           if (itemFate && roomType) {
             $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
           } else if (itemFate && !roomType) {
             $("#item-" + newItem.id + " .right-column").append("<p>Increases fate: " + itemFate + "</p>");
           }
 
-          // console.log("Item Result: " + itemResult);
           if (itemResult) {
             $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + itemResult + "</p>");
           }
@@ -214,8 +213,8 @@ $(document).ready(function() {
           });
 
           // Debug footer
-          $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
-          game.renderUI();
+          // $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
+          // game.renderUI();
         }
       } else if (itemDeck.length <= 0) {
         console.log("There are no cards left in the item deck.");
@@ -238,6 +237,9 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     meetYourFate: function() {
     /////////////////////////////////////////////////////////////////////////
+    $(".card-element-container").hide();
+    $("#actions-wrapper").hide();
+    $("#meet-your-fate-container").show();
       // instantiate variable for the card's fate
       var fate = eventCard[0].actions.action1.actionFate + fateMod;
       console.log("Fate now set at: " + fate);
@@ -306,16 +308,17 @@ $(document).ready(function() {
       $("#meet-your-fate-container").on("click", function(event) {
         var gameResult = $(event.target).attr("id");
         if (gameResult === "fortune") {
-          $("#message-log").append("<p>Fortune favored you</p>");
+          $("#message-log").append("<p><strong>Fortune favored you</strong>.</p>");
           game.action1Result("s");
         } else if (gameResult === "hardship") {
-          $("#message-log").append("<p>Fortune abandonded you</p>");
+          $("#message-log").append("<p><strong>Fortune abandoned you</strong>.</p>");
           game.action1Result("f");
         } else {
           console.log("There's been an error with the game's result.");
         }
         $("#meet-your-fate-container").html("");
         $("#meet-your-fate-container").off("click");
+        $("#meet-your-fate-container").hide();
       });
 
     },
@@ -344,7 +347,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action2Result: function() {
     /////////////////////////////////////////////////////////////////////////
-      $("#message-log").append("<p>You decided to move on.</p>");
+      $("#message-log").append("<p><strong>You decided to move on</strong>.</p>");
       actionPhase = false;
       var avoidEffects = eventCard[0].actions.action2.a2Result;
       game.fortuneHardship(avoidEffects);
@@ -464,7 +467,7 @@ $(document).ready(function() {
     sanityCheck: function(num) {
     /////////////////////////////////////////////////////////////////////////
     console.log("Adjusting the sanity level by " + num);
-    $("#message-log").append("<p>Sanity adjusted by " + num + "</p>");
+    $("#message-log").append("<p>Sanity adjusted by " + num + ".</p>");
       if (num > 0) {
         if (sanityLevel + num <= 10) {
           sanityLevel += num;
@@ -484,7 +487,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       moonCheck: function(num) {
         console.log("Adjusting the moon level by " + num);
-        $("#message-log").append("<p>Moon height adjusted by " + num + "</p>");
+        $("#message-log").append("<p>Moon height adjusted by " + num + ".</p>");
         if (num > 0) {
           moonLevel += num;
           if (moonLevel >= 25) {
@@ -524,7 +527,7 @@ $(document).ready(function() {
       console.log("The moon rises.");
       moonLevel += 1;
       turnCounter += 1;
-      $("#message-log").append("<p>End of turn " + turnCounter + ".</p>");
+      $("#message-log").append("<p>End of turn " + (turnCounter - 1) + ".</p>");
       game.renderUI();
     },
 
@@ -542,26 +545,12 @@ $(document).ready(function() {
       // Update UI
       $("#sanity-level").html(sanityLevel);
       $("#moon-level").html(moonLevel);
-
-      // Update Debug Footer
-      // eventDeck.forEach(function(card) {
-      //   $("#event-deck").append("<div><p>" + card.cardName + "</p></div>");
-      // });
-      // itemDeck.forEach(function(card) {
-      //   $("#item-deck").append("<div><p>" + card.cardName + "</p></div>");
-      // });
-      // discarded.forEach(function(card) {
-      //   $("#discarded").append("<div><p>" + card.cardName + "</p></div>");
-      // });
-      // inventory.forEach(function(card) {
-      //   $("#inventory-temp").append("<div><p>" + card.cardName + "</p></div>");
-      // });
-
     },
 
     /////////////////////////////////////////////////////////////////////////
     gameOver: function(num) {
     /////////////////////////////////////////////////////////////////////////
+      $("#message-log").append("<p>You were never heard from again.</p>");
       console.log("You were never heard from again!");
       $(".map").addClass("visited");
       $(".map").removeClass("unvisited");
