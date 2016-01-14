@@ -12,6 +12,7 @@ $(document).ready(function() {
   fateMod = 0;
   canUseItem = false;
   actionPhase = false;
+  turnCounter = 1;
 
   // Fetch JSON card data
   Card.fetch().then(function() {
@@ -31,7 +32,7 @@ $(document).ready(function() {
       game.shuffleDeck(itemDeck);
       game.shuffleDeck(eventDeck);
       game.mapClick();
-      $("#card-wrapper #room-type").html("Choose a room");
+      $("#card-wrapper #room-type").html("Enter a room");
 
       game.renderUI();
       console.log("Game started");
@@ -71,6 +72,8 @@ $(document).ready(function() {
     mapClick: function() {
     /////////////////////////////////////////////////////////////////////////
       $(".map").on("click", function(event) {
+        $("#message-log").html("");
+        $("#message-log").prepend("<p>Turn: " + turnCounter + "</p>");
         console.log("********* START OF TURN *********");
         var tileNumber = $(event.target).attr("id") - 1;
         if (eventCard.length === 0 && eventDeck[tileNumber] !== "drawn") {
@@ -97,7 +100,7 @@ $(document).ready(function() {
         $("#card-wrapper #room-type").html(drawnCard.roomType);
         $("#card-wrapper .card-name").html(drawnCard.cardName);
         $("#card-wrapper .flavor-text").html(drawnCard.flavorText);
-        $("#action-1-fate").html("<strong>Fate</strong>: " + drawnCard.actions.action1.actionFate + "</p>");
+        $("#action-1-fate").html("<strong>Room difficulty</strong>: " + -(drawnCard.actions.action1.actionFate) + "</p>");
 
         // Action 1
         $("#a1-name").html(drawnCard.actions.action1.a1Name);
@@ -302,8 +305,10 @@ $(document).ready(function() {
       $("#meet-your-fate-container").on("click", function(event) {
         var gameResult = $(event.target).attr("id");
         if (gameResult === "fortune") {
+          $("#message-log").prepend("<p>Fortune favored you</p>");
           game.action1Result("s");
         } else if (gameResult === "hardship") {
+          $("#message-log").prepend("<p>Fortune abandonded you</p>");
           game.action1Result("f");
         } else {
           console.log("There's been an error with the game's result.");
@@ -512,6 +517,7 @@ $(document).ready(function() {
       game.listenersOff();
       console.log("The moon rises.");
       moonLevel += 1;
+      turnCounter += 1;
       game.renderUI();
     },
 
