@@ -5,12 +5,12 @@ var mongoose = require('mongoose');
 var hbs = require("hbs");
 
 // CONFIGURE
-mongoose.connect('mongodb://localhost/project4test');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function() {
-  console.log("Connected");
-});
+// mongoose.connect('mongodb://localhost/project4test');
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error: '));
+// db.once('open', function() {
+  // console.log("Connected");
+// });
 
 app.set('view engine', 'hbs');
 app.set('views', './public/js/views');
