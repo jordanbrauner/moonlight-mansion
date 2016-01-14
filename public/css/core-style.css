@@ -43,7 +43,6 @@ p {
   font-size: 11px;
 }
 
-
 /**************
 CORE HTML
 **************/
@@ -55,21 +54,27 @@ html, body {
   min-width: 1200px;
 }
 
+html {
+  background-image: url("/img/bg.jpg");
+  background-position: center;
+}
+
 nav {
   box-sizing: border-box;
   display: block;
-  background-color: black;
   height: 20%;
   /*height: 5%;*/
   width: 100%;
+  color: white;
+  background-color: black;
+  opacity: 0.55;
 }
 
 footer {
   box-sizing: border-box;
   height: 20%;
-  background-color: black;
-  /*height: 150px;*/
-  /*background-color: white;*/
   border-top: 1px solid lightgray;
   padding: 3% 5%;
+  background-color: black;
+  opacity: 0.55;
 }

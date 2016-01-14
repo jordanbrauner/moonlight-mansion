@@ -1,7 +1,10 @@
 main {
   box-sizing: border-box;
+  background-position: center;
   height: 60%;
   padding: 5% 5%;
+  background-color: white;
+  opacity: 0.95;
 }
 
 #main-wrapper {
