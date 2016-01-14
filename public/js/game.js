@@ -138,7 +138,7 @@ $(document).ready(function() {
           roomOutlook = "Strong";
         }
 
-        $("#action-1-fate").html("<strong>Outlook</strong>: " + roomOutlook + "</p>");
+        $("#card-outlook").html("<p><strong>Outlook</strong>: " + roomOutlook + "</p>");
 
         // Action 1
         $("#a1-name").html(drawnCard.actions.action1.a1Name);
@@ -192,7 +192,6 @@ $(document).ready(function() {
       $("#card-wrapper #room-type").html("Choose a room");
       $("#card-wrapper .card-name").html("");
       $("#card-wrapper .flavor-text").html("");
-      $("#action-1-fate").html("");
 
       $("#a1-name").html("");
       $("#a1-fortune").html("");
@@ -349,11 +348,11 @@ $(document).ready(function() {
 
       console.log("This is the shuffled fateDeck: " + fateDeck);
 
-      // Clear div
+      // Render Meet Your Fate (and clear eventCard view)
       $("#card-wrapper #room-type").html("Meet Your Fate...");
       $("#card-wrapper .card-name").html("");
       $("#card-wrapper .flavor-text").html("");
-      $("#action-1-fate").html("<strong>Number of Fortune cards in play</strong>: " +  fortuneCardsAmountTemp + "</p>");
+      $("#fate-cards-in-play").html("<p><strong>Number of Fortune cards in play</strong>: " +  fortuneCardsAmountTemp + "</p>");
 
       $("#a1-name").html("");
       $("#a1-fortune").html("");
@@ -375,15 +374,19 @@ $(document).ready(function() {
         if (gameResult === "fortune") {
           $("#message-log").append("<p><strong>Fortune favored you</strong>.</p>");
           game.action1Result("s");
-          $("#meet-your-fate-container").html("");
           $("#meet-your-fate-container").off("click");
+          $("#meet-your-fate-container").html("");
           $("#meet-your-fate-container").hide();
+          $("#fate-cards-in-play").html("");
+          $("#card-outlook").show();
         } else if (gameResult === "hardship") {
           $("#message-log").append("<p><strong>Fortune abandoned you</strong>.</p>");
           game.action1Result("f");
-          $("#meet-your-fate-container").html("");
           $("#meet-your-fate-container").off("click");
+          $("#meet-your-fate-container").html("");
           $("#meet-your-fate-container").hide();
+          $("#fate-cards-in-play").html("");
+          $("#card-outlook").show();
         } else {
           console.log("There's been an error with the game's result.");
         }
