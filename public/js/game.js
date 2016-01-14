@@ -121,7 +121,6 @@ $(document).ready(function() {
           } else if (actionPhase) {
             game.action2Result();
           }
-          $(this).off("click");
         });
 
         // Action 3
@@ -133,7 +132,6 @@ $(document).ready(function() {
           if (actionPhase) {
             game.action3Result();
           }
-          $(this).off("click");
         });
         // TEST Update footer
         game.renderHUD();
