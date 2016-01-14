@@ -83,6 +83,8 @@ footer {
   opacity: 0.55;
   color: white;
   font-family: 'Open Sans', sans-serif;
-  font-size: .25em;
+  font-size: .585em;
+  line-height: 1.5em;
+  letter-spacing: .05em;
   text-align: right;
 }
