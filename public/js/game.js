@@ -179,7 +179,7 @@ $(document).ready(function() {
         while (num) {
           console.log("Number of cards in the inventory: " + inventory.length);
           console.log("Drawing item card: " + itemDeck[0].cardName);
-          $("#message-log").append("<p>You drew the: " + itemDeck[0].cardName + " card.</p>");
+          $("#message-log").append("<p>You found <strong>" + itemDeck[0].cardName + "</strong>.</p>");
           inventory.push(itemDeck.splice(0, 1)[0]);
           console.log("Card placed in the inventory: " + inventory[inventory.length-1].cardName);
           var newItem = inventory[inventory.length-1];
@@ -360,8 +360,8 @@ $(document).ready(function() {
       if (inventory.length > 0 && eventCard[0].actions.action3.a3Result[0] === "Use item" && !canUseItem) {
         canUseItem = true;
         console.log("canUseItem set to true: " + canUseItem);
-        $("#message-log").append("<p>Choose the item you want to use before you resolve this event.</p>");
-        console.log("Choose the item you want to use before you resolve this event.");
+        $("#message-log").append("<p>Choose the item you want to use.</p>");
+        console.log("Choose the item you want to use.");
       } else {
         console.log("canUseItem set to false: " + canUseItem);
         $("#message-log").append("<p>You have no items to use.</p>");
@@ -377,27 +377,38 @@ $(document).ready(function() {
       // Search through inventory array to find the card object with the same (JSON) id.
       for (var i = 0; i < inventory.length; i++) {
         if (inventory[i].id === id) {
-          console.log("Item found in inventory: " + inventory[i]);
+          console.log("Item found in inventory: " + inventory[i].cardName);
           var itemUsed = inventory[i];
+          $("#message-log").append("<p>You used: " + itemUsed.cardName + "</p>");
           // Adjust fate modifier
           if (itemUsed.roomType) {
             if (eventCard[0].roomType === itemUsed.roomType) {
               console.log("Fate modifier set to: " + fateMod);
+
+              $("#message-log").append("<p>Fate smiles upon you.</p>");
               fateMod = itemUsed.useItem.itemFate;
+              // Resolve item results
+              if (itemUsed.useItem.itemResult) {
+                game.fortuneHardship(itemUsed.useItem.itemResult);
+              }
+              game.discardItemCard(1, itemUsed);
+
             } else {
               $("#message-log").append("<p>Sorry, you can only use this item in: " + itemUsed.roomType + "</p>");
               console.log("Sorry, you can only use this item in: " + itemUsed.roomType);
             }
-          } else {
+          } else if (!itemUsed.roomType) {
             console.log("Fate modifier set to: " + fateMod);
             fateMod = itemUsed.useItem.itemFate;
+            $("#message-log").append("<p>Fate smiles upon you.</p>");
+            // Resolve item results
+            if (itemUsed.useItem.itemResult) {
+              game.fortuneHardship(itemUsed.useItem.itemResult);
+            }
+            console.log("Calling discardItemCard.");
+            game.discardItemCard(1, itemUsed);
+
           }
-          // Resolve item results
-          if (itemUsed.useItem.itemResult) {
-            game.fortuneHardship(itemUsed.useItem.itemResult);
-          }
-          console.log("Calling discardItemCard.");
-          game.discardItemCard(1, itemUsed);
         } else {
           console.log("Can't find this card in the inventory.");
         }
