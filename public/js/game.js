@@ -8,11 +8,11 @@ $(document).ready(function() {
   discarded = [];
   sanityLevel = 10;
   moonLevel = 1;
-  moonCheckCounter = 1;
   fateMod = 0;
+  turnCounter = 1;
   canUseItem = false;
   actionPhase = false;
-  turnCounter = 1;
+  relic = false;
 
   // Fetch JSON card data
   Card.fetch().then(function() {
@@ -122,19 +122,19 @@ $(document).ready(function() {
         $("#card-wrapper .flavor-text").html(drawnCard.flavorText);
 
         // Display room fate as a difficulty level the user can roughly gauge
-        if (roomFate === 3) {
+        if (roomFate === -3) {
           roomOutlook = "Unnatural";
-        } else if (roomFate === 2) {
+        } else if (roomFate === -2) {
           roomOutlook = "Obscene";
-        } else if (roomFate === 1) {
+        } else if (roomFate === -1) {
           roomOutlook = "Imposing";
         } else if (roomFate === 0) {
           roomOutlook = "Discomforting";
-        } else if (roomFate === -1) {
+        } else if (roomFate === 1) {
           roomOutlook = "Fair";
-        } else if (roomFate === -2) {
+        } else if (roomFate === 2) {
           roomOutlook = "Suitable";
-        } else if (roomFate === -3) {
+        } else if (roomFate === 3) {
           roomOutlook = "Strong";
         }
 
@@ -596,7 +596,16 @@ $(document).ready(function() {
       },
 
       moonState: function(num) {
-        // TODO This function will be called at the end of every turn. Every 4 turns a certain amount of visited tiles get 'turned back over' at random.
+        if (moonLevel > 25) {
+          // Check player's inventory for relic
+          for (var i = 0; i < inventory.length; i++) {
+            if (inventory[i].cardName === "Ancient Relic") {
+              console.log("Player has Ancient Relic.");
+              var relic = true;
+            }
+          }
+          game.gameOver("relic");
+        }
         console.log("moonState function called.");
         console.log("Player turn over.");
         game.endTurn();
@@ -647,6 +656,8 @@ $(document).ready(function() {
         $("#message-log").append("<p><strong>You lose yourself in the Blood Moon.</strong></p>");
       } else if (type === "sanity") {
         $("#message-log").append("<p><strong>You were never heard from again.</strong></p>");
+      } else if (type === "relic") {
+        $("#message-log").append("<p><strong>You usher in the Blood Moon with a mad smile.</strong></p>");
       }
       console.log("Game over: " + type);
       $(".map").addClass("visited");
