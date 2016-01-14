@@ -118,17 +118,29 @@ THE USER INTERFACE
   justify-content: space-between;
 }
 
-#sanity-container {
+#ui-wrapper #left, #ui-wrapper #right {
   width: 28%;
   border-top: 1px solid black;
   padding-top: 1%;
-  letter-spacing: 2px;
+}
+
+#sanity-container {
+  display: inline-block;
+  letter-spacing: 1.75px;
+  margin-right: 15px;
 }
 
 #moon-container {
-  width: 28%;
-  border-top: 1px solid black;
-  padding-top: 1%;
-  letter-spacing: 2px;
-  text-align: right;
+  display: inline-block;
+  letter-spacing: 1.75px;
+}
+
+#ui-wrapper #right {
+
+}
+
+#message-log {
+  width: auto;
+  height: 30px;
+
 }

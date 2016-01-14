@@ -308,8 +308,10 @@ $(document).ready(function() {
         } else {
           console.log("There's been an error with the game's result.");
         }
+        $("#meet-your-fate-container").html("");
         $("#meet-your-fate-container").off("click");
       });
+
     },
 
     /////////////////////////////////////////////////////////////////////////
