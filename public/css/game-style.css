@@ -1,0 +1,134 @@
+main {
+  /* Return height to 70% once the temporary footer is back at bg-color black & height: 15% */
+  height: 45%;
+  padding: 5% 5%;
+}
+
+#main-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
+#player-wrapper {
+  width: 28%;
+  height: 100%;
+}
+
+#map-wrapper {
+  padding-top: 1.7em;
+  width: 25em;
+  height: 20em;
+}
+
+#card-wrapper {
+  width: 28%;
+  height: 100%;
+}
+
+/**************************************************
+STYLE FOR PLAYER AND EVENT CLICKABLES
+/**************************************************/
+
+.card-element-container {
+  width: 100%;
+  margin-bottom: 2%;
+  padding: 2% 2%;
+}
+
+.select {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.select:hover {
+  background-color: #f3f3f3;
+}
+
+.left-column {
+  width: 55%;
+}
+
+.right-column {
+  text-align: right;
+  width: 35%;
+}
+
+#action-1-fate {
+  margin-top: 10px;
+}
+
+#meet-your-fate-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+#meet-your-fate-container > div {
+  margin-bottom: 10px;
+  background-color: black;
+  height: 50px;
+  width: 48%;
+  border-radius: 5px;
+}
+
+#meet-your-fate-container > div:hover {
+  background-color: red;
+}
+
+/**************************************************
+THE MAP
+/**************************************************/
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 18%;
+  padding: 1% 0;
+}
+
+.map {
+  height: 100%;
+  width: 15%;
+  border-radius: 5px;
+}
+
+.unvisited {
+  background-color: black;
+}
+
+.unvisited:hover {
+  background-color: red;
+}
+
+.visited {
+  background-color: lightgray;
+}
+
+/**************************************************
+THE USER INTERFACE
+/**************************************************/
+
+#ui-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#sanity-container {
+  width: 28%;
+  border-top: 1px solid black;
+  padding-top: 1%;
+  letter-spacing: 2px;
+}
+
+#moon-container {
+  width: 28%;
+  border-top: 1px solid black;
+  padding-top: 1%;
+  letter-spacing: 2px;
+  text-align: right;
+}

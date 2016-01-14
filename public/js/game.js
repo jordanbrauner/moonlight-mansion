@@ -8,7 +8,7 @@ $(document).ready(function() {
   discarded = [];
   sanityLevel = 10;
   moonLevel = 1;
-  moonState = 1;
+  moonCheckCounter = 1;
   fateMod = 0;
   canUseItem = false;
   actionPhase = false;
@@ -33,12 +33,12 @@ $(document).ready(function() {
       game.mapClick();
       $("#card-wrapper #room-type").html("Choose a room");
 
-      game.renderHUD();
+      game.renderUI();
       console.log("Game started");
 
       // NOTE CODE BELOW FOR TESTING PURPOSE ONLY
-      $("#renderHUD").on("click", function() {
-        game.renderHUD();
+      $("#renderUI").on("click", function() {
+        game.renderUI();
       });
 
     },
@@ -47,7 +47,7 @@ $(document).ready(function() {
     shuffleDeck: function(toShuffle, discarded) {
     /////////////////////////////////////////////////////////////////////////
       console.log("Shuffling " + toShuffle[0].cardType + " deck!");
-      $(".all-cards").html("");
+      // $(".all-cards").html("");
       for (var num in discarded) {
         toShuffle.push(discarded[num]);
         console.log("Pushing " + discarded[num].cardName + "to the toShuffle deck");
@@ -97,6 +97,7 @@ $(document).ready(function() {
         $("#card-wrapper #room-type").html(drawnCard.roomType);
         $("#card-wrapper .card-name").html(drawnCard.cardName);
         $("#card-wrapper .flavor-text").html(drawnCard.flavorText);
+        $("#action-1-fate").html("<strong>Fate</strong>: " + drawnCard.actions.action1.actionFate + "</p>");
 
         // Action 1
         $("#a1-name").html(drawnCard.actions.action1.a1Name);
@@ -108,6 +109,7 @@ $(document).ready(function() {
           if (actionPhase) {
             game.meetYourFate();
           }
+          game.listenersOff();
         });
 
         // Action 2
@@ -121,6 +123,7 @@ $(document).ready(function() {
           } else if (actionPhase) {
             game.action2Result();
           }
+          game.listenersOff();
         });
 
         // Action 3
@@ -132,9 +135,10 @@ $(document).ready(function() {
           if (actionPhase) {
             game.action3Result();
           }
+          game.listenersOff();
         });
         // TEST Update footer
-        game.renderHUD();
+        game.renderUI();
       } else {
         console.log("Either you must pick an action on your current card or you are trying to draw an event card but the deck is empty.");
       }
@@ -149,6 +153,7 @@ $(document).ready(function() {
       $("#card-wrapper #room-type").html("Choose a room");
       $("#card-wrapper .card-name").html("");
       $("#card-wrapper .flavor-text").html("");
+      $("#action-1-fate").html("");
 
       $("#a1-name").html("");
       $("#a1-fortune").html("");
@@ -160,7 +165,7 @@ $(document).ready(function() {
       $("#a3-name").html("");
       $("#a3-result").html("");
 
-      game.moonState();
+      game.moonMethods.moonState();
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -174,7 +179,7 @@ $(document).ready(function() {
           console.log("Card placed in the inventory: " + inventory[inventory.length-1].cardName);
           var newItem = inventory[inventory.length-1];
           $("#inventory-wrapper").append(
-            "<div class='select-container player-item' id='item-" + newItem.id + "'>" +
+            "<div class='card-element-container select player-item' id='item-" + newItem.id + "'>" +
               "<div class='left-column'>" +
                 "<h2>" + newItem.cardName + "</h2>" +
                 "<p>" + newItem.flavorText + "</p>" +
@@ -206,7 +211,7 @@ $(document).ready(function() {
 
           // Debug footer
           $("#inventory-temp").append("<div><p>" + newItem.cardName + "</p></div>");
-          game.renderHUD();
+          game.renderUI();
         }
       } else if (itemDeck.length <= 0) {
         console.log("There are no cards left in the item deck.");
@@ -229,15 +234,82 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     meetYourFate: function() {
     /////////////////////////////////////////////////////////////////////////
-      // Prompt is a placeholder for the Meet Your Fate game of chance
-      var meetYourFate = prompt("'S' for success. 'F' for failure");
-      if (meetYourFate === "s" || meetYourFate === "S") {
-        game.action1Result("s");
-      } else if (meetYourFate === "f" || meetYourFate === "F") {
-        game.action1Result("f");
-      } else {
-        console.log("Uh oh. There's been an error in action1result!");
+      // instantiate variable for the card's fate
+      var fate = eventCard[0].actions.action1.actionFate + fateMod;
+      console.log("Fate now set at: " + fate);
+      var fortuneCardsAmount = 0;
+      fateDeck = [];
+
+      // Determine the number of fortune and hardship cards used in meetYourFate
+      if (fate >= 3) {
+        fortuneCardsAmount = 7;
+      } else if (fate === 2) {
+        fortuneCardsAmount = 6;
+      } else if (fate === 1) {
+        fortuneCardsAmount = 5;
+      } else if (fate === 0) {
+        fortuneCardsAmount = 4;
+      } else if (fate === -1) {
+        fortuneCardsAmount = 3;
+      } else if (fate === -2) {
+        fortuneCardsAmount = 2;
+      } else if (fate <= -3) {
+        fortuneCardsAmount = 1;
       }
+
+      var fortuneCardsAmountTemp = fortuneCardsAmount;
+
+      // Create fate deck
+      while (fortuneCardsAmount > 0) {
+        fateDeck.push("fortune");
+        fortuneCardsAmount -= 1;
+      }
+      while (fateDeck.length < 8) {
+        fateDeck.push("hardship");
+      }
+
+      // Shuffle fate deck
+      for (var i = fateDeck.length - 1; i > 0; i--) {
+        var rnd = Math.floor(Math.random() * (i + 1));
+        var temp = fateDeck[i];
+        fateDeck[i] = fateDeck[rnd];
+        fateDeck[rnd] = temp;
+      }
+
+      console.log("This is the shuffled fateDeck: " + fateDeck);
+
+      // Clear div
+      $("#card-wrapper #room-type").html("Meet Your Fate...");
+      $("#card-wrapper .card-name").html("");
+      $("#card-wrapper .flavor-text").html("");
+      $("#action-1-fate").html("<strong>Number of Fortune cards in play</strong>: " +  fortuneCardsAmountTemp + "</p>");
+
+      $("#a1-name").html("");
+      $("#a1-fortune").html("");
+      $("#a1-hardship").html("");
+
+      $("#a2-name").html("");
+      $("#a2-result").html("");
+
+      $("#a3-name").html("");
+      $("#a3-result").html("");
+
+      // Render cards in div
+      for (var j = 1; j < 9; j++) {
+        $("#meet-your-fate-container").append("<div id='" + fateDeck[j] + "'></div>");
+      }
+
+      $("#meet-your-fate-container").on("click", function(event) {
+        var gameResult = $(event.target).attr("id");
+        if (gameResult === "fortune") {
+          game.action1Result("s");
+        } else if (gameResult === "hardship") {
+          game.action1Result("f");
+        } else {
+          console.log("There's been an error with the game's result.");
+        }
+        $("#meet-your-fate-container").off("click");
+      });
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -354,25 +426,25 @@ $(document).ready(function() {
         } else if (effects[e] === "sanityD4") {
           game.sanityCheck(-4);
         } else if (effects[e] === "moonU1") {
-          game.moonCheck(1);
+          game.moonMethods.moonCheck(1);
         } else if (effects[e] === "moonU2") {
-          game.moonCheck(2);
+          game.moonMethods.moonCheck(2);
         } else if (effects[e] === "moonU3") {
-          game.moonCheck(3);
+          game.moonMethods.moonCheck(3);
         } else if (effects[e] === "moonU4") {
-          game.moonCheck(4);
+          game.moonMethods.moonCheck(4);
         } else if (effects[e] === "moonD1") {
-          game.moonCheck(-1);
+          game.moonMethods.moonCheck(-1);
         } else if (effects[e] === "moonD2") {
-          game.moonCheck(-2);
+          game.moonMethods.moonCheck(-2);
         } else if (effects[e] === "moonD3") {
-          game.moonCheck(-3);
+          game.moonMethods.moonCheck(-3);
         } else if (effects[e] === "moonD4") {
-          game.moonCheck(-4);
+          game.moonMethods.moonCheck(-4);
         } else {
           console.log("Effect not found: " + effects[e]);
         }
-        game.renderHUD();
+        game.renderUI();
       }
     },
 
@@ -395,9 +467,10 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    moonCheck: function(num) {
+    moonMethods: {
     /////////////////////////////////////////////////////////////////////////
-      console.log("Adjusting the moon level by " + num);
+      moonCheck: function(num) {
+        console.log("Adjusting the moon level by " + num);
         if (num > 0) {
           moonLevel += num;
           if (moonLevel >= 25) {
@@ -410,19 +483,19 @@ $(document).ready(function() {
             console.log("Moon level can't go lower");
           }
         }
+      },
+
+      moonState: function(num) {
+        // TODO This function will be called at the end of every turn. Every 4 turns a certain amount of visited tiles get 'turned back over' at random.
+        console.log("moonState function called.");
+        console.log("Player turn over.");
+        game.endTurn();
+      }
+
     },
 
     /////////////////////////////////////////////////////////////////////////
-    moonState: function(num) {
-    /////////////////////////////////////////////////////////////////////////
-      // TODO This function will be called at the end of every turn. Every 4 turns a certain amount of visited tiles get 'turned back over' at random.
-      console.log("moonState function called.");
-      console.log("Player turn over.");
-      game.endTurn();
-    },
-
-    /////////////////////////////////////////////////////////////////////////
-    endTurn: function(num) {
+    listenersOff: function() {
     /////////////////////////////////////////////////////////////////////////
       $("#action-1").off("click");
       $("#action-2").off("click");
@@ -430,9 +503,18 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    renderHUD: function() {
+    endTurn: function(num) {
     /////////////////////////////////////////////////////////////////////////
-      // Clear HUD
+      game.listenersOff();
+      console.log("The moon rises.");
+      moonLevel += 1;
+      game.renderUI();
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    renderUI: function() {
+    /////////////////////////////////////////////////////////////////////////
+      // Clear UI
       $("#event-deck").html("");
       $("#item-deck").html("");
       $("#discarded").html("");
@@ -440,7 +522,7 @@ $(document).ready(function() {
       $("#sanity-level").html("");
       $("#moon-level").html("");
 
-      // Update HUD
+      // Update UI
       $("#sanity-level").html(sanityLevel);
       $("#moon-level").html(moonLevel);
 

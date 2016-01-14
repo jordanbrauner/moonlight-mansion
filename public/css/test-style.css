@@ -1,0 +1,37 @@
+/**************
+FOOTER STYLES FOR TESTING ONLY
+**************/
+
+footer > section {
+  display: flex;
+  justify-content: flex-start;
+
+}
+#footer-left {
+  display: inline-block;
+}
+
+footer h2 {
+  margin-top: 10px;
+}
+
+#item-deck, #event-deck, #discarded, #inventory-temp {
+  max-width: 500px;
+}
+#item-deck > div, #event-deck > div, #inventory-temp > div, #discarded > div {
+  display: inline-block;
+  margin: 0 10px 3px 0;
+  padding-right: 10px;
+  border-right: 1px solid lightgray;
+}
+
+button {
+  margin-bottom: 10px;
+  background-color: black;
+  color: white;
+  padding: 7px;
+}
+
+#no-highlight:hover {
+  background-color: white;
+}

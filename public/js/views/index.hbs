@@ -62,14 +62,18 @@
   <!-- CARD WRAPPER -->
   <section id="card-wrapper">
     <h1 id="room-type"></h1>
-    <div class="select-container" id="no-highlight">
+    <div class="card-element-container">
       <div>
         <h2 class="card-name"></h2>
         <h3 class="flavor-text"></h3>
       </div>
+      <div>
+        <p id="action-1-fate"></p>
+      </div>
+      <div id="meet-your-fate-container"></div>
     </div>
     <div id="actions-wrapper">
-      <div class="select-container" id="action-1">
+      <div class="card-element-container select" id="action-1">
         <div class="left-column">
           <h2 id="a1-name"></h2>
         </div>
@@ -78,7 +82,7 @@
           <p id="a1-hardship"></p>
         </div>
       </div>
-      <div class="select-container" id="action-2">
+      <div class="card-element-container select" id="action-2">
         <div class="left-column">
           <h2 id="a2-name"></h2>
         </div>
@@ -86,7 +90,7 @@
           <p id="a2-result"></p>
         </div>
       </div>
-      <div class="select-container" id="action-3">
+      <div class="card-element-container select" id="action-3">
         <div class="left-column">
           <h2 id="a3-name"></h2>
         </div>
@@ -98,8 +102,8 @@
   </section>
 </div>
 
-<!-- HUD WRAPPER -->
-<section id="hud-wrapper">
+<!-- UI WRAPPER -->
+<section id="ui-wrapper">
   <div id="sanity-container">
     <p>SANITY: <span id="sanity-level"></span> / 10</p>
   </div>
