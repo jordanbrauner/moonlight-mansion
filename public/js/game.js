@@ -72,6 +72,13 @@ $(document).ready(function() {
       console.log("Starting tile is " + startingTile);
       game.drawEventCard(startingTileID);
 
+      $(".map").hover(
+        function() {
+          $( this ).addClass( "animated pulse" );
+        }, function() {
+          $( this ).removeClass( "animated pulse" );
+      });
+
       $(".map").on("click", function(event) {
         console.log("You clicked: " + $(event.target).attr("id"));
         $("#message-log").html("");
@@ -245,21 +252,35 @@ $(document).ready(function() {
           // game.renderUI();
         }
       } else if (itemDeck.length <= 0) {
+        $("#message-log").append("<p>There are no cards left in the item deck.</p>");
         console.log("There are no cards left in the item deck.");
       } else {
-        console.log("You need to discard a card from your inventory first");
-        discardItemCard();
+        $("#message-log").append("<p>You have no space left in your inventory.</p>");
+        console.log("You have no space left in your inventory.");
       }
     },
 
     /////////////////////////////////////////////////////////////////////////
-    discardItemCard: function(numToDiscard, card) {
+    discardItemCard: function(numToDiscard, cardIDToDiscard) {
     /////////////////////////////////////////////////////////////////////////
-      console.log("Placeholder for discardItemCard function.");
-      // while (numToDiscard) {
-      //   console.log("Item card to discard: " + card.cardName);
-      //   numToDiscard -= 1;
-      // }
+      $("#message-log").append("<p>Discard " + numToDiscard + "card.</p>");
+
+      if (cardIDToDiscard) {
+        discarded.push(inventory.splice(cardIDToDiscard, 1)[0]);
+        console.log("Item card discarded: " + discarded[discarded.length - 1].cardName);
+        var justDiscarded = discarded.length - 1;
+        $("#message-log").append("<p>Item card discarded: " + discarded[justDiscarded].cardName + ".");
+        $("#item-" + discarded[justDiscarded].id).remove();
+      }
+
+      // } else if (!cardIDToDiscard) {
+      //   // TODO Make sure the first variable, numToDiscard is still the correct input if the second argument was never included in the function call!
+      //   console.log("Not working yet.");
+      //   while (numToDiscard) {
+      //     console.log("Not working yet.");
+      //     // console.log("Item card to discard: " + card.cardName);
+      //     numToDiscard -= 1;
+      //   }
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -268,6 +289,22 @@ $(document).ready(function() {
     $(".card-element-container").hide();
     $("#actions-wrapper").hide();
     $("#meet-your-fate-container").show();
+
+      // Hover animation for fate cards
+      $("#fortune").hover(
+        function() {
+          $( this ).addClass( "animated pulse" );
+        }, function() {
+          $( this ).removeClass( "animated pulse" );
+      });
+
+      $("#hardship").hover(
+        function() {
+          $( this ).addClass( "animated pulse" );
+        }, function() {
+          $( this ).removeClass( "animated pulse" );
+      });
+
       // instantiate variable for the card's fate
       var fate = eventCard[0].actions.action1.actionFate + fateMod;
       console.log("Fate now set at: " + fate);
@@ -298,7 +335,7 @@ $(document).ready(function() {
         fateDeck.push("fortune");
         fortuneCardsAmount -= 1;
       }
-      while (fateDeck.length < 8) {
+      while (fateDeck.length <= 8) {
         fateDeck.push("hardship");
       }
 
@@ -338,15 +375,18 @@ $(document).ready(function() {
         if (gameResult === "fortune") {
           $("#message-log").append("<p><strong>Fortune favored you</strong>.</p>");
           game.action1Result("s");
+          $("#meet-your-fate-container").html("");
+          $("#meet-your-fate-container").off("click");
+          $("#meet-your-fate-container").hide();
         } else if (gameResult === "hardship") {
           $("#message-log").append("<p><strong>Fortune abandoned you</strong>.</p>");
           game.action1Result("f");
+          $("#meet-your-fate-container").html("");
+          $("#meet-your-fate-container").off("click");
+          $("#meet-your-fate-container").hide();
         } else {
           console.log("There's been an error with the game's result.");
         }
-        $("#meet-your-fate-container").html("");
-        $("#meet-your-fate-container").off("click");
-        $("#meet-your-fate-container").hide();
       });
 
     },
@@ -434,8 +474,8 @@ $(document).ready(function() {
               game.fortuneHardship(itemUsed.useItem.itemResult);
             }
             console.log("Calling discardItemCard.");
-            game.discardItemCard(1, itemUsed);
-
+            // TODO DISCARD DISCARD DISCARD DISCARD DISCARD DISCARD DISCARD DISCARD
+            game.discardItemCard(1, i);
           }
         } else {
           console.log("Can't find this card in the inventory.");
