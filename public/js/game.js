@@ -34,7 +34,7 @@ $(document).ready(function() {
       game.mapClick();
 
       game.renderUI();
-      $("#message-log").append("<p>Against your better judgement you enter the decrepit mansion to find the <strong>Ancient Relic</strong>.</p>");
+      $("#message-log").append("<p>Against your better judgement you enter the decrepit mansion in hopes of finding the rumored <strong>Ancient Relic</strong> Ashton Smith found before he vanished.</p>");
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -430,7 +430,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       $(".card-element-container").hide();
       $("#actions-wrapper").hide();
-      $("#message-log").append("<p><strong>You decided to move on</strong>.</p>");
+      $("#message-log").append("<p><strong>You maanged to leave the room</strong>.</p>");
       actionPhase = false;
       var avoidEffects = eventCard[0].actions.action2.a2Result;
       game.fortuneHardship(avoidEffects);
