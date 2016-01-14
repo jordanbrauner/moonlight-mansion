@@ -185,3 +185,9 @@ THE USER INTERFACE
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
+
+#actions-wrapper {
+  border-top: 1px solid lightgray;
+  margin-top: -5px;
+  padding-top: 15px;
+}
