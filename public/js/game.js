@@ -108,7 +108,6 @@ $(document).ready(function() {
           if (actionPhase) {
             game.meetYourFate();
           }
-          $(this).off("click");
         });
 
         // Action 2
@@ -204,6 +203,7 @@ $(document).ready(function() {
 
           $("#item-" + newItem.id).on("click", function() {
             game.useAnItem(newItem.id);
+            $(this).off("click");
           });
 
           // Debug footer
@@ -231,6 +231,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     meetYourFate: function() {
     /////////////////////////////////////////////////////////////////////////
+      // Prompt is a placeholder for the Meet Your Fate game of chance
       var meetYourFate = prompt("'S' for success. 'F' for failure");
       if (meetYourFate === "s" || meetYourFate === "S") {
         game.action1Result("s");
@@ -243,7 +244,7 @@ $(document).ready(function() {
 
     /////////////////////////////////////////////////////////////////////////
     action1Result: function(result) {
-      /////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////
       actionPhase = false;
       if (result === "s") {
         console.log("Player succeeded.");
@@ -419,6 +420,15 @@ $(document).ready(function() {
       // TODO This function will be called at the end of every turn. Every 4 turns a certain amount of visited tiles get 'turned back over' at random.
       console.log("moonState function called.");
       console.log("Player turn over.");
+      game.endTurn();
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    endTurn: function(num) {
+    /////////////////////////////////////////////////////////////////////////
+      $("#action-1").off("click");
+      $("#action-2").off("click");
+      $("#action-3").off("click");
     },
 
     /////////////////////////////////////////////////////////////////////////
