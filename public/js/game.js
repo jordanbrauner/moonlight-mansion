@@ -73,7 +73,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       $(".map").on("click", function(event) {
         $("#message-log").html("");
-        $("#message-log").prepend("<p>Turn: " + turnCounter + "</p>");
+        $("#message-log").append("<p>Start of turn " + turnCounter + ".</p>");
         console.log("********* START OF TURN *********");
         var tileNumber = $(event.target).attr("id") - 1;
         if (eventCard.length === 0 && eventDeck[tileNumber] !== "drawn") {
@@ -178,6 +178,7 @@ $(document).ready(function() {
         while (num) {
           console.log("Number of cards in the inventory: " + inventory.length);
           console.log("Drawing item card: " + itemDeck[0].cardName);
+          $("#message-log").append("<p>You drew the: " + itemDeck[0].cardName + " card.</p>");
           inventory.push(itemDeck.splice(0, 1)[0]);
           console.log("Card placed in the inventory: " + inventory[inventory.length-1].cardName);
           var newItem = inventory[inventory.length-1];
@@ -305,10 +306,10 @@ $(document).ready(function() {
       $("#meet-your-fate-container").on("click", function(event) {
         var gameResult = $(event.target).attr("id");
         if (gameResult === "fortune") {
-          $("#message-log").prepend("<p>Fortune favored you</p>");
+          $("#message-log").append("<p>Fortune favored you</p>");
           game.action1Result("s");
         } else if (gameResult === "hardship") {
-          $("#message-log").prepend("<p>Fortune abandonded you</p>");
+          $("#message-log").append("<p>Fortune abandonded you</p>");
           game.action1Result("f");
         } else {
           console.log("There's been an error with the game's result.");
@@ -343,6 +344,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action2Result: function() {
     /////////////////////////////////////////////////////////////////////////
+      $("#message-log").append("<p>You decided to move on.</p>");
       actionPhase = false;
       var avoidEffects = eventCard[0].actions.action2.a2Result;
       game.fortuneHardship(avoidEffects);
@@ -355,9 +357,11 @@ $(document).ready(function() {
       if (inventory.length > 0 && eventCard[0].actions.action3.a3Result[0] === "Use item" && !canUseItem) {
         canUseItem = true;
         console.log("canUseItem set to true: " + canUseItem);
+        $("#message-log").append("<p>Choose the item you want to use before you resolve this event.</p>");
         console.log("Choose the item you want to use before you resolve this event.");
       } else {
         console.log("canUseItem set to false: " + canUseItem);
+        $("#message-log").append("<p>You have no items to use.</p>");
         console.log("You have no items to use.");
       }
     },
@@ -378,6 +382,7 @@ $(document).ready(function() {
               console.log("Fate modifier set to: " + fateMod);
               fateMod = itemUsed.useItem.itemFate;
             } else {
+              $("#message-log").append("<p>Sorry, you can only use this item in: " + itemUsed.roomType + "</p>");
               console.log("Sorry, you can only use this item in: " + itemUsed.roomType);
             }
           } else {
@@ -459,7 +464,7 @@ $(document).ready(function() {
     sanityCheck: function(num) {
     /////////////////////////////////////////////////////////////////////////
     console.log("Adjusting the sanity level by " + num);
-    $("#message-log").prepend("<p>Sanity adjusted by " + num + "</p>");
+    $("#message-log").append("<p>Sanity adjusted by " + num + "</p>");
       if (num > 0) {
         if (sanityLevel + num <= 10) {
           sanityLevel += num;
@@ -479,7 +484,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       moonCheck: function(num) {
         console.log("Adjusting the moon level by " + num);
-        $("#message-log").prepend("<p>Moon height adjusted by " + num + "</p>");
+        $("#message-log").append("<p>Moon height adjusted by " + num + "</p>");
         if (num > 0) {
           moonLevel += num;
           if (moonLevel >= 25) {
@@ -515,9 +520,11 @@ $(document).ready(function() {
     endTurn: function(num) {
     /////////////////////////////////////////////////////////////////////////
       game.listenersOff();
+      $("#message-log").append("<p>The moon rises.</p>");
       console.log("The moon rises.");
       moonLevel += 1;
       turnCounter += 1;
+      $("#message-log").append("<p>End of turn " + turnCounter + ".</p>");
       game.renderUI();
     },
 
