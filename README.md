@@ -1,4 +1,5 @@
 # Moonlight Mansion
+* v 0.1
 This is an early proof of concept for a board game I'm designing inspired by the 'weird fiction' of H.P. Lovecraft and Clark Ashton Smith.
 
 # Rules:
