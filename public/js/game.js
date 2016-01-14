@@ -113,7 +113,7 @@ $(document).ready(function() {
         eventCard.push(eventDeck.splice(tileNumber, 1, "drawn")[0]);
         var drawnCard = eventCard[0];
         var roomFate = drawnCard.actions.action1.actionFate;
-        var roomOutlook = "fair";
+        var roomOutlook;
         actionPhase = true;
 
         // Render card information into their HTML elements
@@ -218,7 +218,7 @@ $(document).ready(function() {
           console.log("Card placed in the inventory: " + inventory[inventory.length-1].cardName);
           var newItem = inventory[inventory.length-1];
           $("#inventory-wrapper").append(
-            "<div class='card-element-container select player-item' id='item-" + newItem.id + "'>" +
+            "<div class='item-card-container select player-item' id='item-" + newItem.id + "'>" +
               "<div class='left-column'>" +
                 "<h2>" + newItem.cardName + "</h2>" +
                 "<p>" + newItem.flavorText + "</p>" +
@@ -263,23 +263,33 @@ $(document).ready(function() {
     discardItemCard: function(numToDiscard, cardIDToDiscard) {
     /////////////////////////////////////////////////////////////////////////
       $("#message-log").append("<p>Discard " + numToDiscard + "card.</p>");
+      console.log("numToDiscard is: " + numToDiscard);
+      console.log("cardIDToDiscard: " + cardIDToDiscard);
 
-      if (cardIDToDiscard) {
+      if (numToDiscard && cardIDToDiscard != "none") {
+        // discard start TODO make dry
         discarded.push(inventory.splice(cardIDToDiscard, 1)[0]);
         console.log("Item card discarded: " + discarded[discarded.length - 1].cardName);
         var justDiscarded = discarded.length - 1;
         $("#message-log").append("<p>Item card discarded: " + discarded[justDiscarded].cardName + ".");
         $("#item-" + discarded[justDiscarded].id).remove();
+        // discard end
+      } else if (parseInt(numToDiscard) > 0 && cardIDToDiscard === "none") {
+        while (parseInt(numToDiscard) > 0 && inventory.length > 0) {
+          console.log("No specific card to discard. Must discard " + numToDiscard + " more cards.");
+          // discard start TODO make dry
+          discarded.push(inventory.splice(cardIDToDiscard, 1)[0]);
+          console.log("Item card discarded: " + discarded[discarded.length - 1].cardName);
+          $("#message-log").append("<p>Item card discarded: " + discarded[discarded.length - 1].cardName + ".");
+          $("#item-" + discarded[discarded.length - 1].id).remove();
+          numToDiscard -= 1;
+          // discard end
+        }
+        if (numToDiscard > 0 && inventory <= 0) {
+          console.log("No cards left. Adjusting sanity by " + numToDiscard + " instead.");
+          game.sanityCheck(-numToDiscard);
+        }
       }
-
-      // } else if (!cardIDToDiscard) {
-      //   // TODO Make sure the first variable, numToDiscard is still the correct input if the second argument was never included in the function call!
-      //   console.log("Not working yet.");
-      //   while (numToDiscard) {
-      //     console.log("Not working yet.");
-      //     // console.log("Item card to discard: " + card.cardName);
-      //     numToDiscard -= 1;
-      //   }
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -418,6 +428,8 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action2Result: function() {
     /////////////////////////////////////////////////////////////////////////
+      $(".card-element-container").hide();
+      $("#actions-wrapper").hide();
       $("#message-log").append("<p><strong>You decided to move on</strong>.</p>");
       actionPhase = false;
       var avoidEffects = eventCard[0].actions.action2.a2Result;
@@ -477,7 +489,6 @@ $(document).ready(function() {
               game.fortuneHardship(itemUsed.useItem.itemResult);
             }
             console.log("Calling discardItemCard.");
-            // TODO DISCARD DISCARD DISCARD DISCARD DISCARD DISCARD DISCARD DISCARD
             game.discardItemCard(1, i);
           }
         } else {
@@ -499,13 +510,13 @@ $(document).ready(function() {
         } else if (effects[e] === "itemU2") {
           game.drawItemCard(2);
         } else if (effects[e] === "itemD1") {
-          game.discardItemCard(-1);
+          game.discardItemCard(1, "none");
         } else if (effects[e] === "itemD2") {
-          game.discardItemCard(-2);
+          game.discardItemCard(2, "none");
         } else if (effects[e] === "itemD3") {
-          game.discardItemCard(-3);
+          game.discardItemCard(3, "none");
         } else if (effects[e] === "itemD4") {
-          game.discardItemCard(-4);
+          game.discardItemCard(4, "none");
         } else if (effects[e] === "sanityU1") {
           game.sanityCheck(1);
         } else if (effects[e] === "sanityU2") {
@@ -559,7 +570,7 @@ $(document).ready(function() {
       } else if (num < 0) {
         sanityLevel += num;
         if (sanityLevel <= 0) {
-          game.gameOver();
+          game.gameOver("sanity");
         }
       }
     },
@@ -573,7 +584,7 @@ $(document).ready(function() {
         if (num > 0) {
           moonLevel += num;
           if (moonLevel >= 25) {
-            game.gameOver();
+            game.gameOver("moon");
           }
         } else if (num < 0) {
           if (moonLevel + num >= 1) {
@@ -605,8 +616,8 @@ $(document).ready(function() {
     endTurn: function(num) {
     /////////////////////////////////////////////////////////////////////////
       game.listenersOff();
-      $("#message-log").append("<p>The moon rises.</p>");
-      console.log("The moon rises.");
+      $("#message-log").append("<p>The Blood Moon rises.</p>");
+      console.log("The Blood Moon rises.");
       moonLevel += 1;
       turnCounter += 1;
       $("#message-log").append("<p>End of turn " + (turnCounter - 1) + ".</p>");
@@ -630,12 +641,18 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    gameOver: function(num) {
+    gameOver: function(type) {
     /////////////////////////////////////////////////////////////////////////
-      $("#message-log").append("<p><strong>You were never heard from again.</strong></p>");
-      console.log("You were never heard from again!");
+      if (type === "moon") {
+        $("#message-log").append("<p><strong>You lose yourself in the Blood Moon.</strong></p>");
+      } else if (type === "sanity") {
+        $("#message-log").append("<p><strong>You were never heard from again.</strong></p>");
+      }
+      console.log("Game over: " + type);
       $(".map").addClass("visited");
       $(".map").removeClass("unvisited");
+      $(".map").off("click");
+      $(".map").off("hover");
     }
   };
 

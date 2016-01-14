@@ -33,7 +33,7 @@ main {
 STYLE FOR PLAYER AND EVENT CLICKABLES
 /**************************************************/
 
-.card-element-container {
+.card-element-container, .item-card-container {
   width: 100%;
   margin-bottom: 2%;
   padding: 2% 2%;
