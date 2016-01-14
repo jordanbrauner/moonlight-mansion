@@ -148,6 +148,10 @@ THE USER INTERFACE
 
 }
 
+/**************************************************
+ANIMATION FOR MAP TILES
+/**************************************************/
+
 .animated {
   -webkit-animation-duration: .2s;
   animation-duration: .2s;
@@ -162,8 +166,8 @@ THE USER INTERFACE
   }
 
   to {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transform: scale3d(1.085, 1.085, 1.085);
+    transform: scale3d(1.085, 1.085, 1.085);
   }
 }
 
@@ -174,8 +178,8 @@ THE USER INTERFACE
   }
 
   to {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transform: scale3d(1.085, 1.085, 1.085);
+    transform: scale3d(1.085, 1.085, 1.085);
   }
 }
 
