@@ -32,7 +32,6 @@ $(document).ready(function() {
       game.shuffleDeck(itemDeck);
       game.shuffleDeck(eventDeck);
       game.mapClick();
-      $("#card-wrapper #room-type").html("Enter a room");
 
       game.renderUI();
       $("#message-log").append("<p>Against your better judgement you enter the decrepit mansion to find the <strong>Ancient Relic</strong>.</p>");
@@ -74,17 +73,15 @@ $(document).ready(function() {
       game.drawEventCard(startingTileID);
 
       $(".map").on("click", function(event) {
+        console.log("You clicked: " + $(event.target).attr("id"));
         $("#message-log").html("");
         $("#message-log").append("<p>Start of turn " + turnCounter + ".</p>");
         console.log("********* START OF TURN *********");
-        var tileID = $(event.target).attr("id");
-        var tileCardID = $(event.target).attr("id") - 1;
+        var tileID = parseInt($(event.target).attr("id"));
+        var tileCardID = parseInt($(event.target).attr("id")) - 1;
         if (eventCard.length === 0 && eventDeck[tileCardID] !== "drawn") {
           // if event.target.id is equal to the id of an adjacent tile then proceed
-          if ( $("#" + (tileID + 1)).hasClass("visited") ||
-               $("#" + (tileID - 1)).hasClass("visited") ||
-               $("#" + (tileID + 6)).hasClass("visited") ||
-               $("#" + (tileID - 6)).hasClass("visited") ) {
+          if ( $("#" + (parseInt(tileID) + 1)).hasClass("visited") || $("#" + (parseInt(tileID) - 1)).hasClass("visited") || $("#" + (parseInt(tileID) + 6)).hasClass("visited") || $("#" + (parseInt(tileID) - 6)).hasClass("visited") ) {
             console.log("Drawing card from the eventDeck with the id of " + tileCardID + ".");
             $(event.target).removeClass("unvisited");
             $(event.target).addClass("visited");
@@ -108,13 +105,33 @@ $(document).ready(function() {
       if (eventDeck.length > 0 && eventCard.length < 1) {
         eventCard.push(eventDeck.splice(tileNumber, 1, "drawn")[0]);
         var drawnCard = eventCard[0];
+        var roomFate = drawnCard.actions.action1.actionFate;
+        var roomOutlook = "fair";
         actionPhase = true;
 
         // Render card information into their HTML elements
         $("#card-wrapper #room-type").html(drawnCard.roomType);
         $("#card-wrapper .card-name").html(drawnCard.cardName);
         $("#card-wrapper .flavor-text").html(drawnCard.flavorText);
-        $("#action-1-fate").html("<strong>Room difficulty</strong>: " + -(drawnCard.actions.action1.actionFate) + "</p>");
+
+        // Display room fate as a difficulty level the user can roughly gauge
+        if (roomFate === 3) {
+          roomOutlook = "Unnatural";
+        } else if (roomFate === 2) {
+          roomOutlook = "Obscene";
+        } else if (roomFate === 1) {
+          roomOutlook = "Imposing";
+        } else if (roomFate === 0) {
+          roomOutlook = "Discomforting";
+        } else if (roomFate === -1) {
+          roomOutlook = "Fair";
+        } else if (roomFate === -2) {
+          roomOutlook = "Suitable";
+        } else if (roomFate === -3) {
+          roomOutlook = "Strong";
+        }
+
+        $("#action-1-fate").html("<strong>Outlook</strong>: " + roomOutlook + "</p>");
 
         // Action 1
         $("#a1-name").html(drawnCard.actions.action1.a1Name);
@@ -572,7 +589,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     gameOver: function(num) {
     /////////////////////////////////////////////////////////////////////////
-      $("#message-log").append("<p>You were never heard from again.</p>");
+      $("#message-log").append("<p><strong>You were never heard from again.</strong></p>");
       console.log("You were never heard from again!");
       $(".map").addClass("visited");
       $(".map").removeClass("unvisited");
