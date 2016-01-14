@@ -454,6 +454,7 @@ $(document).ready(function() {
     sanityCheck: function(num) {
     /////////////////////////////////////////////////////////////////////////
     console.log("Adjusting the sanity level by " + num);
+    $("#message-log").prepend("<p>Sanity adjusted by " + num + "</p>");
       if (num > 0) {
         if (sanityLevel + num <= 10) {
           sanityLevel += num;
@@ -473,6 +474,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       moonCheck: function(num) {
         console.log("Adjusting the moon level by " + num);
+        $("#message-log").prepend("<p>Moon height adjusted by " + num + "</p>");
         if (num > 0) {
           moonLevel += num;
           if (moonLevel >= 25) {
@@ -529,18 +531,18 @@ $(document).ready(function() {
       $("#moon-level").html(moonLevel);
 
       // Update Debug Footer
-      eventDeck.forEach(function(card) {
-        $("#event-deck").append("<div><p>" + card.cardName + "</p></div>");
-      });
-      itemDeck.forEach(function(card) {
-        $("#item-deck").append("<div><p>" + card.cardName + "</p></div>");
-      });
-      discarded.forEach(function(card) {
-        $("#discarded").append("<div><p>" + card.cardName + "</p></div>");
-      });
-      inventory.forEach(function(card) {
-        $("#inventory-temp").append("<div><p>" + card.cardName + "</p></div>");
-      });
+      // eventDeck.forEach(function(card) {
+      //   $("#event-deck").append("<div><p>" + card.cardName + "</p></div>");
+      // });
+      // itemDeck.forEach(function(card) {
+      //   $("#item-deck").append("<div><p>" + card.cardName + "</p></div>");
+      // });
+      // discarded.forEach(function(card) {
+      //   $("#discarded").append("<div><p>" + card.cardName + "</p></div>");
+      // });
+      // inventory.forEach(function(card) {
+      //   $("#inventory-temp").append("<div><p>" + card.cardName + "</p></div>");
+      // });
 
     },
 

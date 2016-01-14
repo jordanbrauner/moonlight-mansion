@@ -1,6 +1,6 @@
 main {
-  /* Return height to 70% once the temporary footer is back at bg-color black & height: 15% */
-  height: 45%;
+  box-sizing: border-box;
+  height: 60%;
   padding: 5% 5%;
 }
 
