@@ -14,8 +14,6 @@ $(document).ready(function() {
   turnCounter = 1;
   canUseItem = false;
   actionPhase = false;
-  relic = false;
-
 
   // Fetch JSON card data
   Card.fetch().then(function() {
@@ -213,7 +211,7 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    drawItemCard: function(num, special) {
+    drawItemCard: function(num) {
     /////////////////////////////////////////////////////////////////////////
       if (itemDeck.length > 0 && inventory.length + num <= 4) {
         while (num) {
@@ -295,6 +293,56 @@ $(document).ready(function() {
           console.log("No cards left. Adjusting sanity by " + numToDiscard + " instead.");
           game.sanityCheck(-numToDiscard);
         }
+      }
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    drawSpecialItemCard: function(type) {
+    /////////////////////////////////////////////////////////////////////////
+      // NOTE that you can only receive the item if you have space for it.
+      // TODO This code reuses most of the drawItemCard code. Refactor when possible.
+
+      if (type === "relic" && relicDeck.length > 0 && inventory.length + 1 <= 4) {
+        console.log("Drawing " + type + " card: " + relicDeck[0].cardName);
+        $("#message-log").append("<p>You found <strong>" + itemDeck[0].cardName + "</strong>.</p>");
+        inventory.push(relicDeck.splice(0, 1)[0]);
+        console.log("Card placed in the inventory: " + inventory[inventory.length-1].cardName);
+        var newItem = inventory[inventory.length-1];
+        $("#inventory-wrapper").append(
+          "<div class='item-card-container select player-item' id='item-" + newItem.id + "'>" +
+            "<div class='left-column'>" +
+              "<h2>" + newItem.cardName + "</h2>" +
+              "<p>" + newItem.flavorText + "</p>" +
+            "</div>" +
+            "<div class='right-column'></div>" +
+          "</div>");
+
+        var itemFate = newItem.useItem.itemFate;
+        var itemResult = newItem.useItem.itemResult;
+        var roomType = newItem.roomType;
+
+        if (itemFate && roomType) {
+          $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
+        } else if (itemFate && !roomType) {
+          $("#item-" + newItem.id + " .right-column").append("<p>Increases fate: " + itemFate + "</p>");
+        }
+
+        if (itemResult) {
+          $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + itemResult + "</p>");
+        }
+        num -= 1;
+
+        $("#item-" + newItem.id).on("click", function() {
+          game.useAnItem(newItem.id);
+          $(this).off("click");
+        });
+
+      } else if (itemDeck.length <= 0) {
+        $("#message-log").append("<p>There are no cards left in the relic deck.</p>");
+        console.log("There are no cards left in the relic deck.");
+      } else {
+        $("#message-log").append("<p>You have no space left in your inventory.</p>");
+        console.log("You have no space left in your inventory.");
       }
     },
 
@@ -436,7 +484,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       $(".card-element-container").hide();
       $("#actions-wrapper").hide();
-      $("#message-log").append("<p><strong>You maanged to leave the room</strong>.</p>");
+      $("#message-log").append("<p><strong>You managed to leave the room</strong>.</p>");
       actionPhase = false;
       var avoidEffects = eventCard[0].actions.action2.a2Result;
       game.fortuneHardship(avoidEffects);
@@ -555,11 +603,10 @@ $(document).ready(function() {
           game.moonMethods.moonCheck(-3);
         } else if (effects[e] === "moonD4") {
           game.moonMethods.moonCheck(-4);
-        // TODO
         // } else if (effects[e] === "oldKey") {
         //   game.drawSpecialItemCard("oldKey");
-        // } else if (effects[e] === "relicU") {
-        //   game.drawSpecialItemCard("relic");
+        } else if (effects[e] === "relicU") {
+          game.drawSpecialItemCard("relic");
         } else {
           console.log("Effect not found: " + effects[e]);
         }
@@ -581,7 +628,7 @@ $(document).ready(function() {
       } else if (num < 0) {
         sanityLevel += num;
         if (sanityLevel <= 0) {
-          game.gameOver("sanity");
+          return game.gameOver("sanity");
         }
       }
     },
@@ -595,7 +642,7 @@ $(document).ready(function() {
         if (num > 0) {
           moonLevel += num;
           if (moonLevel >= 25) {
-            game.gameOver("moon");
+            game.moonMethods.moonState();
           }
         } else if (num < 0) {
           if (moonLevel + num >= 1) {
@@ -607,17 +654,18 @@ $(document).ready(function() {
       },
 
       moonState: function(num) {
+        console.log("moonState function called.");
         if (moonLevel > 25) {
           // Check player's inventory for relic
           for (var i = 0; i < inventory.length; i++) {
             if (inventory[i].cardName === "Ancient Relic") {
               console.log("Player has Ancient Relic.");
               var relic = true;
+              return game.gameOver("relic");
             }
           }
-          game.gameOver("relic");
+          return game.gameOver("moon");
         }
-        console.log("moonState function called.");
         console.log("Player turn over.");
         game.endTurn();
       }
@@ -663,14 +711,18 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     gameOver: function(type) {
     /////////////////////////////////////////////////////////////////////////
+      var gameOverMessage = console.log("Game over: " + type);
+
       if (type === "moon") {
         $("#message-log").append("<p><strong>You lose yourself in the Blood Moon.</strong></p>");
+        return gameOverMessage;
       } else if (type === "sanity") {
         $("#message-log").append("<p><strong>You were never heard from again.</strong></p>");
+        return gameOverMessage;
       } else if (type === "relic") {
         $("#message-log").append("<p><strong>You usher in the Blood Moon with a mad smile.</strong></p>");
+        return gameOverMessage;
       }
-      console.log("Game over: " + type);
       $(".map").addClass("visited");
       $(".map").removeClass("unvisited");
       $(".map").off("click");

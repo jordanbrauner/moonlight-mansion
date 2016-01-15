@@ -382,7 +382,7 @@
       "action1" : {
         "a1Name": "Gaze",
         "actionFate": "-3",
-        "fortune": ["relicU", "itemU1"],
+        "fortune": ["relicU"],
         "hardship": ["sanityD3", "itemD2"]
       },
       "action2": {
@@ -537,7 +537,7 @@
       "action1" : {
         "a1Name": "Gaze",
         "actionFate": "-3",
-        "fortune": ["relicU", "itemU1"],
+        "fortune": ["relicU"],
         "hardship": ["sanityD3", "itemD2"]
       },
       "action2": {
