@@ -31,10 +31,16 @@ h2 {
 }
 
 h3 {
-  font-family: 'Open Sans', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: 400;
   font-style: italic;
+}
+
+h4 {
+  padding-top: 135px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
 }
 
 p {

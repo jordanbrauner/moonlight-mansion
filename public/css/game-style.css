@@ -61,6 +61,12 @@ STYLE FOR PLAYER AND EVENT CLICKABLES
   margin-top: 10px;
 }
 
+#actions-wrapper {
+  border-top: 1px solid lightgray;
+  margin-top: -5px;
+  padding-top: 15px;
+}
+
 #meet-your-fate-container {
   display: flex;
   justify-content: space-between;
@@ -76,10 +82,16 @@ STYLE FOR PLAYER AND EVENT CLICKABLES
   height: 50px;
   width: 48%;
   border-radius: 5px;
+  transition: all .125s ease-in-out;
 }
 
 #meet-your-fate-container > div:hover {
   background-color: #434343;
+  transform: scale(1.035);
+}
+
+#fate-popup {
+  margin-top: 0px;
 }
 
 /**************************************************
@@ -98,6 +110,12 @@ THE MAP
   height: 100%;
   width: 14.25%;
   border-radius: 4px;
+  transition: all .125s ease-in-out;
+}
+
+.unvisited:hover {
+  background-color: #434343;
+  transform: scale(1.085);
 }
 
 .unvisited {
@@ -145,51 +163,4 @@ THE USER INTERFACE
 #message-log {
   width: auto;
   height: 30px;
-
-}
-
-/**************************************************
-ANIMATION FOR MAP TILES
-/**************************************************/
-
-.animated {
-  -webkit-animation-duration: .2s;
-  animation-duration: .2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes pulse {
-  from {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-
-  to {
-    -webkit-transform: scale3d(1.085, 1.085, 1.085);
-    transform: scale3d(1.085, 1.085, 1.085);
-  }
-}
-
-@keyframes pulse {
-  from {
-    -webkit-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
-  }
-
-  to {
-    -webkit-transform: scale3d(1.085, 1.085, 1.085);
-    transform: scale3d(1.085, 1.085, 1.085);
-  }
-}
-
-.pulse {
-  -webkit-animation-name: pulse;
-  animation-name: pulse;
-}
-
-#actions-wrapper {
-  border-top: 1px solid lightgray;
-  margin-top: -5px;
-  padding-top: 15px;
 }

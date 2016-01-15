@@ -76,13 +76,6 @@ $(document).ready(function() {
       console.log("Starting tile is " + startingTile);
       game.drawEventCard(startingTileID);
 
-      $(".map").hover(
-        function() {
-          $( this ).addClass( "animated pulse" );
-        }, function() {
-          $( this ).removeClass( "animated pulse" );
-      });
-
       $(".map").on("click", function(event) {
         console.log("You clicked: " + $(event.target).attr("id"));
         $("#message-log").html("");
@@ -113,6 +106,8 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
       $(".card-element-container").show();
       $("#actions-wrapper").show();
+      $("#fate-popup").html("");
+      $("#fate-popup").hide();
       if (eventDeck.length > 0 && eventCard.length < 1) {
         eventCard.push(eventDeck.splice(tileNumber, 1, "drawn")[0]);
         var drawnCard = eventCard[0];
@@ -349,24 +344,9 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     meetYourFate: function() {
     /////////////////////////////////////////////////////////////////////////
-    $(".card-element-container").hide();
-    $("#actions-wrapper").hide();
-    $("#meet-your-fate-container").show();
-
-      // Hover animation for fate cards
-      $("#fortune").hover(
-        function() {
-          $( this ).addClass( "animated pulse" );
-        }, function() {
-          $( this ).removeClass( "animated pulse" );
-      });
-
-      $("#hardship").hover(
-        function() {
-          $( this ).addClass( "animated pulse" );
-        }, function() {
-          $( this ).removeClass( "animated pulse" );
-      });
+      $(".card-element-container").hide();
+      $("#actions-wrapper").hide();
+      $("#meet-your-fate-container").show();
 
       // instantiate variable for the card's fate
       var fate = eventCard[0].actions.action1.actionFate + fateMod;
@@ -465,12 +445,16 @@ $(document).ready(function() {
       if (result === "s") {
         console.log("Player succeeded.");
         var fortuneEffects = eventCard[0].actions.action1.fortune;
+        $("#fate-popup").show();
+        $("#fate-popup").html("<h4>Fortune favored you.</h4>");
         game.fortuneHardship(fortuneEffects);
         console.log("Calling discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
       } else if (result === "f") {
         console.log("Player failed.");
         var hardshipEffects = eventCard[0].actions.action1.hardship;
+        $("#fate-popup").show();
+        $("#fate-popup").html("<h4>Fortune abandoned you.</h4>");
         game.fortuneHardship(hardshipEffects);
         console.log("Calling discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
@@ -726,7 +710,6 @@ $(document).ready(function() {
       $(".map").addClass("visited");
       $(".map").removeClass("unvisited");
       $(".map").off("click");
-      $(".map").off("hover");
     }
   };
 
