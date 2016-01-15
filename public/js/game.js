@@ -37,7 +37,7 @@ $(document).ready(function() {
       game.mapClick();
 
       game.renderUI();
-      $("#message-log").append("<p>Against your better judgement you enter the decrepit mansion in hopes of finding the rumored <strong>Ancient Relic</strong> Ashton Smith found before he vanished.</p>");
+      $("#message-log").append("<p>Against your better judgment you enter the decrepit mansion in hopes of finding the rumored <strong>Ancient Relic</strong> Ashton Smith found before he vanished.</p>");
     },
 
     /////////////////////////////////////////////////////////////////////////
