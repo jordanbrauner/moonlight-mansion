@@ -6,6 +6,8 @@ $(document).ready(function() {
   eventCard = [];
   inventory = [];
   discarded = [];
+  relicDeck = [];
+  oldKeyDeck = [];
   sanityLevel = 10;
   moonLevel = 1;
   fateMod = 0;
@@ -13,6 +15,7 @@ $(document).ready(function() {
   canUseItem = false;
   actionPhase = false;
   relic = false;
+
 
   // Fetch JSON card data
   Card.fetch().then(function() {
@@ -41,16 +44,19 @@ $(document).ready(function() {
     shuffleDeck: function(toShuffle, discarded) {
     /////////////////////////////////////////////////////////////////////////
       console.log("Shuffling " + toShuffle[0].cardType + " deck!");
-      // $(".all-cards").html("");
-      for (var num in discarded) {
-        toShuffle.push(discarded[num]);
-        console.log("Pushing " + discarded[num].cardName + "to the toShuffle deck");
-      }
+      // for (var num in discarded) {
+      //   toShuffle.push(discarded[num]);
+      //   console.log("Pushing " + discarded[num].cardName + "to the toShuffle deck");
+      // }
       var cardsLeft = toShuffle.length;
       var i;
       while (cardsLeft) {
         i = Math.floor(Math.random() * cardsLeft--);
-        if (toShuffle[i].cardType === "event") {
+        if (toShuffle[i].cardName === "Ancient Relic") {
+          relicDeck.push(toShuffle.splice(i, 1)[0]);
+        } else if (toShuffle[i].cardName === "Old Key") {
+          oldKeyDeck.push(toShuffle.splice(i, 1)[0]);
+        } else if (toShuffle[i].cardType === "event") {
           eventDeck.push(toShuffle.splice(i, 1)[0]);
         } else {
           itemDeck.push(toShuffle.splice(i, 1)[0]);

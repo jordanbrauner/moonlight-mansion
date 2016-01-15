@@ -910,6 +910,25 @@
       "itemFate": "1",
       "itemResult": ["sanityU1"]
     }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Basement",
+    "cardName": "Old Key",
+    "flavorText": "Worn, rusted, and hot to the touch.",
+    "useItem": {
+      "itemFate": "6"
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "Ancient Relic",
+    "flavorText": "The moon beckons you."
+  },
+  {
+    "cardType": "item",
+    "cardName": "Ancient Relic",
+    "flavorText": "The moon beckons you."
   }
 
 ]
