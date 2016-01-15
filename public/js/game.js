@@ -213,7 +213,7 @@ $(document).ready(function() {
     },
 
     /////////////////////////////////////////////////////////////////////////
-    drawItemCard: function(num) {
+    drawItemCard: function(num, special) {
     /////////////////////////////////////////////////////////////////////////
       if (itemDeck.length > 0 && inventory.length + num <= 4) {
         while (num) {
@@ -555,6 +555,11 @@ $(document).ready(function() {
           game.moonMethods.moonCheck(-3);
         } else if (effects[e] === "moonD4") {
           game.moonMethods.moonCheck(-4);
+        // TODO
+        // } else if (effects[e] === "oldKey") {
+        //   game.drawSpecialItemCard("oldKey");
+        // } else if (effects[e] === "relicU") {
+        //   game.drawSpecialItemCard("relic");
         } else {
           console.log("Effect not found: " + effects[e]);
         }
