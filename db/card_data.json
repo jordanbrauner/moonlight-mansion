@@ -471,15 +471,6 @@
   },
   {
     "cardType": "item",
-    "roomType": "The Attic",
-    "cardName": "Musty Incense",
-    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
-    "useItem": {
-      "itemFate": "1"
-    }
-  },
-  {
-    "cardType": "item",
     "roomType": "The Library",
     "cardName": "Dusty Book",
     "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",

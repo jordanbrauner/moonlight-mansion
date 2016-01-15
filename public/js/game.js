@@ -230,9 +230,9 @@ $(document).ready(function() {
           var roomType = newItem.roomType;
 
           if (itemFate && roomType) {
-            $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
+            $("#item-" + newItem.id + " .right-column").append("<p>Increases fortune in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
           } else if (itemFate && !roomType) {
-            $("#item-" + newItem.id + " .right-column").append("<p>Increases fate: " + itemFate + "</p>");
+            $("#item-" + newItem.id + " .right-column").append("<p>Increases fortune: " + itemFate + "</p>");
           }
 
           if (itemResult) {
@@ -317,9 +317,9 @@ $(document).ready(function() {
         var roomType = newItem.roomType;
 
         if (itemFate && roomType) {
-          $("#item-" + newItem.id + " .right-column").append("<p>Increases fate in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
+          $("#item-" + newItem.id + " .right-column").append("<p>Increases fortune in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
         } else if (itemFate && !roomType) {
-          $("#item-" + newItem.id + " .right-column").append("<p>Increases fate: " + itemFate + "</p>");
+          $("#item-" + newItem.id + " .right-column").append("<p>Increases fortune: " + itemFate + "</p>");
         }
 
         if (itemResult) {
@@ -478,7 +478,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     action3Result: function() {
     /////////////////////////////////////////////////////////////////////////
-      if (inventory.length > 0 && eventCard[0].actions.action3.a3Result[0] === "Use item" && !canUseItem) {
+      if (inventory.length > 0 && eventCard[0].actions.action3.a3Result === "Use item" && !canUseItem) {
         canUseItem = true;
         console.log("canUseItem set to true: " + canUseItem);
         $("#message-log").append("<p>Choose the item you want to use.</p>");
@@ -494,6 +494,7 @@ $(document).ready(function() {
     useAnItem: function(id) {
     /////////////////////////////////////////////////////////////////////////
       canUseItem = false;
+      fateMod = 0;
       console.log("canUseItem set to false: " + canUseItem);
       // Search through inventory array to find the card object with the same (JSON) id.
       for (var i = 0; i < inventory.length; i++) {
@@ -504,10 +505,10 @@ $(document).ready(function() {
           // Adjust fate modifier
           if (itemUsed.roomType) {
             if (eventCard[0].roomType === itemUsed.roomType) {
-              console.log("Fate modifier set to: " + fateMod);
-
-              $("#message-log").append("<p>Fate smiles upon you.</p>");
+              console.log("Fate modifier before adjustment: " + fateMod);
               fateMod = itemUsed.useItem.itemFate;
+              $("#message-log").append("<p>Fate smiles upon you.</p>");
+              console.log("Fate modifier set to: " + fateMod);
               // Resolve item results
               if (itemUsed.useItem.itemResult) {
                 game.fortuneHardship(itemUsed.useItem.itemResult);
@@ -519,8 +520,9 @@ $(document).ready(function() {
               console.log("Sorry, you can only use this item in: " + itemUsed.roomType);
             }
           } else if (!itemUsed.roomType) {
-            console.log("Fate modifier set to: " + fateMod);
+            console.log("Fate modifier before adjustment: " + fateMod);
             fateMod = itemUsed.useItem.itemFate;
+            console.log("Fate modifier set to: " + fateMod);
             $("#message-log").append("<p>Fate smiles upon you.</p>");
             // Resolve item results
             if (itemUsed.useItem.itemResult) {

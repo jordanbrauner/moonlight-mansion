@@ -29,7 +29,7 @@ var CardSchema = new Schema(
       },
       action3: {
         a3Name: String,
-        a3Result: []
+        a3Result: String
       }
     }
   },
