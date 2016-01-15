@@ -2,12 +2,12 @@
   {
     "cardType": "event",
     "roomType": "The Observatory",
-    "cardName": "Cloudless Sky",
+    "cardName": "Clouded Sky",
     "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
     "actions": {
       "action1" : {
         "a1Name": "Look through the telescope",
-        "actionFate": "1",
+        "actionFate": "2",
         "fortune": ["itemU1"],
         "hardship": ["sanityD1", "moonU1"]
       },
@@ -24,21 +24,87 @@
   {
     "cardType": "event",
     "roomType": "The Observatory",
+    "cardName": "A Double Star",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Write down the coordinates",
+        "actionFate": "-1",
+        "fortune": ["sanityU2", "moonU1"],
+        "hardship": ["moonU2"]
+      },
+      "action2": {
+        "a2Name": "Dare not look",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
     "cardName": "Blood Moon Rising",
     "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
     "actions": {
       "action1" : {
-        "a1Name": "Embrace the light",
+        "a1Name": "Embrace the moon",
         "actionFate": "-3",
-        "fortune": ["moonD4", "sanityD1", "itemU1"],
-        "hardship": ["moonU1", "sanityD2"]
+        "fortune": ["moonU2", "SanityD1", "itemU3"],
+        "hardship": ["moonU2", "sanityD4"]
       },
       "action2": {
-        "a2Name": "Shield your eyes",
-        "a2Result": ["itemD1"]
+        "a2Name": "Cower in despair",
+        "a2Result": ["moonU2", "relicD", "sanityD1"]
       },
       "action3": {
         "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Study",
+    "cardName": "A Journal Found",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Read through the pages",
+        "actionFate": "1",
+        "fortune": ["sanityD1", "itemU1", "moonU1"],
+        "hardship": ["moonU2", "sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Skim through",
+        "a2Result": ["sanityU1", "moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Study",
+    "cardName": "A Plotted Course",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Refer to your notebook",
+        "actionFate": "0",
+        "fortune": ["sanityU1"],
+        "hardship": ["moonU1"]
+      },
+      "action2": {
+        "a2Name": "Make no connection",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
         "a3Result": "Use item"
       }
     }
@@ -50,10 +116,10 @@
     "flavorText": "Shagg gnaiih lloig k'yarnak shtunggli hupadgh Cthulhu ph'ep ah, ilyaa nguln s'uhn vulgtlagln Yoggoth naflzhro hafh'drn h'Nyarlathotep naChaugnar Faugn.",
     "actions": {
       "action1" : {
-        "a1Name": "Stand your ground",
-        "actionFate": "-2",
-        "fortune": ["itemU1", "moonD1", "sanityD1"],
-        "hardship": ["sanityD2"]
+        "a1Name": "Hide and be still",
+        "actionFate": "-1",
+        "fortune": ["itemU1", "moonD2", "sanityD1"],
+        "hardship": ["sanityD3"]
       },
       "action2": {
         "a2Name": "Flee the room",
@@ -72,8 +138,8 @@
     "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
     "actions": {
       "action1" : {
-        "a1Name": "Skim through the book",
-        "actionFate": "0",
+        "a1Name": "Look through the book",
+        "actionFate": "2",
         "fortune": ["itemU1", "moonU1"],
         "hardship": ["moonU1", "sanityD2"]
       },
@@ -89,22 +155,154 @@
   },
   {
     "cardType": "event",
+    "roomType": "The Library",
+    "cardName": "Knick Knacks and Baubles",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Wind the music box",
+        "actionFate": "0",
+        "fortune": ["itemU1", "moonU2"],
+        "hardship": ["sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Look under the desk",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Library",
+    "cardName": "Hidden Compartment",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Search through the drawers",
+        "actionFate": "-1",
+        "fortune": ["itemU2"],
+        "hardship": ["itemD1"]
+      },
+      "action2": {
+        "a2Name": "Check the alcove",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
     "roomType": "Hallway",
-    "cardName": "Secret Passage",
+    "cardName": "Forgotten Passage",
     "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
     "actions": {
       "action1" : {
         "a1Name": "Step through the opening",
         "actionFate": "1",
         "fortune": ["itemU1"],
-        "hardship": ["itemD1"]
+        "hardship": ["itemD1", "sanityD1"]
       },
       "action2": {
-        "a2Name": "Turn back",
-        "a2Result": ["sanityD1"]
+        "a2Name": "Abandon interest",
+        "a2Result": ["moonU1"]
       },
       "action3": {
         "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "One Foot and then the Other",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Keep pressing on",
+        "actionFate": "1",
+        "fortune": ["sanityU2"],
+        "hardship": ["sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Turn back",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "A Cold Shiver",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Promise to return home",
+        "actionFate": "0",
+        "fortune": ["sanityU2"],
+        "hardship": ["sanityD3"]
+      },
+      "action2": {
+        "a2Name": "Devote yourself to curiosity",
+        "a2Result": ["sanityD2", "moonU1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Attic",
+    "cardName": "Left and Abandoned",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Pay your respects",
+        "actionFate": "-1",
+        "fortune": ["itemU2", "moonD2"],
+        "hardship": ["moonU2"]
+      },
+      "action2": {
+        "a2Name": "Stare in shock",
+        "a2Result": ["sanityD2", "moonU1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Attic",
+    "cardName": "The Dead Man",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Know what awaits",
+        "actionFate": "-1",
+        "fortune": ["oldKey", "sanityD1"],
+        "hardship": ["itemD2", "sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Leave in disgust",
+        "a2Result": ["sanityD1", "moonU4"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
         "a3Result": "Use item"
       }
     }
@@ -126,7 +324,7 @@
         "a2Result": ["sanityD1", "moonD1"]
       },
       "action3": {
-        "a3Name": "Brief respite",
+        "a3Name": "Search your bag",
         "a3Result": "Use item"
       }
     }
@@ -134,17 +332,17 @@
   {
     "cardType": "event",
     "roomType": "The Basement",
-    "cardName": "Hidden Chamber",
+    "cardName": "Humming in the Walls",
     "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
     "actions": {
       "action1" : {
-        "a1Name": "Search through the chest",
-        "actionFate": "-1",
+        "a1Name": "Search the chamber",
+        "actionFate": "-2",
         "fortune": ["itemU2"],
         "hardship": ["moonU2"]
       },
       "action2": {
-        "a2Name": "Leave untouched",
+        "a2Name": "Step away",
         "a2Result": ["itemD1"]
       },
       "action3": {
@@ -160,13 +358,13 @@
     "flavorText": "Grah'n fm'latgh ah fhtagnagl hai hafh'drnoth shogg Azathoth, s'uhn ph'nglui s'uhn gnaiih R'lyeh ph'bug, geb gnaiih shugg gof'nn k'yarnakog gof'nn.",
     "actions": {
       "action1" : {
-        "a1Name": "Confront the creature",
-        "actionFate": "-3",
-        "fortune": ["itemU2", "moonD1", "sanityD2"],
-        "hardship": ["moonU2", "sanityU3"]
+        "a1Name": "Summon your courage",
+        "actionFate": "-2",
+        "fortune": ["itemU2", "moonD1", "sanityD1"],
+        "hardship": ["itemD1", "sanityD3"]
       },
       "action2": {
-        "a2Name": "Flee into the light",
+        "a2Name": "Flee upstairs",
         "a2Result": ["itemD2"]
       },
       "action3": {
@@ -175,38 +373,88 @@
       }
     }
   },
+  {
+    "cardType": "event",
+    "roomType": "The Basement",
+    "cardName": "Door to the Abyss",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Gaze",
+        "actionFate": "-3",
+        "fortune": ["relicU", "itemU1"],
+        "hardship": ["sanityD3", "itemD2"]
+      },
+      "action2": {
+        "a2Name": "Shield your eyes",
+        "a2Result": ["moonU4"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Master Bedroom",
+    "cardName": "Discarded Suitcase",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Search through",
+        "actionFate": "2",
+        "fortune": ["itemU1"],
+        "hardship": ["itemD1", "moonU1"]
+      },
+      "action2": {
+        "a2Name": "Move along",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Master Bedroom",
+    "cardName": "Portrait of a Woman",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Sketch in your notebook",
+        "actionFate": "1",
+        "fortune": ["sanityU2"],
+        "hardship": ["sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Look elsewhere",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+
+
 
   {
     "cardType": "item",
-    "cardName": "Revolver",
+    "cardName": "Bullet for your revolver",
     "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
-      "itemFate": "2"
-    }
-  },
-  {
-    "cardType": "item",
-    "roomType": "The Library",
-    "cardName": "Dusty Book",
-    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn shtunggli ilyaa uh'e ehye.",
-    "useItem": {
-      "itemFate": "1",
-      "itemResult": ["moonU1"]
-    }
-  },
-  {
-    "cardType": "item",
-    "roomType": "The Attic",
-    "cardName": "Broken Bauble",
-    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch', ep n'ghft.",
-    "useItem": {
-      "itemFate": "1"
+      "itemFate": "2",
+      "itemResult": ["sanityD1"]
     }
   },
   {
     "cardType": "item",
     "cardName": "The Holy Book",
-    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["sanityU2"]
@@ -215,7 +463,7 @@
   {
     "cardType": "item",
     "cardName": "Bottle of Bourbon",
-    "flavorText": "Ph'n'gha nnnr'luh geb nglui n'gha fm'latgh uln cs'uhn tharanak.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU2"]
@@ -223,632 +471,384 @@
   },
   {
     "cardType": "item",
-    "cardName": "Ancient Relic",
-    "flavorText": "Ngshtunggli ee fhtagnnyth nashugg geboth ron, kn'a syha'h.",
-    "useItem": {
-      "itemResult": ["gameEnd"]
-    }
-  },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  {
-    "cardType": "event",
-    "roomType": "The Observatory",
-    "cardName": "Cloudless Sky",
-    "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Look through the telescope",
-        "actionFate": "1",
-        "fortune": ["itemU1"],
-        "hardship": ["sanityD1", "moonU1"]
-      },
-      "action2": {
-        "a2Name": "Leave the room",
-        "a2Result": ["sanityD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Observatory",
-    "cardName": "Blood Moon Rising",
-    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Embrace the light",
-        "actionFate": "-3",
-        "fortune": ["moonD4", "sanityD1", "itemU1"],
-        "hardship": ["moonU1", "sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Shield your eyes",
-        "a2Result": ["itemD1"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Study",
-    "cardName": "Stalking Shadow",
-    "flavorText": "Shagg gnaiih lloig k'yarnak shtunggli hupadgh Cthulhu ph'ep ah, ilyaa nguln s'uhn vulgtlagln Yoggoth naflzhro hafh'drn h'Nyarlathotep naChaugnar Faugn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Stand your ground",
-        "actionFate": "-2",
-        "fortune": ["itemU1", "moonD1", "sanityD1"],
-        "hardship": ["sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Flee the room",
-        "a2Result": ["itemD2", "sanityD2"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Library",
-    "cardName": "Necessary Research",
-    "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Skim through the book",
-        "actionFate": "0",
-        "fortune": ["itemU1", "moonU1"],
-        "hardship": ["moonU1", "sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Move on",
-        "a2Result": ["moonU1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "Hallway",
-    "cardName": "Secret Passage",
-    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Step through the opening",
-        "actionFate": "1",
-        "fortune": ["itemU1"],
-        "hardship": ["itemD1"]
-      },
-      "action2": {
-        "a2Name": "Turn back",
-        "a2Result": ["sanityD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
     "roomType": "The Attic",
-    "cardName": "Disturbing Shrine",
-    "flavorText": "H'kadishtu uaaah f'syha'h nnnCthulhu llll ehye shagg ya nilgh'ri, uh'e c'ai gotha ooboshu nog gotha lw'nafh ngli'hee chtenff, Cthulhu lloig.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Pocket the medallion",
-        "actionFate": "-2",
-        "fortune": ["itemU1", "sanityD1"],
-        "hardship": ["sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Leave shrine untouched",
-        "a2Result": ["sanityD1", "moonD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Basement",
-    "cardName": "Hidden Chamber",
-    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Search through the chest",
-        "actionFate": "-1",
-        "fortune": ["itemU2"],
-        "hardship": ["moonU2"]
-      },
-      "action2": {
-        "a2Name": "Leave untouched",
-        "a2Result": ["itemD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Basement",
-    "cardName": "Sound in the Darkness",
-    "flavorText": "Grah'n fm'latgh ah fhtagnagl hai hafh'drnoth shogg Azathoth, s'uhn ph'nglui s'uhn gnaiih R'lyeh ph'bug, geb gnaiih shugg gof'nn k'yarnakog gof'nn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Confront the creature",
-        "actionFate": "-3",
-        "fortune": ["itemU2", "moonD1", "sanityD2"],
-        "hardship": ["moonU2", "sanityU3"]
-      },
-      "action2": {
-        "a2Name": "Flee into the light",
-        "a2Result": ["itemD2"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Observatory",
-    "cardName": "Cloudless Sky",
-    "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Look through the telescope",
-        "actionFate": "1",
-        "fortune": ["itemU1"],
-        "hardship": ["sanityD1", "moonU1"]
-      },
-      "action2": {
-        "a2Name": "Leave the room",
-        "a2Result": ["sanityD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Observatory",
-    "cardName": "Blood Moon Rising",
-    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Embrace the light",
-        "actionFate": "-3",
-        "fortune": ["moonD4", "sanityD1", "itemU1"],
-        "hardship": ["moonU1", "sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Shield your eyes",
-        "a2Result": ["itemD1"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Study",
-    "cardName": "Stalking Shadow",
-    "flavorText": "Shagg gnaiih lloig k'yarnak shtunggli hupadgh Cthulhu ph'ep ah, ilyaa nguln s'uhn vulgtlagln Yoggoth naflzhro hafh'drn h'Nyarlathotep naChaugnar Faugn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Stand your ground",
-        "actionFate": "-2",
-        "fortune": ["itemU1", "moonD1", "sanityD1"],
-        "hardship": ["sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Flee the room",
-        "a2Result": ["itemD2", "sanityD2"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Library",
-    "cardName": "Necessary Research",
-    "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Skim through the book",
-        "actionFate": "0",
-        "fortune": ["itemU1", "moonU1"],
-        "hardship": ["moonU1", "sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Move on",
-        "a2Result": ["moonU1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "Hallway",
-    "cardName": "Secret Passage",
-    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Step through the opening",
-        "actionFate": "1",
-        "fortune": ["itemU1"],
-        "hardship": ["itemD1"]
-      },
-      "action2": {
-        "a2Name": "Turn back",
-        "a2Result": ["sanityD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Attic",
-    "cardName": "Disturbing Shrine",
-    "flavorText": "H'kadishtu uaaah f'syha'h nnnCthulhu llll ehye shagg ya nilgh'ri, uh'e c'ai gotha ooboshu nog gotha lw'nafh ngli'hee chtenff, Cthulhu lloig.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Pocket the medallion",
-        "actionFate": "-2",
-        "fortune": ["itemU1", "sanityD1"],
-        "hardship": ["sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Leave shrine untouched",
-        "a2Result": ["sanityD1", "moonD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Basement",
-    "cardName": "Hidden Chamber",
-    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Search through the chest",
-        "actionFate": "-1",
-        "fortune": ["itemU2"],
-        "hardship": ["moonU2"]
-      },
-      "action2": {
-        "a2Name": "Leave untouched",
-        "a2Result": ["itemD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Basement",
-    "cardName": "Sound in the Darkness",
-    "flavorText": "Grah'n fm'latgh ah fhtagnagl hai hafh'drnoth shogg Azathoth, s'uhn ph'nglui s'uhn gnaiih R'lyeh ph'bug, geb gnaiih shugg gof'nn k'yarnakog gof'nn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Confront the creature",
-        "actionFate": "-3",
-        "fortune": ["itemU2", "moonD1", "sanityD2"],
-        "hardship": ["moonU2", "sanityU3"]
-      },
-      "action2": {
-        "a2Name": "Flee into the light",
-        "a2Result": ["itemD2"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Observatory",
-    "cardName": "Cloudless Sky",
-    "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Look through the telescope",
-        "actionFate": "1",
-        "fortune": ["itemU1"],
-        "hardship": ["sanityD1", "moonU1"]
-      },
-      "action2": {
-        "a2Name": "Leave the room",
-        "a2Result": ["sanityD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Observatory",
-    "cardName": "Blood Moon Rising",
-    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Embrace the light",
-        "actionFate": "-3",
-        "fortune": ["moonD4", "sanityD1", "itemU1"],
-        "hardship": ["moonU1", "sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Shield your eyes",
-        "a2Result": ["itemD1"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Study",
-    "cardName": "Stalking Shadow",
-    "flavorText": "Shagg gnaiih lloig k'yarnak shtunggli hupadgh Cthulhu ph'ep ah, ilyaa nguln s'uhn vulgtlagln Yoggoth naflzhro hafh'drn h'Nyarlathotep naChaugnar Faugn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Stand your ground",
-        "actionFate": "-2",
-        "fortune": ["itemU1", "moonD1", "sanityD1"],
-        "hardship": ["sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Flee the room",
-        "a2Result": ["itemD2", "sanityD2"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Library",
-    "cardName": "Necessary Research",
-    "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Skim through the book",
-        "actionFate": "0",
-        "fortune": ["itemU1", "moonU1"],
-        "hardship": ["moonU1", "sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Move on",
-        "a2Result": ["moonU1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "Hallway",
-    "cardName": "Secret Passage",
-    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Step through the opening",
-        "actionFate": "1",
-        "fortune": ["itemU1"],
-        "hardship": ["itemD1"]
-      },
-      "action2": {
-        "a2Name": "Turn back",
-        "a2Result": ["sanityD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Attic",
-    "cardName": "Disturbing Shrine",
-    "flavorText": "H'kadishtu uaaah f'syha'h nnnCthulhu llll ehye shagg ya nilgh'ri, uh'e c'ai gotha ooboshu nog gotha lw'nafh ngli'hee chtenff, Cthulhu lloig.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Pocket the medallion",
-        "actionFate": "-2",
-        "fortune": ["itemU1", "sanityD1"],
-        "hardship": ["sanityD2"]
-      },
-      "action2": {
-        "a2Name": "Leave shrine untouched",
-        "a2Result": ["sanityD1", "moonD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Basement",
-    "cardName": "Hidden Chamber",
-    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Search through the chest",
-        "actionFate": "-1",
-        "fortune": ["itemU2"],
-        "hardship": ["moonU2"]
-      },
-      "action2": {
-        "a2Name": "Leave untouched",
-        "a2Result": ["itemD1"]
-      },
-      "action3": {
-        "a3Name": "Brief respite",
-        "a3Result": "Use item"
-      }
-    }
-  },
-  {
-    "cardType": "event",
-    "roomType": "The Basement",
-    "cardName": "Sound in the Darkness",
-    "flavorText": "Grah'n fm'latgh ah fhtagnagl hai hafh'drnoth shogg Azathoth, s'uhn ph'nglui s'uhn gnaiih R'lyeh ph'bug, geb gnaiih shugg gof'nn k'yarnakog gof'nn.",
-    "actions": {
-      "action1" : {
-        "a1Name": "Confront the creature",
-        "actionFate": "-3",
-        "fortune": ["itemU2", "moonD1", "sanityD2"],
-        "hardship": ["moonU2", "sanityU3"]
-      },
-      "action2": {
-        "a2Name": "Flee into the light",
-        "a2Result": ["itemD2"]
-      },
-      "action3": {
-        "a3Name": "Search your bag",
-        "a3Result": "Use item"
-      }
-    }
-  },
-
-  {
-    "cardType": "item",
-    "cardName": "Revolver",
-    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln .",
-    "useItem": {
-      "itemFate": "2"
-    }
-  },
-  {
-    "cardType": "item",
-    "roomType": "The Library",
-    "cardName": "Dusty Book",
-    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah.",
-    "useItem": {
-      "itemFate": "1",
-      "itemResult": ["moonU1"]
-    }
-  },
-  {
-    "cardType": "item",
-    "roomType": "The Attic",
-    "cardName": "Broken Bauble",
-    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft.",
-    "useItem": {
-      "itemFate": "1"
-    }
-  },
-  {
-    "cardType": "item",
-    "cardName": "The Holy Book",
-    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh.",
-    "useItem": {
-      "itemFate": "1",
-      "itemResult": ["sanityU2"]
-    }
-  },
-  {
-    "cardType": "item",
-    "cardName": "Ancient Relic",
-    "flavorText": "Ngshtunggli ee fhtagnnyth nashugg geboth ron, kn'a syha'h vulgtm.",
-    "useItem": {
-      "itemResult": ["gameEnd"]
-    }
-  },
-  {
-    "cardType": "item",
-    "cardName": "Revolver",
+    "cardName": "Musty Incense",
     "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
-      "itemFate": "2"
+      "itemFate": "1"
     }
   },
   {
     "cardType": "item",
     "roomType": "The Library",
     "cardName": "Dusty Book",
-    "flavorText": "Syha'h gnaiih geb h'mnahn' Azathoth ep y'hah Azathoth fhtagn.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
-      "itemFate": "1",
+      "itemFate": "2",
       "itemResult": ["moonU1"]
     }
   },
   {
     "cardType": "item",
-    "roomType": "The Attic",
-    "cardName": "Broken Bauble",
-    "flavorText": "Nyarlathotep ch' ron h'bug ftaghu k'yarnakor nafllloig n'ghft ch'.",
+    "roomType": "The Observatory",
+    "cardName": "Telescope Lens",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
-      "itemFate": "1"
+      "itemFate": "3"
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Study",
+    "cardName": "Broken Bauble",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["sanityU1"]
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Basement",
+    "cardName": "Peace of Mind",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "4",
+      "itemResult": ["sanityU1"]
+    }
+  },
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "cardType": "event",
+    "roomType": "The Basement",
+    "cardName": "Door to the Abyss",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Gaze",
+        "actionFate": "-3",
+        "fortune": ["relicU", "itemU1"],
+        "hardship": ["sanityD3", "itemD2"]
+      },
+      "action2": {
+        "a2Name": "Shield your eyes",
+        "a2Result": ["moonU4"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Master Bedroom",
+    "cardName": "Discarded Suitcase",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Search through",
+        "actionFate": "2",
+        "fortune": ["itemU1"],
+        "hardship": ["itemD1", "moonU1"]
+      },
+      "action2": {
+        "a2Name": "Move along",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Master Bedroom",
+    "cardName": "Portrait of a Woman",
+    "flavorText": "Nanw nageb cah gnaiih s'uhn f'ep vulgtm nog 'ai s'uhnoth h''bthnk, ebunma nw n'ghft Shub-Niggurath naflvulgtm shogg ronog nglui.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Sketch in your notebook",
+        "actionFate": "1",
+        "fortune": ["sanityU2"],
+        "hardship": ["sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Look elsewhere",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Study",
+    "cardName": "A Journal Found",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Read through the pages",
+        "actionFate": "1",
+        "fortune": ["sanityD1", "itemU1", "moonU1"],
+        "hardship": ["moonU2", "sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Skim through",
+        "a2Result": ["sanityU1", "moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Study",
+    "cardName": "A Plotted Course",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Refer to your notebook",
+        "actionFate": "0",
+        "fortune": ["sanityU1"],
+        "hardship": ["moonU1"]
+      },
+      "action2": {
+        "a2Name": "Make no connection",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Library",
+    "cardName": "Necessary Research",
+    "flavorText": "Dagon cnglui Tsathoggua wgah'n ftaghu y'hah zhroor chtenff wgah'n syha'h 'bthnk uaaah, ahnyth ph'uln nnnathg Tsathoggua 'bthnk stell'bsna.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Look through the book",
+        "actionFate": "2",
+        "fortune": ["itemU1", "moonU1"],
+        "hardship": ["moonU1", "sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Move on",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Library",
+    "cardName": "Knick Knacks and Baubles",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Wind the music box",
+        "actionFate": "0",
+        "fortune": ["itemU1", "moonU2"],
+        "hardship": ["sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Look under the desk",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "Forgotten Passage",
+    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Step through the opening",
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["itemD1", "sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Abandon interest",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Attic",
+    "cardName": "Disturbing Shrine",
+    "flavorText": "H'kadishtu uaaah f'syha'h nnnCthulhu llll ehye shagg ya nilgh'ri, uh'e c'ai gotha ooboshu nog gotha lw'nafh ngli'hee chtenff, Cthulhu lloig.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Pocket the medallion",
+        "actionFate": "-2",
+        "fortune": ["itemU1", "sanityD1"],
+        "hardship": ["sanityD2"]
+      },
+      "action2": {
+        "a2Name": "Leave shrine untouched",
+        "a2Result": ["sanityD1", "moonD1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "The Observatory",
+    "cardName": "Clouded Sky",
+    "flavorText": "Naee athg naflDagon ep kadishtu Yoggoth Nyarlathotep zhro shagg, mnahn' ngChaugnar Faugn n'ghft y-Hastur lw'nafh ya hafh'drn.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Look through the telescope",
+        "actionFate": "2",
+        "fortune": ["itemU1"],
+        "hardship": ["sanityD1", "moonU1"]
+      },
+      "action2": {
+        "a2Name": "Leave the room",
+        "a2Result": ["sanityD1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "Forgotten Passage",
+    "flavorText": "Y'hah y-Tsathoggua ilyaa ehye h'zhro hupadgh ah ch' ph'lw'nafh, y-phlegeth sll'haog ulnor ch' gotha s'uhn cgeb ooboshu goka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Step through the opening",
+        "actionFate": "1",
+        "fortune": ["itemU1"],
+        "hardship": ["itemD1", "sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Abandon interest",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Brief respite",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "One Foot and then the Other",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Keep pressing on",
+        "actionFate": "1",
+        "fortune": ["sanityU2"],
+        "hardship": ["sanityD1"]
+      },
+      "action2": {
+        "a2Name": "Turn back",
+        "a2Result": ["moonU1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+  {
+    "cardType": "event",
+    "roomType": "Hallway",
+    "cardName": "A Cold Shiver",
+    "flavorText": "Ph'sgn'wahl phlegeth naChaugnar Faugn llll syha'h lw'nafh chai, throd Tsathoggua kn'a ee lw'nafh shogg geb, yanyth sgn'wahl ph'ehye ya nagoka.",
+    "actions": {
+      "action1" : {
+        "a1Name": "Promise to return home",
+        "actionFate": "0",
+        "fortune": ["sanityU2"],
+        "hardship": ["sanityD3"]
+      },
+      "action2": {
+        "a2Name": "Devote yourself to curiosity",
+        "a2Result": ["sanityD2", "moonU1"]
+      },
+      "action3": {
+        "a3Name": "Search your bag",
+        "a3Result": "Use item"
+      }
+    }
+  },
+
+
+
+
+  {
+    "cardType": "item",
+    "cardName": "Bullet for your revolver",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "2",
+      "itemResult": ["sanityD1"]
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "Bullet for your revolver",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "2",
+      "itemResult": ["sanityD1"]
+    }
+  },
+  {
+    "cardType": "item",
+    "cardName": "Bullet for your revolver",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "2",
+      "itemResult": ["sanityD1"]
     }
   },
   {
     "cardType": "item",
     "cardName": "The Holy Book",
-    "flavorText": "Vulgtm Dagon naflnw f'lw'nafh y'hah nw, uaaah 'ai grah'n Yoggoth 'ai r'luh.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["sanityU2"]
@@ -857,10 +857,59 @@
   {
     "cardType": "item",
     "cardName": "Bottle of Bourbon",
-    "flavorText": "Ph'n'gha nnnr'luh geb nglui n'gha fm'latgh uln cs'uhn tharanak, ch' uln ya.",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
     "useItem": {
       "itemFate": "1",
       "itemResult": ["moonU2"]
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Attic",
+    "cardName": "Musty Incense",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "1"
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Library",
+    "cardName": "Dusty Book",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "2",
+      "itemResult": ["moonU1"]
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Observatory",
+    "cardName": "Telescope Lens",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "3"
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Study",
+    "cardName": "Broken Bauble",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["sanityU1"]
+    }
+  },
+  {
+    "cardType": "item",
+    "roomType": "The Study",
+    "cardName": "Broken Bauble",
+    "flavorText": "Phlegeth tharanak h'bug k'yarnak vulgtlagln ngee nilgh'ri naflilyaa wgah'n.",
+    "useItem": {
+      "itemFate": "1",
+      "itemResult": ["sanityU1"]
     }
   }
+
 ]

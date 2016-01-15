@@ -26,5 +26,3 @@ app.use("/cards", require("./controllers/cardsController"));
 app.listen(4000, function() {
   console.log("App listening on port " + this.address().port);
 });
-
-// One more test
