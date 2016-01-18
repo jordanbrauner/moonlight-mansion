@@ -9,9 +9,11 @@ Moonlight Mansion began as my final project for General Assembly's Web Developme
 Please note that the game is currently in an alpha state. There are a handful of features that will be implemented over the coming weeks. Outside of the features still in development, the game is not yet properly balanced and the visuals are all placeholders. If you don't like experiencing bugs or getting frustrated with an unbalanced game then I'd suggest waiting until the game is released.
 
 # Rules:
-## Goal: Have the 'Ancient Relic' item card in your inventory when the moon level reached 25.
+**Goal:**
+ Have the 'Ancient Relic' item card in your inventory when the moon level reached 25.
 
-## Game over: The game ends when sanity reaches 0 or the moon level reached 25 and you aren't holding the 'Ancient Relic' item card.
+**Game Over:**
+The game ends when sanity reaches 0 or the moon level reached 25 and you aren't holding the 'Ancient Relic' item card.
 
 ## Player Turn:
 1. Click a map tile that's adjacent to one you've previously visited to draw that tile's Event Card.
