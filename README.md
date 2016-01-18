@@ -1,9 +1,9 @@
 # Moonlight Mansion
-Version: 0.0.1
+**Version: 0.0.1**
 This is the digital version of a board game I'm designing inspired by the weird fiction of H.P. Lovecraft and Clark Ashton Smith. Perhaps best summed up as a card-based roguelike.
 
 # About
-Moonlight Mansion began as my final project for General Assembly's Web Development Immersive. I began development on it January 8th, 2016.
+Moonlight Mansion started out as my final project for General Assembly's Web Development Immersive. Development began on January 8th, 2016. Turns out that I'm rather fond of the little game I created and will continue developing it.
 
 # State of the game
 Please note that the game is currently in an alpha state. There are a handful of features that will be implemented over the coming weeks. Outside of the features still in development, the game is not yet properly balanced and the visuals are all placeholders. If you don't like experiencing bugs or getting frustrated with an unbalanced game then I'd suggest waiting until the game is released.
