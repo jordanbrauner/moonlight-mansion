@@ -28,7 +28,8 @@ cards = {
 };
 
 Card.fetch = function() {
-  var url = "http://localhost:4000/cards";
+  var url = "/cards";
+
   var request = $.getJSON(url).then(function(response) {
     for (var i = 0; i < response.length; i++) {
       if (response[i].cardType == "event") {

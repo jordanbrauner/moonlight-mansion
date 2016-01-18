@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var hbs = require("hbs");
 
 // CONFIGURE
-mongoose.connect('mongodb://localhost/project4test');
+mongoose.connect("mongodb://" + (process.env.MONGODB_URL || "localhost/project4test"));
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', function() {
@@ -23,6 +23,6 @@ app.get("/", function(req, res) {
 app.use("/cards", require("./controllers/cardsController"));
 
 // RUN APP
-app.listen(4000, function() {
-  console.log("App listening on port " + this.address().port);
+app.listen(process.env.PORT || 4000, function() {
+  console.log("App listening on port 4000");
 });

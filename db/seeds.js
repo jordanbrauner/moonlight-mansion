@@ -3,7 +3,7 @@ var Card = require("../models/card");
 var cardData = require("./card_data.json");
 var mongoose = require("mongoose");
 
-mongoose.connect('mongodb://localhost/project4test');
+mongoose.connect("mongodb://" + (process.env.MONGODB_URL || "localhost/project4test"));
 var db = mongoose.connection;
 
 db.on("error", function(err) {

@@ -1,7 +1,7 @@
 {
-  "name": "project-4",
+  "name": "moonlight-mansion",
   "version": "1.0.0",
-  "description": "A bord game inspired by the weird fiction of H.P. Lovecraft and Clark Ashton Smith.",
+  "description": "deploy-test",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,9 +9,9 @@
   "author": "Jordan Brauner",
   "license": "ISC",
   "dependencies": {
-    "bower": "^1.7.2",
     "express": "^4.13.3",
     "hbs": "^4.0.0",
-    "mongoose": "^4.3.4"
+    "mongodb": "^2.1.4",
+    "mongoose": "^4.3.6"
   }
 }
