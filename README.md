@@ -28,7 +28,7 @@ The game ends when sanity reaches 0 or the moon level reached 25 and you aren't 
 [Screenshot](http://imgur.com/5mhX2Wf)
 
 # Technologies used
-This app uses NodeJS, ExpressJS, MongoDB, Mongoose, and Handlebars. To install dependencies type:
+This app uses Node.js, Express, MongoDB, Mongoose, and Handlebars. To install dependencies type:
 ```
 npm install --save hbs express mongoose
 ```
