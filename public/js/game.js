@@ -122,19 +122,19 @@ $(document).ready(function() {
 
         // Display room fate as a difficulty level the user can roughly gauge
         if (roomFate === -3) {
-          roomOutlook = "Unnatural (-3)";
+          roomOutlook = "Unnatural (1 fortune card)";
         } else if (roomFate === -2) {
-          roomOutlook = "Obscene (-2)";
+          roomOutlook = "Obscene (2 fortune cards)";
         } else if (roomFate === -1) {
-          roomOutlook = "Imposing (-1)";
+          roomOutlook = "Imposing (3 fortune cards)";
         } else if (roomFate === 0) {
-          roomOutlook = "Discomforting";
+          roomOutlook = "Discomforting (4 fortune cards)";
         } else if (roomFate === 1) {
-          roomOutlook = "Fair (+1)";
+          roomOutlook = "Fair (5 fortune cards)";
         } else if (roomFate === 2) {
-          roomOutlook = "Suitable (+2)";
+          roomOutlook = "Suitable (6 fortune cards)";
         } else if (roomFate === 3) {
-          roomOutlook = "Strong (+3)";
+          roomOutlook = "Strong (7 fortune cards)";
         }
 
         $("#card-outlook").html("<p><strong>Outlook</strong>: " + roomOutlook + "</p>");
