@@ -1,16 +1,16 @@
 # Moonlight Mansion
 **Version: 0.0.1**
-This is the digital version of a board game I'm designing inspired by the weird fiction of H.P. Lovecraft and Clark Ashton Smith. Perhaps best summed up as a card-based roguelike.
+This is the digital version of a board game I'm designing that's inspired by the weird fiction of H.P. Lovecraft and Clark Ashton Smith. Perhaps best summed up as a card-based rogue-like.
 
 # About
-Moonlight Mansion started out as my final project for General Assembly's Web Development Immersive. Development began on January 8th, 2016. Turns out that I'm rather fond of the little game I created and will continue developing it.
+Moonlight Mansion began life on January 8th, 2016 as my final project for General Assembly's Web Development Immersive. Turns out that I'm rather fond of this little game I created and will be expanding and polishing it over the coming months.
 
 # State of the game
-Please note that the game is currently in an alpha state. There are a handful of features that will be implemented over the coming weeks. Outside of the features still in development, the game is not yet properly balanced and the visuals are all placeholders. If you don't like experiencing bugs or getting frustrated with an unbalanced game then I'd suggest waiting until the game is released.
+Please note that the game is currently in an alpha state. There are numerous planned features that will be implemented over the coming months. As such, the game is not yet properly balanced and the visuals and interface are all placeholders. If you don't like experiencing bugs or getting frustrated with an unbalanced game then I'd suggest waiting until the game is released.
 
 # Rules:
 **Goal:**
- Have the 'Ancient Relic' item card in your inventory when the moon level reached 25.
+Have the 'Ancient Relic' item card in your inventory when the moon level reached 25.
 
 **Game Over:**
 The game ends when sanity reaches 0 or the moon level reached 25 and you aren't holding the 'Ancient Relic' item card.
