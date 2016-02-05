@@ -94,6 +94,12 @@ STYLE FOR PLAYER AND EVENT CLICKABLES
   margin-top: 0px;
 }
 
+#fate-popup p {
+  margin-top: 10px;
+  font-size: 13px;
+  text-align: center;
+}
+
 /**************************************************
 THE MAP
 /**************************************************/

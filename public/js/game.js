@@ -122,19 +122,19 @@ $(document).ready(function() {
 
         // Display room fate as a difficulty level the user can roughly gauge
         if (roomFate === -3) {
-          roomOutlook = "Unnatural";
+          roomOutlook = "Unnatural (-3)";
         } else if (roomFate === -2) {
-          roomOutlook = "Obscene";
+          roomOutlook = "Obscene (-2)";
         } else if (roomFate === -1) {
-          roomOutlook = "Imposing";
+          roomOutlook = "Imposing (-1)";
         } else if (roomFate === 0) {
           roomOutlook = "Discomforting";
         } else if (roomFate === 1) {
-          roomOutlook = "Fair";
+          roomOutlook = "Fair (+1)";
         } else if (roomFate === 2) {
-          roomOutlook = "Suitable";
+          roomOutlook = "Suitable (+2)";
         } else if (roomFate === 3) {
-          roomOutlook = "Strong";
+          roomOutlook = "Strong (+3)";
         }
 
         $("#card-outlook").html("<p><strong>Outlook</strong>: " + roomOutlook + "</p>");
@@ -416,7 +416,7 @@ $(document).ready(function() {
       $("#meet-your-fate-container").on("click", function(event) {
         var gameResult = $(event.target).attr("id");
         if (gameResult === "fortune") {
-          $("#message-log").append("<p><strong>Fortune favored you</strong>.</p>");
+          $("#message-log").append("<p><strong>Fortune favored you. Draw a new card.</strong></p>");
           game.action1Result("s");
           $("#meet-your-fate-container").off("click");
           $("#meet-your-fate-container").html("");
@@ -424,7 +424,7 @@ $(document).ready(function() {
           $("#fate-cards-in-play").html("");
           $("#card-outlook").show();
         } else if (gameResult === "hardship") {
-          $("#message-log").append("<p><strong>Fortune abandoned you</strong>.</p>");
+          $("#message-log").append("<p><strong>Fortune abandoned you. Draw a new card.</strong></p>");
           game.action1Result("f");
           $("#meet-your-fate-container").off("click");
           $("#meet-your-fate-container").html("");
@@ -446,7 +446,7 @@ $(document).ready(function() {
         console.log("Player succeeded.");
         var fortuneEffects = eventCard[0].actions.action1.fortune;
         $("#fate-popup").show();
-        $("#fate-popup").html("<h4>Fortune favored you.</h4>");
+        $("#fate-popup").html("<h4>Fortune favored you.</h4><p> Draw a new card.</p>");
         game.fortuneHardship(fortuneEffects);
         console.log("Calling discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
@@ -454,7 +454,7 @@ $(document).ready(function() {
         console.log("Player failed.");
         var hardshipEffects = eventCard[0].actions.action1.hardship;
         $("#fate-popup").show();
-        $("#fate-popup").html("<h4>Fortune abandoned you.</h4>");
+        $("#fate-popup").html("<h4>Fortune abandoned you.</h4><p> Draw a new card.</p>");
         game.fortuneHardship(hardshipEffects);
         console.log("Calling discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);

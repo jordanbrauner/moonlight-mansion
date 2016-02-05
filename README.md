@@ -24,6 +24,25 @@ The game ends when sanity reaches 0 or the moon level reached 25 and you aren't 
 3. Event Card effects resolved based on player's chosen action and the card is discarded.
 4. Moon level increases by 1.
 
+## Card Effects
+The room and item card effects are currently using placeholder text. Here's how to make sense of them. Each effect has a name followed by a "U" or "D" and a number. The "U" (up) and "D" (down) detail whether you will gain or lose the amount of the number that follows it. Example: "sanityU3" means that you 3 sanity will be added to your sanity level while "sanityD1" means you will lose 1 from your sanity level.
+
+1. sanity
+Sanity is essentially your life. If it hits zero you lose the game.
+
+2. moon
+The moon level is a time limit that increases at the end of every player turn. You can slow or speed up depending on the result of the effect resolved. Example: "moonD3" lowers the moon level by 3.
+
+3. item
+The item effect tells you to draw or discard a certain amount of cards from your hand (the inventory). Example: You would draw one card with "itemU1".
+
+4. relic
+"relicU" means you draw the "Ancient Relic" card. This is what you need in your hand when the time limit is up to witn the game. "relicD" forces you to discard the card from your hand.
+
+*Not yet implemented*
+1. oldKey
+Once implemented, this card will be essential to succeeding in one particular room card that rewards you with the "Ancient Relic".
+
 # Screenshot of Moonlight Mansion
 [Screenshot](http://imgur.com/5mhX2Wf)
 
