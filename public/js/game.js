@@ -112,7 +112,6 @@ $(document).ready(function() {
         eventCard.push(eventDeck.splice(tileNumber, 1, "drawn")[0]);
         var drawnCard = eventCard[0];
         var roomFate = drawnCard.actions.action1.actionFate;
-        var roomOutlook;
         actionPhase = true;
 
         // Render card information into their HTML elements
@@ -120,24 +119,7 @@ $(document).ready(function() {
         $("#card-wrapper .card-name").html(drawnCard.cardName);
         $("#card-wrapper .flavor-text").html(drawnCard.flavorText);
 
-        // Display room fate as a difficulty level the user can roughly gauge
-        if (roomFate === -3) {
-          roomOutlook = "Unnatural (1 fortune card)";
-        } else if (roomFate === -2) {
-          roomOutlook = "Obscene (2 fortune cards)";
-        } else if (roomFate === -1) {
-          roomOutlook = "Imposing (3 fortune cards)";
-        } else if (roomFate === 0) {
-          roomOutlook = "Discomforting (4 fortune cards)";
-        } else if (roomFate === 1) {
-          roomOutlook = "Fair (5 fortune cards)";
-        } else if (roomFate === 2) {
-          roomOutlook = "Suitable (6 fortune cards)";
-        } else if (roomFate === 3) {
-          roomOutlook = "Strong (7 fortune cards)";
-        }
-
-        $("#card-outlook").html("<p><strong>Outlook</strong>: " + roomOutlook + "</p>");
+        game.renderRoomOutlook(roomFate);
 
         // Action 1
         $("#a1-name").html(drawnCard.actions.action1.a1Name);
@@ -180,6 +162,36 @@ $(document).ready(function() {
       } else {
         console.log("Either you must pick an action on your current card or you are trying to draw an event card but the deck is empty.");
       }
+    },
+
+    /////////////////////////////////////////////////////////////////////////
+    renderRoomOutlook: function(fate) {
+    /////////////////////////////////////////////////////////////////////////
+
+      console.log("renderRoomOutlook: render room outlook called");
+
+      // Display room fate as a difficulty level the user can roughly gauge
+      if (fate === -3) {
+        roomOutlook = "Unnatural (1 fortune card)";
+      } else if (fate === -2) {
+        roomOutlook = "Obscene (2 fortune cards)";
+      } else if (fate === -1) {
+        roomOutlook = "Imposing (3 fortune cards)";
+      } else if (fate === 0) {
+        roomOutlook = "Discomforting (4 fortune cards)";
+      } else if (fate === 1) {
+        roomOutlook = "Fair (5 fortune cards)";
+      } else if (fate === 2) {
+        roomOutlook = "Suitable (6 fortune cards)";
+      } else if (fate === 3) {
+        roomOutlook = "Strong (7 fortune cards)";
+      }
+
+      console.log("renderRoomOutlook's roomOutlook variable set to: " + roomOutlook);
+
+      $("#card-outlook").html("<p></p>");
+      $("#card-outlook").html("<p><strong>Outlook</strong>: " + roomOutlook + "</p>");
+
     },
 
     /////////////////////////////////////////////////////////////////////////
@@ -241,8 +253,9 @@ $(document).ready(function() {
           num -= 1;
 
           $("#item-" + newItem.id).on("click", function() {
-            game.useAnItem(newItem.id);
-            $(this).off("click");
+            if (canUseItem) {
+              game.useAnItem(newItem.id);
+            }
           });
 
           // Debug footer
@@ -271,6 +284,7 @@ $(document).ready(function() {
         console.log("Item card discarded: " + discarded[discarded.length - 1].cardName);
         var justDiscarded = discarded.length - 1;
         $("#message-log").append("<p>Item card discarded: " + discarded[justDiscarded].cardName + ".");
+        $("#item-" + discarded[justDiscarded].id).off("click");
         $("#item-" + discarded[justDiscarded].id).remove();
         // discard end
       } else if (parseInt(numToDiscard) > 0 && cardIDToDiscard === "none") {
@@ -280,6 +294,7 @@ $(document).ready(function() {
           discarded.push(inventory.splice(cardIDToDiscard, 1)[0]);
           console.log("Item card discarded: " + discarded[discarded.length - 1].cardName);
           $("#message-log").append("<p>Item card discarded: " + discarded[discarded.length - 1].cardName + ".");
+          $("#item-" + discarded[discarded.length - 1].id).off("click");
           $("#item-" + discarded[discarded.length - 1].id).remove();
           numToDiscard -= 1;
           // discard end
@@ -416,7 +431,7 @@ $(document).ready(function() {
       $("#meet-your-fate-container").on("click", function(event) {
         var gameResult = $(event.target).attr("id");
         if (gameResult === "fortune") {
-          $("#message-log").append("<p><strong>Fortune favored you. Draw a new card.</strong></p>");
+          $("#message-log").append("<p><strong>Fortune favored you. Draw a new event card.</strong></p>");
           game.action1Result("s");
           $("#meet-your-fate-container").off("click");
           $("#meet-your-fate-container").html("");
@@ -424,7 +439,7 @@ $(document).ready(function() {
           $("#fate-cards-in-play").html("");
           $("#card-outlook").show();
         } else if (gameResult === "hardship") {
-          $("#message-log").append("<p><strong>Fortune abandoned you. Draw a new card.</strong></p>");
+          $("#message-log").append("<p><strong>Fortune abandoned you. Draw a new event card.</strong></p>");
           game.action1Result("f");
           $("#meet-your-fate-container").off("click");
           $("#meet-your-fate-container").html("");
@@ -446,7 +461,7 @@ $(document).ready(function() {
         console.log("Player succeeded.");
         var fortuneEffects = eventCard[0].actions.action1.fortune;
         $("#fate-popup").show();
-        $("#fate-popup").html("<h4>Fortune favored you.</h4><p> Draw a new card.</p>");
+        $("#fate-popup").html("<h4>Fortune favored you.</h4><p> Draw a new event card.</p>");
         game.fortuneHardship(fortuneEffects);
         console.log("Calling discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
@@ -454,7 +469,7 @@ $(document).ready(function() {
         console.log("Player failed.");
         var hardshipEffects = eventCard[0].actions.action1.hardship;
         $("#fate-popup").show();
-        $("#fate-popup").html("<h4>Fortune abandoned you.</h4><p> Draw a new card.</p>");
+        $("#fate-popup").html("<h4>Fortune abandoned you.</h4><p> Draw a new event card.</p>");
         game.fortuneHardship(hardshipEffects);
         console.log("Calling discardEventCard with the following card: " + eventCard[0].cardName);
         game.discardEventCard(eventCard[0]);
@@ -481,9 +496,12 @@ $(document).ready(function() {
       if (inventory.length > 0 && eventCard[0].actions.action3.a3Result === "Use item" && !canUseItem) {
         canUseItem = true;
         console.log("canUseItem set to true: " + canUseItem);
+        fateMod = 0;
+        console.log("fateMod set to zero: " + fateMod);
         $("#message-log").append("<p>Choose the item you want to use.</p>");
         console.log("Choose the item you want to use.");
       } else {
+        canUseItem = false;
         console.log("canUseItem set to false: " + canUseItem);
         $("#message-log").append("<p>You have no items to use.</p>");
         console.log("You have no items to use.");
@@ -493,46 +511,62 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     useAnItem: function(id) {
     /////////////////////////////////////////////////////////////////////////
-      canUseItem = false;
-      fateMod = 0;
-      console.log("canUseItem set to false: " + canUseItem);
+
       // Search through inventory array to find the card object with the same (JSON) id.
       for (var i = 0; i < inventory.length; i++) {
         if (inventory[i].id === id) {
           console.log("Item found in inventory: " + inventory[i].cardName);
           var itemUsed = inventory[i];
-          $("#message-log").append("<p>You used: " + itemUsed.cardName + "</p>");
-          // Adjust fate modifier
+          $("#message-log").append("<p>You clicked on: " + itemUsed.cardName + "</p>");
+
+          // variables for renderNewOutlook
+          var newFate = itemUsed.useItem.itemFate;
+          var newOutlook = newFate + eventCard[0].actions.action1.actionFate;
+
           if (itemUsed.roomType) {
+            // Set canUseItem to false since the item will be used
+            canUseItem = false;
+            console.log("canUseItem set to false: " + canUseItem);
+            // If the item used has the same room type as the drawn event card
             if (eventCard[0].roomType === itemUsed.roomType) {
+              // Adjust Fate
+              $("#message-log").append("<p>You used: " + itemUsed.cardName + "</p>");
               console.log("Fate modifier before adjustment: " + fateMod);
-              fateMod = itemUsed.useItem.itemFate;
-              $("#message-log").append("<p>Fate smiles upon you.</p>");
               console.log("Fate modifier set to: " + fateMod);
+              game.renderRoomOutlook(newOutlook);
+              $("#message-log").append("<p>Fate adjusted by " + itemUsed.useItem.itemFate + ".</p>");
+
               // Resolve item results
               if (itemUsed.useItem.itemResult) {
                 game.fortuneHardship(itemUsed.useItem.itemResult);
               }
               game.discardItemCard(1, itemUsed);
-
+              break;
+            // If the item used has a different room type
             } else {
               $("#message-log").append("<p>Sorry, you can only use this item in: " + itemUsed.roomType + "</p>");
               console.log("Sorry, you can only use this item in: " + itemUsed.roomType);
+              break;
             }
           } else if (!itemUsed.roomType) {
+            // Adjust fate
             console.log("Fate modifier before adjustment: " + fateMod);
             fateMod = itemUsed.useItem.itemFate;
             console.log("Fate modifier set to: " + fateMod);
-            $("#message-log").append("<p>Fate smiles upon you.</p>");
+            game.renderRoomOutlook(newOutlook);
+
+            $("#message-log").append("<p>Fate adjusted by " + itemUsed.useItem.itemFate + ".</p>");
             // Resolve item results
             if (itemUsed.useItem.itemResult) {
               game.fortuneHardship(itemUsed.useItem.itemResult);
             }
             console.log("Calling discardItemCard.");
             game.discardItemCard(1, i);
+            break;
           }
         } else {
           console.log("Can't find this card in the inventory.");
+          break;
         }
       }
     },
@@ -627,7 +661,7 @@ $(document).ready(function() {
         $("#message-log").append("<p>Moon height adjusted by " + num + ".</p>");
         if (num > 0) {
           moonLevel += num;
-          if (moonLevel >= 25) {
+          if (moonLevel >= 20) {
             game.moonMethods.moonState();
           }
         } else if (num < 0) {
@@ -641,7 +675,7 @@ $(document).ready(function() {
 
       moonState: function(num) {
         console.log("moonState function called.");
-        if (moonLevel > 25) {
+        if (moonLevel > 20) {
           // Check player's inventory for relic
           for (var i = 0; i < inventory.length; i++) {
             if (inventory[i].cardName === "Ancient Relic") {
@@ -670,9 +704,9 @@ $(document).ready(function() {
     endTurn: function(num) {
     /////////////////////////////////////////////////////////////////////////
       game.listenersOff();
-      $("#message-log").append("<p>The Blood Moon rises.</p>");
-      console.log("The Blood Moon rises.");
-      moonLevel += 1;
+      // $("#message-log").append("<p>The Blood Moon rises.</p>");
+      // console.log("The Blood Moon rises.");
+      // moonLevel += 1;
       turnCounter += 1;
       $("#message-log").append("<p>End of turn " + (turnCounter - 1) + ".</p>");
       game.renderUI();
@@ -701,13 +735,13 @@ $(document).ready(function() {
 
       if (type === "moon") {
         $("#message-log").append("<p><strong>You lose yourself in the Blood Moon.</strong></p>");
-        return gameOverMessage;
+        console.log(gameOverMessage);
       } else if (type === "sanity") {
         $("#message-log").append("<p><strong>You were never heard from again.</strong></p>");
-        return gameOverMessage;
+        console.log(gameOverMessage);
       } else if (type === "relic") {
         $("#message-log").append("<p><strong>You usher in the Blood Moon with a mad smile.</strong></p>");
-        return gameOverMessage;
+        console.log(gameOverMessage);
       }
       $(".map").addClass("visited");
       $(".map").removeClass("unvisited");
