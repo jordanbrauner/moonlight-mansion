@@ -46,6 +46,7 @@ STYLE FOR PLAYER AND EVENT CLICKABLES
 
 .select:hover {
   background-color: #f3f3f3;
+  cursor: pointer;
 }
 
 .left-column {
@@ -88,6 +89,7 @@ STYLE FOR PLAYER AND EVENT CLICKABLES
 #meet-your-fate-container > div:hover {
   background-color: #434343;
   transform: scale(1.035);
+  cursor: pointer;
 }
 
 #fate-popup {
@@ -122,14 +124,11 @@ THE MAP
 .unvisited:hover {
   background-color: #434343;
   transform: scale(1.085);
+  cursor: pointer;
 }
 
 .unvisited {
   background-color: black;
-}
-
-.unvisited:hover {
-  background-color: #434343;
 }
 
 .visited {

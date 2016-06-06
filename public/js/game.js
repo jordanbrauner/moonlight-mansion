@@ -309,7 +309,7 @@ $(document).ready(function() {
     /////////////////////////////////////////////////////////////////////////
     drawSpecialItemCard: function(type) {
     /////////////////////////////////////////////////////////////////////////
-      // NOTE that you can only receive the item if you have space for it.
+      // NOTE you can only receive the item if you have space for it.
       // TODO This code reuses most of the drawItemCard code. Refactor when possible.
 
       if (type === "relic" && relicDeck.length > 0 && inventory.length + 1 <= 4) {
@@ -327,27 +327,27 @@ $(document).ready(function() {
             "<div class='right-column'></div>" +
           "</div>");
 
-        var itemFate = newItem.useItem.itemFate;
-        var itemResult = newItem.useItem.itemResult;
-        var roomType = newItem.roomType;
+        // var itemFate = newItem.useItem.itemFate;
+        // var itemResult = newItem.useItem.itemResult;
+        // var roomType = newItem.roomType;
 
-        if (itemFate && roomType) {
-          $("#item-" + newItem.id + " .right-column").append("<p>Increases fortune in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
-        } else if (itemFate && !roomType) {
-          $("#item-" + newItem.id + " .right-column").append("<p>Increases fortune: " + itemFate + "</p>");
-        }
+        // if (itemFate && roomType) {
+        //   $("#item-" + newItem.id + " .right-column").append("<p>Increases fortune in <strong>" + roomType + "</strong>: " + itemFate + "</p>");
+        // } else if (itemFate && !roomType) {
+        //   $("#item-" + newItem.id + " .right-column").append("<p>Increases fortune: " + itemFate + "</p>");
+        // }
 
-        if (itemResult) {
-          $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + itemResult + "</p>");
-        }
-        num -= 1;
+        // if (itemResult) {
+        //   $("#item-" + newItem.id + " .right-column").append("<p><strong>Modifies</strong>: " + itemResult + "</p>");
+        // }
+        // num -= 1;
 
-        $("#item-" + newItem.id).on("click", function() {
-          game.useAnItem(newItem.id);
-          $(this).off("click");
-        });
+        // $("#item-" + newItem.id).on("click", function() {
+        //   game.useAnItem(newItem.id);
+        //   $(this).off("click");
+        // });
 
-      } else if (itemDeck.length <= 0) {
+      } else if (relicDeck.length <= 0) {
         $("#message-log").append("<p>There are no cards left in the relic deck.</p>");
         console.log("There are no cards left in the relic deck.");
       } else {
